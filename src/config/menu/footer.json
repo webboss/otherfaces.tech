@@ -1,0 +1,67 @@
+{
+  "Products": [
+    {
+      "title": "Accept payments",
+      "link": { "to": "/products/accept-payments" }
+    },
+    {
+      "title": "Make Payments",
+      "link": { "to": "/products/make-payments" }
+    },
+    {
+      "title": "POS Terminals",
+      "link": { "to": "/products/pos-terminals" }
+    }
+  ],
+  "Business ": [
+    {
+      "title": "My Business",
+      "link": { "to": "/" }
+    },
+    {
+      "title": "Your Business",
+      "link": { "to": "/" }
+    },
+    {
+      "title": "Our Business",
+      "link": { "to": "/" }
+    }
+  ],
+  "Our Company": [
+    {
+      "title": "About us",
+      "link": { "to": "https://fourthcanvas.co/about-us" }
+    },
+    {
+      "title": "Blog",
+      "link": { "href": { "url": "https://fourthcanvas.co/thoughts" } }
+    },
+    {
+      "title": "Work with us",
+      "link": { "href": { "url": "mailto:talent@fourthcanvas.co" } }
+    }
+  ],
+
+  "Follow us": [
+    {
+      "title": "Instagram",
+      "link": { "href": { "url": "https://www.instagram.com/fourthcanvas" } }
+    },
+    {
+      "title": "Twitter",
+      "link": { "href": { "url": "https://twitter.com/fourthcanvas" } }
+    },
+    {
+      "title": "Youtube",
+      "link": { "href": { "url": "https://www.youtube.com" } }
+    },
+    {
+      "title": "Facebook",
+      "link": {
+        "href": {
+          "url": "https://www.facebook.com"
+        }
+      }
+    }
+  ]
+}
