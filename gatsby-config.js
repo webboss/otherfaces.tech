@@ -4,9 +4,9 @@ const path = require("path");
 
 module.exports = {
   siteMetadata: {
-    title: `Project Title`,
-    description: `This the Meta Description of the Project`,
-    author: `@fourthcanvas`,
+    title: `Other Faces of Tech`,
+    description: `A tech advocacy series where people who aren’t web/software developers are interviewed and their stories told.`,
+    author: `@webboss`,
   },
 
   // Kindly edit the manifest file details below also
@@ -19,6 +19,12 @@ module.exports = {
       options: {
         src: path.join(__dirname, "src"),
         components: path.join(__dirname, "src/components"),
+      },
+    },
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        url: process.env.WORDPRESS_SOURCE_URL,
       },
     },
     /*{
@@ -61,9 +67,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `project-name`,
-        short_name: `project-name`,
-        start_url: `/`,
+        name: `otherfaces.tech`,
+        short_name: `otherfaces.tech`,
+        start_url: `https://otherfaces.tech`,
         //Dominant color of the brand
         background_color: `#000000`,
         theme_color: `#000000`,
