@@ -46,7 +46,9 @@ const Button = ({
       disabled={buttonDisabled || isLoading}
       {...linkProps}
     >
-      <span className={textStyle}>{text || children}</span>
+      <span className={textStyle + " " + textVariants[buttonVariant]}>
+        {text || children}
+      </span>
       {isLoading && <Loader />}
     </ButtonElement>
   );
@@ -54,11 +56,23 @@ const Button = ({
 
 const textStyle = ctl(`
   block
+ 
 `);
 
+const textVariants = {
+  primary: ``,
+  alternative: `
+  bg-black
+  bg-clip-content
+  w-[98%]
+  h-[90%]
+  leading-[48px]
+  rounded-full
+  `,
+};
+
 const baseStyle = ctl(`
-rounded
-text-primary
+rounded-full
 text-center
 font-semibold
 transition
@@ -94,16 +108,13 @@ const sizes = {
 
 const variants = {
   primary: `
-bg-secondary
-hover:bg-secondary/80
-disabled:bg-secondary
+  primary
+  disabled:bg-secondary
+  text-primary
 `,
   alternative: `
-bg-primary-400
-hover:bg-primary
-hover:text-primary-100
-disabled:bg-primary-400
-disabled:text-primary
+  alternative
+text-white
 `,
 };
 
