@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 
 import Layout from "components/layout";
 import Container from "components/container";
-import PageHeader from "components/page-header";
 import { Button, Input, NLink, Text } from "components";
 
 const Overview = () => {
@@ -25,7 +24,6 @@ const Overview = () => {
 
   return (
     <Layout title="Overview">
-      <PageHeader title="Project Overview" />
       <Container>
         <form onSubmit={handleSubmit(onSubmit)} className="mt-10">
           <Input

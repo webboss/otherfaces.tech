@@ -14,22 +14,27 @@ const NavBar = () => {
   return (
     <header className={`${mainHeaderStlye} ${openMenu && "h-full"}`}>
       <nav className={navStyle}>
-        <NLink to="/" className="mr-[55px] px-2 -ml-2">
+        <NLink to="/" className={logoStyle}>
           <StaticImage
-            alt="4C'S logo"
-            src="../../../assets/images/favicon.png"
-            width={30}
+            alt="Otherfaces of Tech"
+            src="../../../assets/images/otherfaces.tech.png"
+            width={175}
           />
         </NLink>
 
-        <Menu openMenu={openMenu} onToggle={onToggle} />
+        {/* <Menu openMenu={openMenu} onToggle={onToggle} /> */}
       </nav>
     </header>
   );
 };
 
+const logoStyle = ctl(`
+inline-block
+mx-auto
+my-[87px]
+`);
 const mainHeaderStlye = ctl(`
-bg-primary-100
+bg-black
 fixed
 top-0
 left-0
