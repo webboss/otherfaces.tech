@@ -33,9 +33,9 @@ inline-block
 mx-auto
 my-[87px]
 `);
+// fixed
 const mainHeaderStlye = ctl(`
 bg-black
-fixed
 top-0
 left-0
 w-full

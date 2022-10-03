@@ -45,10 +45,10 @@ const Menu = ({ openMenu, onToggle }) => {
 
 const navWrapStyle = ctl(`
   lg:flex 
-  justify-between
-  items-center
   absolute
   lg:static
+  justify-between
+  items-center
   left-0
   w-full
   z-10

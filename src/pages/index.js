@@ -22,7 +22,7 @@ const IndexPage = () => (
 );
 
 const headerStyle = ctl(`
-pt-[200px]
+
 text-center
 mx-auto
 text-[72px]
