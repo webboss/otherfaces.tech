@@ -31,7 +31,10 @@ const NavBar = () => {
 const logoStyle = ctl(`
 inline-block
 mx-auto
-my-[77px]
+md:my-[77px]
+my-[64px]
+md:max-w-[175px]
+max-w-[120px]
 `);
 // fixed
 const mainHeaderStlye = ctl(`

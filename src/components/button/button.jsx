@@ -20,7 +20,6 @@ const Button = ({
   const buttonStyle = ctl(`
   ${baseStyle}
   ${sizes[buttonSize]}
-  min-w-[100%]
   ${variants[buttonVariant]}
   ${buttonDisabled && `opacity-25`}
   `);
@@ -97,7 +96,7 @@ const sizes = {
   h-[58px]
   `,
   large: `
-  md:min-w-[375px]
+  min-w-[320px]
   h-[58px]
   `,
   xlarge: `
