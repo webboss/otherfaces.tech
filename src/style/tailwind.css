@@ -3,20 +3,22 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "FoundersGrotesk";
-  src: url(assets/fonts/FoundersGrotesk-Bold.otf);
-  font-weight: 700;
+  font-family: "ClashDisplay";
+  src: url(assets/fonts/ClashDisplay-Medium.otf);
+  font-weight: 500;
 }
 
 @font-face {
-  font-family: "NeuePlak";
-  src: url(assets/fonts//NeuePlakRegular.otf);
+  font-family: "ClashDisplay";
+  src: url(assets/fonts/ClashDisplay-Regular.otf);
   font-weight: 400;
 }
 
 body {
   @apply bg-black;
   @apply text-white;
+  @apply font-primary;
+  @apply font-medium;
 }
 .menu-button-wrap li a {
   @apply w-full;

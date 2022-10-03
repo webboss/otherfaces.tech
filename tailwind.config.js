@@ -6,9 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        //You can change this up but we generally use serif for top level heading/primary typeface of most brands. Treat this in terms of nomenclature not function
-        serif: ["FoundersGrotesk", "sans-serif"],
-        sans: ["NeuePlak", "sans-serif"],
+        primary: ["ClashDisplay", "sans-serif"],
       },
 
       colors: {

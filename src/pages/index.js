@@ -22,10 +22,10 @@ const IndexPage = () => (
 );
 
 const headerStyle = ctl(`
-
 text-center
 mx-auto
 text-[72px]
-max-w-[847px]
+max-w-[947px]
+leading-[94px]
 `);
 export default IndexPage;
