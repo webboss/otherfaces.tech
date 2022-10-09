@@ -104,7 +104,8 @@ const sizes = {
   h-[58px]
   `,
   full: `
-  md:min-w-[100%]
+
+  w-full
   h-[58px]
   `,
 };

@@ -4,9 +4,9 @@ import ctl from "@netlify/classnames-template-literals";
 import { Input } from "components/input";
 import { Button } from "components/button";
 
-const WailistForm = () => {
+const WailistForm = ({ isOpen }) => {
   return (
-    <Modal>
+    <Modal isOpen={isOpen}>
       <section className={sectionStyle}>
         <header>
           <h3 className={headingStyle}>Be the first to know when we launch</h3>
@@ -27,12 +27,14 @@ const WailistForm = () => {
 const sectionStyle = ctl(`
 w-full
 max-w-[445px]
-
+md:px-0
+px-4
 `);
 const headingStyle = ctl(`
 md:text-[48px]
-leading-[56px]
+md:leading-[56px]
 text-[32px]
+leading-[40px]
 text-center
 `);
 

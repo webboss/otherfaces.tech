@@ -3,14 +3,14 @@ import PropTypes from "prop-types";
 
 import ctl from "@netlify/classnames-template-literals";
 
-const Modal = ({ children }) => {
-  return (
+const Modal = ({ isOpen, children }) => {
+  return isOpen ? (
     <div role="dialog" className={baseStyle}>
       <div className={containerStyle}>
         <div className={contentStyle}>{children}</div>
       </div>
     </div>
-  );
+  ) : null;
 };
 
 const baseStyle = ctl(`
@@ -39,14 +39,16 @@ modal
 flex
 items-center
 justify-center
-rounded-[140px]
+sm:rounded-[140px]
+rounded-[70px]
 `);
 
 const contentStyle = ctl(`
 w-[calc(100%-20px)]
 h-[calc(100%-20px)]
 bg-black
-rounded-[130px]
+sm:rounded-[130px]
+rounded-[60px]
 flex
 items-center
 justify-center
