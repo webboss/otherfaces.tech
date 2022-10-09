@@ -4,3 +4,4 @@ export * from "./input";
 export * from "./text";
 export * from "./nlink";
 export * from "./br";
+export * from "./modal";
