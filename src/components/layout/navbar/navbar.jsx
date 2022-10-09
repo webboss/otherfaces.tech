@@ -18,7 +18,7 @@ const NavBar = () => {
           <StaticImage
             alt="Otherfaces of Tech"
             src="../../../assets/images/otherfaces.tech.png"
-            width={175}
+            width={160}
           />
         </NLink>
 
@@ -31,8 +31,7 @@ const NavBar = () => {
 const logoStyle = ctl(`
 inline-block
 mx-auto
-md:my-[77px]
-my-[64px]
+my-[40px]
 md:max-w-[175px]
 max-w-[120px]
 `);
