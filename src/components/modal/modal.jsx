@@ -49,11 +49,13 @@ relative
 `);
 
 const contentStyle = ctl(`
-w-[calc(100%-20px)]
-h-[calc(100%-20px)]
+md:w-[calc(100%-20px)]
+w-[calc(100%-10px)]
+md:h-[calc(100%-20px)]
+h-[calc(100%-10px)]
 bg-black
 sm:rounded-[130px]
-rounded-[60px]
+rounded-[65px]
 flex
 items-center
 justify-center
@@ -61,12 +63,15 @@ justify-center
 
 const closeButtonStyle = ctl(`
 absolute
-right-0
-top-0
+sm:right-0
+right-[calc(50%-20px)]
+md:top-0
+top-[calc(100%+20px)]
 transition-all
 duration-700
 transform
 hover:rotate-180
+
 `);
 
 export { Modal };
