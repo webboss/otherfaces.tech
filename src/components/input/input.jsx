@@ -57,8 +57,8 @@ const baseStyles = `
 
 const inputErrorStyle = `
   border-action-error 
-  bg-action-error-light
-`;
+  `;
+
 const labelStyle = ctl(`
   text-[14px]
   text-primary-900

@@ -24,6 +24,7 @@ body {
   @apply w-full;
 }
 
+a.primary,
 button.primary {
   background: radial-gradient(
       110.88% 79.69% at 47.77% 151.82%,
@@ -48,6 +49,7 @@ button.primary {
     #f2f5fa;
 }
 
+a.alternative,
 button.alternative {
   background: radial-gradient(
       110.88% 79.69% at 47.77% 151.82%,
