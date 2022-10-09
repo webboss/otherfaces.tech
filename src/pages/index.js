@@ -10,6 +10,7 @@ const IndexPage = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   const openModal = () => setIsOpenModal(true);
+  const closeModal = () => setIsOpenModal(false);
   return (
     <Layout title="Other Faces of Tech" ignoreSiteName={true}>
       <section className={sectionStyle}>
@@ -32,7 +33,7 @@ const IndexPage = () => {
           </footer>
         </div>
       </section>
-      <WailistForm isOpen={isOpenModal} />
+      <WailistForm isOpen={isOpenModal} closeModal={closeModal} />
     </Layout>
   );
 };

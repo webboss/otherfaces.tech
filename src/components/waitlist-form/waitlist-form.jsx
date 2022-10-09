@@ -4,9 +4,9 @@ import ctl from "@netlify/classnames-template-literals";
 import { Input } from "components/input";
 import { Button } from "components/button";
 
-const WailistForm = ({ isOpen }) => {
+const WailistForm = ({ isOpen, closeModal }) => {
   return (
-    <Modal isOpen={isOpen}>
+    <Modal isOpen={isOpen} closeModal={closeModal}>
       <section className={sectionStyle}>
         <header>
           <h3 className={headingStyle}>Be the first to know when we launch</h3>

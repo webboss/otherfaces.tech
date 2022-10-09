@@ -1,13 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
+import CloseIcon from "assets/images/svgs/close.svg";
 
 import ctl from "@netlify/classnames-template-literals";
 
-const Modal = ({ isOpen, children }) => {
+const Modal = ({ isOpen, closeModal, children }) => {
   return isOpen ? (
     <div role="dialog" className={baseStyle}>
       <div className={containerStyle}>
         <div className={contentStyle}>{children}</div>
+        <button className={closeButtonStyle} onClick={closeModal}>
+          <CloseIcon />
+        </button>
       </div>
     </div>
   ) : null;
@@ -41,6 +45,7 @@ items-center
 justify-center
 sm:rounded-[140px]
 rounded-[70px]
+relative
 `);
 
 const contentStyle = ctl(`
@@ -52,6 +57,16 @@ rounded-[60px]
 flex
 items-center
 justify-center
+`);
+
+const closeButtonStyle = ctl(`
+absolute
+right-0
+top-0
+transition-all
+duration-700
+transform
+hover:rotate-180
 `);
 
 export { Modal };
