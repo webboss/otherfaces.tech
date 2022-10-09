@@ -38,7 +38,8 @@ justify-center
 const containerStyle = ctl(`
 w-full
 max-w-[800px]
-h-[600px]
+md:h-[600px]
+h-[500px]
 modal
 flex
 items-center
