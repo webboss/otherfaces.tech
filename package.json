@@ -25,6 +25,7 @@
     "gatsby-transformer-sharp": "^4.5.0",
     "http-errors": "^2.0.0",
     "mailchimp-marketing": "^5.0.0",
+    "md5": "^2.3.0",
     "postcss": "^8.4.7",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",

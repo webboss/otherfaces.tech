@@ -1,6 +1,5 @@
 const mailchimp = require("mailchimp-marketing");
-import createError from "http-errors";
-
+const md5 = require("md5");
 const addSubscriber = async (req, res) => {
   mailchimp.setConfig({
     apiKey: process.env.GATSBY_MAILCHIMP_API_KEY,
@@ -10,22 +9,27 @@ const addSubscriber = async (req, res) => {
   if (req.method === "POST") {
     const { email_address, first_name } = req.body;
 
+    const subscriber_hash = md5(email_address.toLowerCase());
     try {
-      const response = await mailchimp.lists.addListMember("a2eb241fd7", {
-        email_address: email_address,
-        merge_fields: {
-          FNAME: first_name,
-        },
-        status: "subscribed",
-        tags: ["Waitlist for Other Faces of Tech"],
-      });
+      const response = await mailchimp.lists.setListMember(
+        "a2eb241fd7",
+        subscriber_hash,
+        {
+          email_address: email_address,
 
-      console.log(response);
+          merge_fields: {
+            FNAME: first_name,
+          },
+          status_if_new: "subscribed",
+          tags: ["Waitlist for Other Faces of Tech"],
+        }
+      );
+
       return res
         .status(200)
         .json({ message: "Subscription successful! We will reach out soon." });
     } catch (error) {
-      throw createError(error.status, error);
+      return res.status(error.response.status).send(error.response.body.title);
     }
   } else {
     res.send("🤦‍♂️😩🤢");

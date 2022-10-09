@@ -11,7 +11,13 @@ import * as yup from "yup";
 const WailistForm = ({ isOpen, closeModal }) => {
   const [isSuccesful, setIsSuccessful] = useState(false);
   return (
-    <Modal isOpen={isOpen} closeModal={closeModal}>
+    <Modal
+      isOpen={isOpen}
+      closeModal={() => {
+        setIsSuccessful(false);
+        closeModal();
+      }}
+    >
       {isSuccesful ? (
         <SuccessMessage />
       ) : (
@@ -55,14 +61,17 @@ const TheForm = ({ setIsSuccessful }) => {
       })
         .then(res => res.json())
         .then(data => {
-          if (data.error) {
-            alert("Something went wrong, kindly try again");
-          } else {
-            setIsSuccessful(true);
-          }
+          setIsSuccessful(true);
         })
         .catch(error => {
-          alert("Something went wrong, kindly try again");
+          console.log(error);
+          const { message } = error;
+
+          if (message.includes("Exists")) {
+            setIsSuccessful(true);
+          } else {
+            alert("Something went wrong, kindly try again");
+          }
         });
     } catch (e) {
       alert("Something went wrong, kindly try again");
