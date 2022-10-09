@@ -16,7 +16,8 @@ const Modal = ({ children }) => {
 const baseStyle = ctl(`
 w-full
 h-screen
-bg-black
+bg-black/30
+backdrop-blur-md
 fixed
 left-0
 right-0
@@ -33,7 +34,6 @@ justify-center
 const containerStyle = ctl(`
 w-full
 max-w-[800px]
-bg-white
 h-[600px]
 modal
 flex

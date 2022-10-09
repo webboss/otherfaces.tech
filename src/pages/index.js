@@ -4,6 +4,7 @@ import Layout from "components/layout";
 import ctl from "@netlify/classnames-template-literals";
 import WaitlistArrow from "svgs/waitlist-arrow.svg";
 import { Br, Button, Modal } from "components";
+import { WailistForm } from "components/waitlist-form";
 
 const IndexPage = () => (
   <Layout title="Other Faces of Tech" ignoreSiteName={true}>
@@ -27,7 +28,7 @@ const IndexPage = () => (
         </footer>
       </div>
     </section>
-    <Modal />
+    <WailistForm />
   </Layout>
 );
 

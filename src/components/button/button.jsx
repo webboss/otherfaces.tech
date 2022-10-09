@@ -103,6 +103,10 @@ const sizes = {
   md:min-w-[420px]
   h-[58px]
   `,
+  full: `
+  md:min-w-[100%]
+  h-[58px]
+  `,
 };
 
 const variants = {

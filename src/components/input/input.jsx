@@ -43,18 +43,16 @@ const inputWrapStyle = ctl(`
   mb-4
 `);
 const baseStyles = `
-  md:w-[420px]
   w-full
-  rounded
-  border
+  rounded-full
+  border-2
   border-primary-300
-  py-[12px]
+  py-[14px]
   outline-none
-  pl-3
+  pl-6
   text-[14px]
-  bg-primary-200
-  hover:bg-primary-200
-  focus:border-secondary
+  bg-transparent
+
 `;
 
 const inputErrorStyle = `
