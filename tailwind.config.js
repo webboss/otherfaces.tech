@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       fontFamily: {
         primary: ["ClashDisplay", "sans-serif"],
+        secondary: ["GeneralSans", "sans-serif"],
       },
 
       colors: {

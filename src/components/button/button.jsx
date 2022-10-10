@@ -55,7 +55,7 @@ const Button = ({
 
 const textStyle = ctl(`
   block
- 
+  font-secondary
 `);
 
 const textVariants = {
