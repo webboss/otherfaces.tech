@@ -29,6 +29,7 @@ body {
   @apply w-full;
 }
 
+span.primary,
 a.primary,
 button.primary {
   background: radial-gradient(
@@ -54,6 +55,10 @@ button.primary {
     #f2f5fa;
 }
 
+span.primary {
+  color: transparent;
+  background-clip: text;
+}
 a.alternative,
 button.alternative {
   background: radial-gradient(

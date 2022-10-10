@@ -19,8 +19,11 @@ const IndexPage = () => {
             <h1>
               We are <Br on="mobile" />
               cooking something <Br on="mobile" />
-              for non-coding <Br on="mobile" />
-              techies
+              for{" "}
+              <span className="primary">
+                non-coding <Br on="mobile" />
+                techies
+              </span>
             </h1>
           </header>
           <div className="text-center  py-4">
