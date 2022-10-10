@@ -56,6 +56,7 @@ const Button = ({
 const textStyle = ctl(`
   block
   font-secondary
+  font-normal
 `);
 
 const textVariants = {
