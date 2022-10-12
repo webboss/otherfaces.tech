@@ -32,7 +32,12 @@ const IndexPage = () => {
           <footer className="text-center">
             <Button text="Join the waitlist" size="large" onClick={openModal} />
             <br /> <br />
-            <Button text="Get merch" size="large" variant="alternative" />
+            <Button
+              href={"https://paystack.shop/other-faces-of-tech"}
+              text="Get merch"
+              size="large"
+              variant="alternative"
+            />
           </footer>
         </div>
       </section>
