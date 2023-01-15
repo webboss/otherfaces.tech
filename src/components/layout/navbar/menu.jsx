@@ -1,78 +1,92 @@
 import React from "react";
 import ctl from "@netlify/classnames-template-literals";
-import { MenuItems } from "./menu-items";
-import MenuIcon from "assets/images/svgs/menu.svg";
-import CloseIcon from "assets/images/svgs/x.svg";
-import { Button } from "components/button";
 
-import constants from "config/constants.json";
+import { NLink } from "components/nlink";
+import { StaticImage } from "gatsby-plugin-image";
+import CloseIcon from "svgs/close.svg";
+import Container from "components/container";
+import { Text } from "components/text";
+import menulist from "config/menu/header.json";
 
-const Menu = ({ openMenu, onToggle }) => {
-  const { SIGNUP_URL, SIGNIN_URL } = constants;
-  const menuIconAriaLabel = openMenu ? "menu icon" : "close menu icon";
-
+const Menu = ({ onToggle }) => {
   return (
-    <div className="lg:w-full ">
-      {/* hamburger menu for mobile */}
-      <button
-        onClick={onToggle}
-        className="lg:hidden"
-        aria-label={menuIconAriaLabel}
-      >
-        {openMenu ? <CloseIcon /> : <MenuIcon />}
-      </button>
+    <div className={navWrapperStyle}>
+      <Container>
+        <header className={headerStyle}>
+          <button className={closeButtonStyle} onClick={onToggle}>
+            <CloseIcon width={32} />
+          </button>
 
-      <nav className={`${navWrapStyle} ${openMenu ? "block" : "hidden"}`}>
-        <MenuItems />
-
-        <ul className={buttonWrapStyle}>
-          <li className={signInButtonStyle}>
-            <Button
-              variant="alternative"
-              text="Sign in"
-              href={{ url: SIGNIN_URL }}
+          <NLink to="/">
+            <StaticImage
+              alt="Otherfaces of Tech"
+              src="../../../assets/images/otherfaces.tech.png"
+              width={160}
             />
-          </li>
-
-          <li>
-            <Button text="Get Started" href={{ url: SIGNUP_URL }} />
-          </li>
-        </ul>
-      </nav>
+          </NLink>
+          <div></div>
+        </header>
+        <nav>
+          <ul className={listWrapper}>
+            {menulist.map(menuItem => {
+              const { title, url, href } = menuItem;
+              return (
+                <Text
+                  variant="h3"
+                  as="li"
+                  color="primary-100"
+                  className="mb-[36px]"
+                >
+                  <NLink
+                    {...menuItem}
+                    key={url || href}
+                    activeClassName={activePageLink}
+                  >
+                    {title}
+                  </NLink>
+                </Text>
+              );
+            })}
+          </ul>
+        </nav>
+      </Container>
     </div>
   );
 };
 
-const navWrapStyle = ctl(`
-  lg:flex 
-  absolute
-  lg:static
-  justify-between
-  items-center
-  left-0
-  w-full
-  z-10
-  bg-primary-100
-  lg:h-auto
-  h-[95vh]
-  lg:overflow-hidden
-  overflow-scroll
+const closeButtonStyle = ctl(`
+p-0
+m-0
 `);
-const buttonWrapStyle = ctl(`
-  flex
-  flex-col
-  lg:flex-row
-  mt-[74px] 
-  lg:mt-0 lg:mb-0
-  px-[25px] lg:px-0
-  md:mb-0 
-  mb-10
-  menu-button-wrap
+
+const navWrapperStyle = ctl(`
+w-full
+h-full
+bg-black
+fixed
+left-0
+right-0
+top-0
 `);
-const signInButtonStyle = ctl(`
-  lg:mr-[17px] 
-  mb-[17px] 
-  lg:mb-0
+
+const listWrapper = ctl(`
+text-right
+lg:pr-[80px]
+`);
+
+const activePageLink = ctl(`
+bg-gradient-to-r
+from-[#1657C7]
+to-[#F1221A]
+bg-clip-text
+text-transparent
+`);
+
+const headerStyle = ctl(`
+flex
+justify-between
+items-center
+py-[24px]
 `);
 
 export { Menu };

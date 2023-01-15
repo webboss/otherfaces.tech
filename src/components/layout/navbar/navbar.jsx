@@ -3,6 +3,7 @@ import ctl from "@netlify/classnames-template-literals";
 import { Menu } from "./menu";
 import { NLink } from "components/nlink";
 import { StaticImage } from "gatsby-plugin-image";
+import { Button } from "components/button";
 
 const NavBar = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -14,26 +15,68 @@ const NavBar = () => {
   return (
     <header className={`${mainHeaderStlye} ${openMenu && "h-full"}`}>
       <nav className={navStyle}>
-        <NLink to="/" className={logoStyle}>
-          <StaticImage
-            alt="Otherfaces of Tech"
-            src="../../../assets/images/otherfaces.tech.png"
-            width={160}
-          />
-        </NLink>
+        <div className="w-[33%]">
+          <Hamburger onToggle={onToggle} />
+        </div>
+        <div className="w-[33%] text-center  flex justify-center">
+          <NLink to="/" className={logoStyle}>
+            <StaticImage
+              alt="Otherfaces of Tech"
+              src="../../../assets/images/otherfaces.tech.png"
+              width={160}
+            />
+          </NLink>
+        </div>
 
-        {/* <Menu openMenu={openMenu} onToggle={onToggle} /> */}
+        <div className="w-[33%] flex justify-end ">
+          <div className={buttonsWrapperStyle}>
+            <Button variant="alternative" text="Get merch" />
+            <Button text="Donate" />
+          </div>
+        </div>
       </nav>
+      {openMenu && <Menu onToggle={onToggle} />}
     </header>
   );
 };
 
+const Hamburger = ({ onToggle }) => {
+  return (
+    <button className={hamburgerButton} onClick={onToggle}>
+      <span className={hamburgerItemStyle} />
+      <span className={hamburgerItemStyle + " w-[32px]"} />
+      <span className={hamburgerItemStyle + " w-[22px]"} />
+    </button>
+  );
+};
+const hamburgerButton = ctl(`
+w-[42px]
+inline-block
+cursor-pointer
+`);
+
+const hamburgerItemStyle = ctl(`
+h-[4px]
+bg-white
+my-2
+rounded-full
+block
+bg-gradient-to-r
+from-[#1657C7]
+to-[#F1221A]
+`);
+
+const buttonsWrapperStyle = ctl(`
+flex
+items-center
+gap-[11px]
+`);
 const logoStyle = ctl(`
 inline-block
 mx-auto
-my-[40px]
 md:max-w-[175px]
 max-w-[120px]
+shrink-0
 `);
 // fixed
 const mainHeaderStlye = ctl(`
@@ -50,11 +93,12 @@ const navStyle = ctl(`
   items-center
   justify-between
   lg:justify-start
-  px-[25px]
-  py-[12.5px]
+  my-[24px]
+  px-[24px]
   lg:py-0
-  max-w-[1386px]
+  max-w-[1400px]
   mx-auto
+
 `);
 
 export { NavBar };

@@ -47,14 +47,14 @@ const Text = ({
 
 const variants = {
   h1: `
-    md:text-[65px]
+    md:text-[96px]
     text-[37px]
     md:leading-[75px]
     leading-[44.4px]
     font-bold 
     `,
   h2: `
-    md:text-[49px]
+    md:text-[54px]
     text-[28px]
     md:leading-[59.04px]
     leading-[39.2px]
@@ -62,7 +62,7 @@ const variants = {
     `,
 
   h3: `
-    md:text-[37px]
+    md:text-[38px]
     text-[21px]
     md:leading-[46.87px]
     leading-[29.4px]

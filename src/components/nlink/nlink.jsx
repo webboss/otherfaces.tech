@@ -3,13 +3,14 @@ import PropTypes from "prop-types";
 
 import { Link } from "gatsby";
 
-const NLink = ({ href, to, className, children }) => {
+const NLink = ({ href, to, className, activeClassName, children }) => {
   let NLinkElement;
   let nlinkProps = {};
 
   if (to) {
     NLinkElement = Link;
     nlinkProps.to = to;
+    nlinkProps.activeClassName = activeClassName;
   }
 
   if (href) {

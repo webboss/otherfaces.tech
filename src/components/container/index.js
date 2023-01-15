@@ -7,9 +7,9 @@ const Container = ({ children }) => {
 };
 
 const containerStyle = ctl(`
-  max-w-screen-lg  
+  max-w-[1380px]
   mx-auto 
-  md:px-0 
+  md:px-[24px]
   px-6`);
 
 Container.propTypes = {
