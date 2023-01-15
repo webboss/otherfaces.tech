@@ -4,6 +4,7 @@ import { Menu } from "./menu";
 import { NLink } from "components/nlink";
 import { StaticImage } from "gatsby-plugin-image";
 import { Button } from "components/button";
+import MenuIcon from "svgs/menu.svg";
 
 const NavBar = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -30,8 +31,12 @@ const NavBar = () => {
 
         <div className="w-[33%] flex justify-end ">
           <div className={buttonsWrapperStyle}>
-            <Button variant="alternative" text="Get merch" />
-            <Button text="Donate" />
+            <Button
+              variant="alternative"
+              text="Get merch"
+              href={{ url: "https://paystack.shop/other-faces-of-tech" }}
+            />
+            <Button text="Donate" to="/donate" />
           </div>
         </div>
       </nav>
@@ -43,9 +48,7 @@ const NavBar = () => {
 const Hamburger = ({ onToggle }) => {
   return (
     <button className={hamburgerButton} onClick={onToggle}>
-      <span className={hamburgerItemStyle} />
-      <span className={hamburgerItemStyle + " w-[32px]"} />
-      <span className={hamburgerItemStyle + " w-[22px]"} />
+      <MenuIcon />
     </button>
   );
 };

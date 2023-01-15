@@ -14,7 +14,7 @@ const Text = ({
   value,
   variant: textVariant,
   weight,
-  color = "primary",
+  color = "primary-100",
   className,
   children,
 }) => {
@@ -47,14 +47,14 @@ const Text = ({
 
 const variants = {
   h1: `
-    md:text-[96px]
+    md:text-[76px]
     text-[37px]
     md:leading-[75px]
     leading-[44.4px]
     font-bold 
     `,
   h2: `
-    md:text-[54px]
+    md:text-[48px]
     text-[28px]
     md:leading-[59.04px]
     leading-[39.2px]

@@ -47,6 +47,15 @@ module.exports = {
           700: "#002942",
           800: "#000E16",
         },
+        yellow: {
+          DEFAULT: "#FCE673",
+        },
+        blue: {
+          DEFAULT: "#B7C0DC",
+        },
+        peach: {
+          DEFAULT: "#EA938B",
+        },
         action: {
           success: "#36CC4F",
           error: {

@@ -17,7 +17,7 @@ const Layout = ({ children, title, ignoreSiteName = false }) => {
       <Seo title={title} ignoreSiteName={ignoreSiteName} />
       <NavBar />
       <main className="relative">{children}</main>
-      {/* <MainFooter /> */}
+      <MainFooter />
     </>
   );
 };

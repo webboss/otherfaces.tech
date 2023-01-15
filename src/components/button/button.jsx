@@ -65,7 +65,7 @@ const textVariants = {
   bg-clip-content
   w-[98%]
   h-[90%]
-  leading-[48px]
+  leading-[38px]
   rounded-full
   `,
 };
@@ -114,11 +114,17 @@ const variants = {
   primary: `
   primary
   disabled:bg-secondary
-  text-primary
+  text-primary-100
+  bg-gradient-to-r
+  from-[#1657C7]
+  to-[#F1221A]
+
 `,
   alternative: `
   alternative
-text-white
+  bg-gradient-to-r
+  from-[#1657C7]
+  to-[#F1221A]
 `,
 };
 
