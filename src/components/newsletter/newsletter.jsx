@@ -11,18 +11,15 @@ export const Newsletter = () => {
       <Container>
         <section className="grid grid-cols-12 my-[100px]">
           <div></div>
-          <div className=" col-span-6 ">
+          <div className=" md:col-span-6  col-span-12">
             <Text variant="p18" color="yellow" value="Subscribe" />
-            <Text variant="h2">
-              Join thousands of Techies who are ready for the Big Hit
-            </Text>
-            <Text variant="p18">
-              Be part of [number of people: this data will be sourced from
-              MailChimp] who gets notified when we publish new stories and
+            <Text variant="h2">Join Our Newsletter</Text>
+            <Text variant="p18" className="max-w-[400px]">
+              Be part of 1000+ who gets notified when we publish new stories and
               roadmaps.
             </Text>
 
-            <form className="mt-[85px]">
+            <form className="mt-[45px]">
               <Input placeholder="Enter your email" />
             </form>
           </div>

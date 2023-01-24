@@ -14,7 +14,7 @@ const Menu = ({ onToggle }) => {
       <Container>
         <header className={headerStyle}>
           <button className={closeButtonStyle} onClick={onToggle}>
-            <CloseIcon width={32} />
+            <CloseIcon width={32} className="md:w-[32px] w-[20px]" />
           </button>
 
           <NLink to="/">
@@ -22,6 +22,7 @@ const Menu = ({ onToggle }) => {
               alt="Otherfaces of Tech"
               src="../../../assets/images/otherfaces.tech.png"
               width={160}
+              className="md:w-auto w-[120px]"
             />
           </NLink>
           <div></div>
@@ -35,7 +36,7 @@ const Menu = ({ onToggle }) => {
                   variant="h3"
                   as="li"
                   color="primary-100"
-                  className="mb-[36px]"
+                  className="md:mb-[36px] mb-[32px]"
                 >
                   <NLink
                     {...menuItem}
@@ -73,12 +74,12 @@ z-[999]
 const listWrapper = ctl(`
 text-right
 lg:pr-[80px]
+md:mt-auto
+mt-[100px]
 `);
 
 const activePageLink = ctl(`
-bg-gradient-to-r
-from-[#1657C7]
-to-[#F1221A]
+gradient-blue-to-red
 bg-clip-text
 text-transparent
 `);

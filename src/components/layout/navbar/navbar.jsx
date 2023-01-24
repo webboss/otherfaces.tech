@@ -25,6 +25,7 @@ const NavBar = () => {
               alt="Otherfaces of Tech"
               src="../../../assets/images/otherfaces.tech.png"
               width={160}
+              className="md:w-auto w-[120px]"
             />
           </NLink>
         </div>
@@ -48,7 +49,7 @@ const NavBar = () => {
 const Hamburger = ({ onToggle }) => {
   return (
     <button className={hamburgerButton} onClick={onToggle}>
-      <MenuIcon />
+      <MenuIcon className="md:w-auto w-[27px]" />
     </button>
   );
 };
@@ -58,21 +59,12 @@ inline-block
 cursor-pointer
 `);
 
-const hamburgerItemStyle = ctl(`
-h-[4px]
-bg-white
-my-2
-rounded-full
-block
-bg-gradient-to-r
-from-[#1657C7]
-to-[#F1221A]
-`);
-
 const buttonsWrapperStyle = ctl(`
-flex
+lg:flex
+hidden
 items-center
 gap-[11px]
+
 `);
 const logoStyle = ctl(`
 inline-block

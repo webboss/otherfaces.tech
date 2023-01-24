@@ -21,7 +21,7 @@ const MainFooter = () => {
         </NLink>
 
         <nav className="mt-[67px]">
-          <ul className="flex justify-center">
+          <ul className="flex justify-center flex-wrap">
             {menulinks.map(menulink => {
               const { to, href, title } = menulink;
               return (
@@ -29,7 +29,7 @@ const MainFooter = () => {
                   variant="p16"
                   as="li"
                   key={to || href}
-                  className="mx-[28px]"
+                  className="mx-[28px] md:my-0 my-[7px]"
                 >
                   <NLink {...menulink}>{title}</NLink>
                 </Text>

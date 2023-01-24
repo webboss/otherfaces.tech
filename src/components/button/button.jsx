@@ -65,7 +65,8 @@ const textVariants = {
   bg-clip-content
   w-[98%]
   h-[90%]
-  leading-[38px]
+  md:leading-[38px]
+  leading-[52px]
   rounded-full
   `,
 };
@@ -93,10 +94,12 @@ const sizes = {
   `,
   medium: `
   md:min-w-[275px]
-  h-[58px]
+  py-[29px]
+
   `,
   large: `
-  min-w-[320px]
+  md:min-w-[320px]
+  w-[200px]
   h-[58px]
   `,
   xlarge: `
@@ -104,7 +107,6 @@ const sizes = {
   h-[58px]
   `,
   full: `
-
   w-full
   h-[58px]
   `,
@@ -115,16 +117,12 @@ const variants = {
   primary
   disabled:bg-secondary
   text-primary-100
-  bg-gradient-to-r
-  from-[#1657C7]
-  to-[#F1221A]
+  gradient-blue-to-red
 
 `,
   alternative: `
   alternative
-  bg-gradient-to-r
-  from-[#1657C7]
-  to-[#F1221A]
+ gradient-blue-to-red
 `,
 };
 

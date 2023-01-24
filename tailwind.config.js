@@ -51,7 +51,10 @@ module.exports = {
           DEFAULT: "#FCE673",
         },
         blue: {
-          DEFAULT: "#B7C0DC",
+          DEFAULT: "#1657C7",
+        },
+        red: {
+          DEFAULT: "#F1221A",
         },
         peach: {
           DEFAULT: "#EA938B",
