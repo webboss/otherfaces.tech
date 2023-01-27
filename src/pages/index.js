@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { StaticImage } from "gatsby-plugin-image";
 
 import Layout from "components/layout";
-import { Br, Button, Newsletter, NLink, Text } from "components";
+import { Br, Button, Newsletter, NLink, Partners, Text } from "components";
 import { Hr } from "components/hr";
 import Container from "components/container";
 
@@ -125,6 +125,8 @@ const IndexPage = () => {
                 })}
             </div>
           </Container>
+
+          <Partners />
         </section>
       </section>
     </Layout>

@@ -2,8 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import ctl from "@netlify/classnames-template-literals";
 
-const Container = ({ children }) => {
-  return <section className={containerStyle}>{children}</section>;
+const Container = ({ className, children }) => {
+  return (
+    <section className={containerStyle + " " + className}>{children}</section>
+  );
 };
 
 const containerStyle = ctl(`
