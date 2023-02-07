@@ -39,9 +39,20 @@
 
   .radial-gradient-blue {
     background: radial-gradient(circle at 50%, blue 0%, black 75%);
+    animation: glow-up 4s alternate 1s infinite;
   }
   .radial-gradient-red {
     background: radial-gradient(circle at 50%, red 0%, black 75%);
+    animation: glow-up 3s ease-in-out alternate infinite;
+  }
+
+  @keyframes glow-up {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(2);
+    }
   }
   .modal {
     background: radial-gradient(
