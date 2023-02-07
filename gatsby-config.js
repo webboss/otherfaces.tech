@@ -21,12 +21,12 @@ module.exports = {
         components: path.join(__dirname, "src/components"),
       },
     },
-    {
-      resolve: `gatsby-source-wordpress`,
-      options: {
-        url: process.env.WORDPRESS_SOURCE_URL,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-wordpress`,
+    //   options: {
+    //     url: process.env.WORDPRESS_SOURCE_URL,
+    //   },
+    // },
     {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
