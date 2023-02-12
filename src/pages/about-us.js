@@ -1,20 +1,34 @@
 import React, { useState } from "react";
 
 import { StaticImage } from "gatsby-plugin-image";
+import ReactRotatingText from "react-rotating-text";
+import ctl from "@netlify/classnames-template-literals";
 
 import Layout from "components/layout";
 import { Br, Button, Newsletter, NLink, Partners, Text } from "components";
 import Container from "components/container";
-import ctl from "@netlify/classnames-template-literals";
+import ArrowIcon from "assets/images/svgs/arrow.svg";
 
 const AboutPage = () => {
   return (
-    <Layout title="Other Faces of Tech" ignoreSiteName={true}>
+    <Layout title="About us">
       <section>
-        <header className="text-primary-100 text-center min-h-screen flex-col flex items-center justify-center">
+        <header className="text-primary-100 text-center min-h-[40vh] pt-12 flex-col flex items-center justify-center">
           <Container>
             <Text variant="h1" weight="500">
-              We are
+              We are{" "}
+              <ReactRotatingText
+                pause={1000}
+                typingInterval={50}
+                deletingInterval={50}
+                items={[
+                  "Managers",
+                  "Engineers",
+                  "Designers",
+                  "3D Artists",
+                  "Writers",
+                ]}
+              />
             </Text>
 
             <div className="md:max-w-[950px] max-w-[700px] mx-auto  ">
@@ -25,8 +39,13 @@ const AboutPage = () => {
             </div>
           </Container>
         </header>
+        <div className="h-[300px] mb-20 overflow-hidden relative ">
+          <ArrowIcon className="absolute left-[-100px]" />
+          <ArrowIcon className=" transform rotate-180 absolute right-[-100px] bottom-0" />
+        </div>
 
-        <Container>
+        <Container className="mt-[-200px]">
+          <Text variant="h3">Meet our Team</Text>
           <section className={teamSectionStyle}>
             {team.map((member, index) => {
               return <TeamMember {...member} key={`team-member-${index}`} />;
@@ -35,9 +54,7 @@ const AboutPage = () => {
         </Container>
         <Newsletter />
 
-        <section className="text-center py-[90px]">
-          <Partners />
-        </section>
+        <Partners />
       </section>
     </Layout>
   );
@@ -52,6 +69,8 @@ md:gap-x-8
 gap-x-4
 md:gap-y-16
 gap-y-8
+md:pt-[80px]
+pt-[32px]
 md:pb-[131px]
 pb-[65px]
 `);
@@ -82,17 +101,19 @@ const TeamMember = props => {
 };
 
 const teamImageWrapperStyle = ctl(`
-md:w-[80%]
-md:max-w-[277px] max-w-[200px]
+w-[80%]
 mx-auto
-rounded-full
 gradient-blue-to-red
-p-1
+md:p-1
+p-[2px]
+rounded-full
 `);
 
-const teamImageStyle = ctl(
-  ` md:h-[329px] h-[250px] rounded-full object-cover object-center   `
-);
+const teamImageStyle = ctl(` 
+h-[226px]
+md:h-[320px]
+rounded-full
+`);
 const team = [
   {
     fullname: "Aremu Oluwagbamila",

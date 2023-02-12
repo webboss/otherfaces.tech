@@ -20,7 +20,9 @@ const Text = ({
 }) => {
   const primaryFontsList = ["h1", "h2", "h3", "h4"];
   const isInPrimaryFontList = primaryFontsList.includes(textVariant);
-  let TextElement = textVariant[0] === "p" ? "p" : textVariant;
+
+  const firstCharacterInVariant = textVariant[0];
+  let TextElement = firstCharacterInVariant === "p" ? "p" : textVariant;
 
   // h7 is not a valid, we will use replace this with an h6 tag but the style for h7 will be retained according to the design system
   if (textVariant === "h7") {
@@ -33,6 +35,7 @@ const Text = ({
 
   const textStyle = ctl(`
   ${variants[textVariant]}
+
   ${isInPrimaryFontList ? "font-primary" : "font-secondary"}
   ${className}
   `);

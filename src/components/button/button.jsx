@@ -63,10 +63,11 @@ const textVariants = {
   alternative: `
   bg-black
   bg-clip-content
-  w-[98%]
-  h-[90%]
-  md:leading-[38px]
-  leading-[52px]
+  w-full
+  h-full
+  flex
+  items-center
+  justify-center
   rounded-full
   `,
 };
@@ -81,6 +82,7 @@ inline-flex
 items-center
 justify-center
 disabled:cursor-not-allowed
+p-[2px]
 `);
 
 const sizes = {
