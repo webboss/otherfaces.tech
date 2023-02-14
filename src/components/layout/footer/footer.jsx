@@ -1,10 +1,10 @@
+import React from "react";
 import ctl from "@netlify/classnames-template-literals";
 import Container from "components/container";
 import { NLink } from "components/nlink";
 import { Text } from "components/text";
 import { StaticImage } from "gatsby-plugin-image";
-import React from "react";
-import menulinks from "config/menu/header.json";
+import menulinks from "config/menu.json";
 
 const MainFooter = () => {
   const date = new Date();

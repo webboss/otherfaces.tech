@@ -6,7 +6,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import CloseIcon from "svgs/close.svg";
 import Container from "components/container";
 import { Text } from "components/text";
-import menulist from "config/menu/header.json";
+import menulist from "config/menu.json";
 
 const Menu = ({ onToggle }) => {
   return (
