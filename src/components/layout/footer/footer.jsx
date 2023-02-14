@@ -29,7 +29,7 @@ const MainFooter = () => {
                   variant="p16"
                   as="li"
                   key={to || href}
-                  className="mx-[28px] md:my-0 my-[7px]"
+                  className="md:mx-[28px] mx-4 text-center md:my-0 my-2] first:ml-0 last:mr-0"
                 >
                   <NLink {...menulink}>{title}</NLink>
                 </Text>
@@ -52,7 +52,8 @@ bg-opacity-5
 pt-[74px]
 pb-[83px]
 text-center
-rounded-t-[250px]
+md:rounded-t-[250px]
+rounded-t-[80px]
 `);
 
 export { MainFooter };
