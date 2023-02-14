@@ -12,7 +12,7 @@ export const DonateHeader = () => {
         <div className={headerImageWrapper}>
           <StaticImage
             alt="Headshot of members of Other Faces of Tec"
-            src="../assets/images/donate-cover-image.png"
+            src="../../assets/images/donate-cover-image.png"
             placeholder="blur"
             className="rounded-full"
           />

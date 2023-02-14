@@ -73,12 +73,13 @@ const teamImageStyle = ctl(`
 h-[226px]
 md:h-[320px]
 rounded-full
+grayscale
 `);
 
 const team = [
   {
     fullname: "Aremu Oluwagbamila",
-    role: "Errand Boy",
+    role: "Engineering Lead",
     socials: {
       linkedin:
         "https://www.linkedin.com/in/oluwagbamila-smog-aremu-585240129/",
@@ -88,7 +89,7 @@ const team = [
     image: (
       <StaticImage
         alt="Aremu Oluwagbamila"
-        src="../assets/images/team/aremu-oluwagbamila.jpg"
+        src="../../assets/images/team/aremu-oluwagbamila.jpg"
         className={teamImageStyle}
       />
     ),
@@ -103,7 +104,7 @@ const team = [
     image: (
       <StaticImage
         alt="Alao Ifeoluwa"
-        src="../assets/images/team/alao-ifeoluwa.jpg"
+        src="../../assets/images/team/alao-ifeoluwa.jpg"
         className={teamImageStyle}
       />
     ),
@@ -119,7 +120,7 @@ const team = [
     image: (
       <StaticImage
         alt="Akinwoye Dolapo"
-        src="../assets/images/team/akinwoye-dolapo.jpg"
+        src="../../assets/images/team/akinwoye-dolapo.jpg"
         className={teamImageStyle}
       />
     ),
@@ -134,22 +135,36 @@ const team = [
     image: (
       <StaticImage
         alt="Adeniran Simisola"
-        src="../assets/images/team/adeniran-simisola.jpg"
+        src="../../assets/images/team/adeniran-simisola.jpg"
         className={teamImageStyle}
       />
     ),
   },
   {
     fullname: "Afolabi Praise",
-    role: "Motion Designer",
+    role: "Graphic/Motion Designer",
     socials: {
       linkedin: "https://www.linkedin.com/in/folabipraise/",
       twitter: "https://twitter.com/folabipraise/",
     },
+    image: (
+      <StaticImage
+        alt="Afolabi Praise"
+        src="../../assets/images/team/afolabi-praise.jpg"
+        className={teamImageStyle}
+      />
+    ),
   },
   {
     fullname: "Akobi Tomiwa",
     role: "Legal",
+    image: (
+      <StaticImage
+        alt="Akobi Tomiwa"
+        src="../../assets/images/team/akobi-tomiwa.jpg"
+        className={teamImageStyle}
+      />
+    ),
     socials: {
       twitter: "https://twitter.com/tomiwa_dan",
     },
@@ -157,6 +172,13 @@ const team = [
   {
     fullname: "Osunkoya Oluwadamilola",
     role: "Community Manager",
+    image: (
+      <StaticImage
+        alt="Osunkoya Oluwadamilola"
+        src="../../assets/images/team/osunkoya-oluwadamilola.jpg"
+        className={teamImageStyle}
+      />
+    ),
     socials: {
       twitter: "https://twitter.com/enioluwadalola",
     },
@@ -168,6 +190,13 @@ const team = [
       linkedin: "https://www.linkedin.com/in/michael-alao-9ba354248",
       twitter: "https://twitter.com/Mickolo1A",
     },
+    image: (
+      <StaticImage
+        alt="Alao Michael"
+        src="../../assets/images/team/alao-michael.jpg"
+        className={teamImageStyle}
+      />
+    ),
   },
   {
     fullname: "Ajiboye Ebenezer",
@@ -175,5 +204,12 @@ const team = [
     socials: {
       twitter: "twitter.com/ajiboyeebenezer",
     },
+    image: (
+      <StaticImage
+        alt="Ajiboye Ebenezer"
+        src="../../assets/images/team/ajiboye-ebenezer.jpg"
+        className={teamImageStyle}
+      />
+    ),
   },
 ];
