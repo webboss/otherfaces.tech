@@ -17,9 +17,11 @@ const Text = ({
   color = "primary-100",
   className,
   children,
+  isPrimary,
 }) => {
   const primaryFontsList = ["h1", "h2", "h3", "h4"];
-  const isInPrimaryFontList = primaryFontsList.includes(textVariant);
+  const isInPrimaryFontList =
+    primaryFontsList.includes(textVariant) || isPrimary;
 
   const firstCharacterInVariant = textVariant[0];
   let TextElement = firstCharacterInVariant === "p" ? "p" : textVariant;

@@ -36,7 +36,9 @@ const TeamMember = props => {
       </div>
 
       <div className="mt-4 text-center">
-        <Text variant="h5">{fullname}</Text>
+        <Text variant="h5" isPrimary>
+          {fullname}
+        </Text>
         <Text variant="p14">{role}</Text>
       </div>
     </div>

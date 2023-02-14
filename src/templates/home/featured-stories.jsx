@@ -53,7 +53,7 @@ const FeaturedArticle = ({ title, summary }) => {
     <div className=" relative overflow-hidden">
       <div className="absolute z-10 left-0 right-0 top-0 w-full h-full flex flex-col justify-end">
         <div className="bg-gradient-to-t from-black via-gray-900 to-transparent pl-[29px] md:pr-0 pr-4 pb-[39px] pt-[39px]">
-          <Text variant="h5" value={title} />
+          <Text variant="h5" value={title} isPrimary />
           <Text variant="p16" value={summary} className="max-w-[345px]" />
           <NLink to="/" className="flex items-center mt-2">
             Read more <RightArrowIcon className="ml-2" />{" "}
