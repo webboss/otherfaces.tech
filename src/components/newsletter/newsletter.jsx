@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "components/container";
 import { Text } from "../text";
 import { Input } from "components/input";
@@ -9,6 +9,43 @@ import ArrowIcon from "assets/images/svgs/arrow-right.svg";
 import ctl from "@netlify/classnames-template-literals";
 
 export const Newsletter = () => {
+  const [emailAddress, setEmailAddress] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleInput = e => {
+    const { value } = e.target;
+
+    setEmailAddress(value);
+  };
+
+  const subscribeToNewsletter = async e => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      await fetch(`/api/waitlist`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          email_address: emailAddress,
+        }),
+      })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+        })
+        .catch(e => {
+          console.error(e.message);
+        });
+    } catch (e) {
+      console.error(e.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
   return (
     <>
       <Hr />
@@ -23,14 +60,22 @@ export const Newsletter = () => {
               roadmaps.
             </Text>
 
-            <form className="mt-[45px] flex w-full  items-center">
+            <form
+              className="mt-[45px] flex w-full  items-center"
+              onSubmit={subscribeToNewsletter}
+            >
               <Input
                 isInline
                 placeholder="Enter your email"
                 className={inputStyle}
+                onChange={handleInput}
               />
 
-              <Button variant="outline" className={buttonStyle}>
+              <Button
+                variant="outline"
+                className={buttonStyle}
+                isLoading={isLoading}
+              >
                 <ArrowIcon />{" "}
               </Button>
             </form>
