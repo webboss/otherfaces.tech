@@ -3,6 +3,10 @@ import Container from "components/container";
 import { Text } from "../text";
 import { Input } from "components/input";
 import { Hr } from "components/hr";
+import { Button } from "components/button";
+
+import ArrowIcon from "assets/images/svgs/arrow-right.svg";
+import ctl from "@netlify/classnames-template-literals";
 
 export const Newsletter = () => {
   return (
@@ -19,8 +23,16 @@ export const Newsletter = () => {
               roadmaps.
             </Text>
 
-            <form className="mt-[45px]">
-              <Input placeholder="Enter your email" />
+            <form className="mt-[45px] flex w-full  items-center">
+              <Input
+                isInline
+                placeholder="Enter your email"
+                className={inputStyle}
+              />
+
+              <Button variant="outline" className={buttonStyle}>
+                <ArrowIcon />{" "}
+              </Button>
             </form>
           </div>
 
@@ -31,3 +43,18 @@ export const Newsletter = () => {
     </>
   );
 };
+
+const inputStyle = ctl(`
+flex-grow 
+border-r-0  
+rounded-r-none
+`);
+
+const buttonStyle = ctl(`
+flex-grow-0 
+h-[53px] 
+mb-4 
+!border-2 
+!rounded-l-none 
+!border-l-0  
+`);

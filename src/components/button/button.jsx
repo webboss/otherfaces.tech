@@ -16,12 +16,14 @@ const Button = ({
   href,
   to,
   children,
+  className,
 }) => {
   const buttonStyle = ctl(`
   ${baseStyle}
   ${sizes[buttonSize]}
   ${variants[buttonVariant]}
   ${buttonDisabled && `opacity-25`}
+  ${className}
   `);
 
   let ButtonElement = "button";
@@ -125,6 +127,10 @@ const variants = {
   alternative: `
   alternative
  gradient-blue-to-red
+`,
+  outline: `
+  border
+border-white
 `,
 };
 
