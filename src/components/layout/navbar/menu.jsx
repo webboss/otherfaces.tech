@@ -72,9 +72,9 @@ z-[999]
 `);
 
 const listWrapper = ctl(`
-text-left
+text-right
 lg:pr-[80px]
-md:mt-auto
+md:mt-[40px]
 mt-[100px]
 `);
 
