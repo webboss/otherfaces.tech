@@ -17,7 +17,7 @@ export const HomeFeaturedStories = () => {
             <div className="absolute bg-gradient-to-t filter mix-blend-multiply from-black to-white  z-10 opacity-80   left-0 right-0 top-0 w-full h-full" />
             <StaticImage
               alt="Otherfaces of Tech"
-              src="../assets/images/portrait.png"
+              src="../../assets/images/portrait.png"
               className="border-[1px] border-red rounded"
             />
           </div>
