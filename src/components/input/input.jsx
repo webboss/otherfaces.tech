@@ -11,9 +11,13 @@ const Input = ({
   required,
   error,
   className,
+  type,
+  children,
 }) => {
   const inputId = label ? label.replaceAll(" ", "-").toLowerCase() : "";
 
+  const IS_SELECT_INPUT_TYPE = type?.toLowerCase().trim() === "select";
+  const InputElement = IS_SELECT_INPUT_TYPE ? "select" : "input";
   const inputStyle = ctl(`
     ${baseStyles}
     ${error && inputErrorStyle}
@@ -28,14 +32,16 @@ const Input = ({
         </label>
       )}
 
-      <input
+      <InputElement
         placeholder={placeholder}
         id={inputId}
         name={inputId}
         className={inputStyle}
         required={required}
         {...register}
-      />
+      >
+        {children}
+      </InputElement>
 
       {error && (
         <div className={errorMessageWrapStyle}>
