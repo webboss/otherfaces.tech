@@ -98,6 +98,14 @@ const TheForm = ({ setIsSuccessful }) => {
             error={errors?.email_address?.message}
             required
           />
+          <Input
+            placeholder="Email Address"
+            name="email_address"
+            type="select"
+            register={register("email_address")}
+            error={errors?.email_address?.message}
+            required
+          />
         </div>
 
         <Button

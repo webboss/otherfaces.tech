@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Container from "components/container";
 import { Text } from "../text";
 import { Input } from "components/input";
@@ -7,43 +7,52 @@ import { Button } from "components/button";
 
 import ArrowIcon from "assets/images/svgs/arrow-right.svg";
 import ctl from "@netlify/classnames-template-literals";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
+const validationSchema = yup.object().shape({
+  email_address: yup
+    .string()
+    .required("Kindly enter your email address")
+    .matches(
+      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+      "Invalid email address"
+    ),
+});
 export const Newsletter = () => {
-  const [emailAddress, setEmailAddress] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isValid, isSubmitting },
+  } = useForm({
+    mode: "onChange",
+    resolver: yupResolver(validationSchema),
+  });
 
-  const handleInput = e => {
-    const { value } = e.target;
-
-    setEmailAddress(value);
-  };
-
-  const subscribeToNewsletter = async e => {
+  const subscribeToNewsletter = async (data, e) => {
     e.preventDefault();
-    setIsLoading(true);
 
     try {
-      await fetch(`/api/waitlist`, {
+      await fetch("/api/newsletter", {
         method: "POST",
+
         headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
+          "content-type": "application/json",
         },
-        body: JSON.stringify({
-          email_address: emailAddress,
-        }),
+        body: JSON.stringify(data),
       })
         .then(res => res.json())
         .then(data => {
-          console.log(data);
+          alert("You have been added to our newsletter");
+          reset();
         })
         .catch(e => {
-          console.error(e.message);
+          alert("Something went wrong, kindly try again");
         });
-    } catch (e) {
-      console.error(e.message);
-    } finally {
-      setIsLoading(false);
+    } catch (error) {
+      console.long(error.message);
     }
   };
   return (
@@ -62,19 +71,24 @@ export const Newsletter = () => {
 
             <form
               className="mt-[45px] flex w-full  items-center"
-              onSubmit={subscribeToNewsletter}
+              onSubmit={handleSubmit(subscribeToNewsletter)}
             >
               <Input
                 isInline
+                register={register("email_address")}
                 placeholder="Enter your email"
                 className={inputStyle}
-                onChange={handleInput}
+                error={errors?.email_address?.message}
               />
 
               <Button
+                isInline
                 variant="outline"
-                className={buttonStyle}
-                isLoading={isLoading}
+                className={`${buttonStyle} ${
+                  errors.email_address && "mb-[44px] border-action-error"
+                }`}
+                isLoading={isSubmitting}
+                disabled={!isValid}
               >
                 <ArrowIcon />{" "}
               </Button>
@@ -90,13 +104,14 @@ export const Newsletter = () => {
 };
 
 const inputStyle = ctl(`
-flex-grow 
+
+flex-shrink
 border-r-0  
 rounded-r-none
 `);
 
 const buttonStyle = ctl(`
-flex-grow-0 
+flex-shrink-0
 h-[53px] 
 mb-4 
 !border-2 

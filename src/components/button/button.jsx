@@ -17,12 +17,13 @@ const Button = ({
   to,
   children,
   className,
+  isInline,
 }) => {
   const buttonStyle = ctl(`
   ${baseStyle}
   ${sizes[buttonSize]}
   ${variants[buttonVariant]}
-  ${buttonDisabled && `opacity-25`}
+  ${buttonDisabled && !isInline && `opacity-25`}
   ${className}
   `);
 
@@ -47,10 +48,13 @@ const Button = ({
       disabled={buttonDisabled || isLoading}
       {...linkProps}
     >
-      <span className={textStyle + " " + textVariants[buttonVariant]}>
-        {text || children}
-      </span>
-      {isLoading && <Loader />}
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <span className={textStyle + " " + textVariants[buttonVariant]}>
+          {text || children}
+        </span>
+      )}
     </ButtonElement>
   );
 };
