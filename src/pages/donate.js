@@ -70,8 +70,6 @@ const DonatePage = () => {
     const { payment_gateway } = data;
 
     makePaymentBasedOnGateWay[payment_gateway]();
-
-    // initializePaystackPayment(onSuccess, onClose);
   };
   return (
     <Layout title="Donate">
@@ -103,6 +101,7 @@ const DonatePage = () => {
             id="payment_gateway"
             register={register("payment_gateway")}
             type="select"
+            className="cursor-pointer"
           >
             <option value="paystack">Paystack</option>
             <option value="basqet">Basqet</option>
@@ -121,6 +120,6 @@ const DonatePage = () => {
 export default DonatePage;
 
 const formContainerStyle = ctl(`
-max-w-[600px]
-mb-[50px]
+!max-w-[650px]
+my-[60px]
 `);

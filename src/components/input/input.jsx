@@ -39,6 +39,7 @@ const Input = ({
         className={inputStyle}
         required={required}
         {...register}
+        type={type}
       >
         {children}
       </InputElement>
