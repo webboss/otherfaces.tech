@@ -19,18 +19,6 @@ const basqet_default_config = {
   currency: "NGN",
 };
 
-// you can call this function anything
-const onSuccess = reference => {
-  // Implementation for whatever you want to do with reference and after success call.
-  console.log(reference);
-};
-
-// you can call this function anything
-const onClose = () => {
-  // implementation for  whatever you want to do when the Paystack dialog closed.
-  console.log("closed");
-};
-
 const DonatePage = () => {
   const {
     register,
@@ -66,7 +54,6 @@ const DonatePage = () => {
   const makeDonation = async (data, e) => {
     e.preventDefault();
 
-    console.log(data);
     const { payment_gateway } = data;
 
     makePaymentBasedOnGateWay[payment_gateway]();
