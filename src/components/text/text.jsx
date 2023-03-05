@@ -18,6 +18,7 @@ const Text = ({
   className,
   children,
   isPrimary,
+  html,
 }) => {
   const primaryFontsList = ["h1", "h2", "h3", "h4"];
   const isInPrimaryFontList =
@@ -46,10 +47,18 @@ const Text = ({
     color: textColor,
     fontWeight: weight,
   };
-  return (
-    <TextElement style={dynamicStyle} className={textStyle}>
-      {value || children}
-    </TextElement>
+
+  const textElementProps = {
+    style: dynamicStyle,
+    className: textStyle,
+  };
+  return html ? (
+    <TextElement
+      {...textElementProps}
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
+  ) : (
+    <TextElement {...textElementProps}>{value || children}</TextElement>
   );
 };
 

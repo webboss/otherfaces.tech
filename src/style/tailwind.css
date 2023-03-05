@@ -77,4 +77,18 @@
       linear-gradient(81.23deg, #ff557e 21.4%, rgba(255, 85, 85, 0) 84.87%),
       #f2f5fa;
   }
+
+  .article {
+    @apply font-secondary;
+    line-height: 2;
+  }
+  .article h2,
+  .article h3 {
+    @apply font-primary;
+  }
+
+  .article h2 {
+    @apply text-[36px];
+    @apply mt-6;
+  }
 }

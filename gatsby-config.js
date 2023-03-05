@@ -15,18 +15,18 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
+      resolve: "gatsby-source-wordpress",
+      options: {
+        url: process.env.WORDPRESS_SOURCE_URL,
+      },
+    },
+    {
       resolve: `gatsby-plugin-root-import`,
       options: {
         src: path.join(__dirname, "src"),
         components: path.join(__dirname, "src/components"),
       },
     },
-    // {
-    //   resolve: `gatsby-source-wordpress`,
-    //   options: {
-    //     url: process.env.WORDPRESS_SOURCE_URL,
-    //   },
-    // },
     {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
