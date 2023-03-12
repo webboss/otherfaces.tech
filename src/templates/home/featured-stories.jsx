@@ -38,7 +38,7 @@ export const HomeFeaturedStories = () => {
 
   const remainingItems = mostRecentStories.slice(1);
   return (
-    <div className="pt-[120px] pb-[160px] relative">
+    <div className="pt-[120px] pb-[160px] relative" id="recent-stories">
       <Hr className="absolute xl:top-[200px] top-[152px] md:block hidden left-0 w-full " />
       <Container>
         <section className="grid grid-cols-12 gap-3 md:text-left text-center">
@@ -49,7 +49,7 @@ export const HomeFeaturedStories = () => {
                 firstItem.featuredImage.node.localFile.childImageSharp
                   .gatsbyImageData
               }
-              className="border-[1px] border-red rounded h-[516px]"
+              className="border-[1px] border-red rounded md:h-[516px] h-[356px]"
             />
           </div>
           <div></div>

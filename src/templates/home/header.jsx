@@ -20,7 +20,9 @@ export const HomeHeader = () => {
             on the things you need to learn across various levels.
           </Text>
         </div>
-        <Button size="large">Start your journey</Button>
+        <Button size="large" to="#recent-stories">
+          Start your journey
+        </Button>
       </Container>
 
       <div className=" w-full overflow-hidden">

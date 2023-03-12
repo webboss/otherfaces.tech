@@ -1,4 +1,4 @@
-const mailchimp = require("mailchimp-marketing");
+const mailchimp = require("@mailchimp/mailchimp_marketing");
 const md5 = require("md5");
 
 export default async function handler(req, res) {
