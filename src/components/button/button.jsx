@@ -103,10 +103,11 @@ const sizes = {
   medium: `
   md:min-w-[275px]
   py-[29px]
+  h-[58px]
 
   `,
   large: `
-  md:min-w-[320px]
+  md:min-w-[200px]
   w-[200px]
   h-[58px]
   `,

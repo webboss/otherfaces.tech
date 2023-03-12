@@ -94,7 +94,7 @@ const DonatePage = () => {
             <option value="basqet">Basqet (Crypto)</option>
           </Input>
 
-          <Button text="Donate" />
+          <Button text="Donate" className="w-full mt-6" />
         </form>
       </Container>
       <section>
@@ -108,5 +108,6 @@ export default DonatePage;
 
 const formContainerStyle = ctl(`
 !max-w-[650px]
-my-[60px]
+mt-[60px]
+mb-[160px]
 `);

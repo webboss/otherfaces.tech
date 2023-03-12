@@ -29,7 +29,7 @@ export const DonateHeader = () => {
               inspiring the next generation of Africans getting into tech while
               providing clear roadmaps they can take to succeed.
             </Text>
-            <Text variant="p18" className="mt-[34px]">
+            <Text variant="p18" className="mt-[24px]">
               To make donations, you can use the form below - we accept
               fiat(NGN/USD) and Cryptocurrency.
             </Text>

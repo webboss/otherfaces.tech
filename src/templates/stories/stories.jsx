@@ -19,7 +19,7 @@ const Story = ({ data }) => {
   const relatedStories = data.allWpPost.nodes;
   return (
     <Layout title={title} ignoreSiteName>
-      <Container className="py-[158px] ">
+      <Container className="md:py-[100px] py-[50px] ">
         <article className="article">
           <header>
             <MetaData date={date} />
@@ -29,17 +29,17 @@ const Story = ({ data }) => {
               image={
                 featuredImage.node.localFile.childImageSharp.gatsbyImageData
               }
-              className="w-full rounded-[100px] my-[90px]"
+              className="w-full md:rounded-[100px] rounded-[50px] md:h-auto h-[370px] my-[45px]"
             />
           </header>
 
-          <section className="flex justify-between relative">
+          <section className="flex md:flex-row flex-col justify-between relative">
             <content
               className="max-w-[738px] flex-grow-0"
               dangerouslySetInnerHTML={{ __html: content }}
             />
             <aside>
-              <div className="sticky top-4">
+              <div className="md:sticky md:mt-0 mt-8 top-4">
                 <Text variant="p16" value="SHARE" />
                 <ShareIcons title={title} />
                 <button
@@ -65,7 +65,7 @@ const Story = ({ data }) => {
 
 const ShareIcons = ({ title }) => {
   return (
-    <ul className="flex justify-between mb-8 mt-6">
+    <ul className="flex md:max-w-[200px] max-w-[160px] justify-between md:mb-8 mb-6 md:mt-6 mt-4">
       {icons.map(({ Icon, share, isLink }) => {
         return (
           <a
@@ -116,7 +116,7 @@ const copyLink = () => {
 };
 const MetaData = ({ date, readTime = "4" }) => {
   return (
-    <div className="flex gap-10 mb-8">
+    <div className="flex md:justify-start justify-between gap-10 mb-[22px]">
       <Text value={date} variant="p18" className=" uppercase " />
       <Text
         value={`${readTime} Mins Read`}
@@ -130,8 +130,11 @@ const MetaData = ({ date, readTime = "4" }) => {
 const Author = ({ author }) => {
   const authorInfo = author.node;
   return (
-    <div className="mb-[44px] flex items-center">
-      <StaticImage src="../../assets/image/avatar.png" />
+    <div className="mb-[22px] flex items-center">
+      <StaticImage
+        src="../../assets/images/avatar.png"
+        className="md:mr-[19px] mr-[10px] md:w-[42px] w-[28px] md:h-[42px] h-[28px]"
+      />
 
       <Text value={authorInfo.name} variant="p18" className=" capitalize " />
     </div>

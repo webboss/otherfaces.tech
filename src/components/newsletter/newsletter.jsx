@@ -10,6 +10,7 @@ import ctl from "@netlify/classnames-template-literals";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useSubscribersContext } from "context/SubscribersContext";
 
 const validationSchema = yup.object().shape({
   email_address: yup
@@ -21,6 +22,8 @@ const validationSchema = yup.object().shape({
     ),
 });
 export const Newsletter = () => {
+  const { noOfSubscribers } = useSubscribersContext();
+
   const {
     register,
     handleSubmit,
@@ -65,8 +68,8 @@ export const Newsletter = () => {
             <Text variant="p18" color="yellow" value="Subscribe" />
             <Text variant="h2">Join Our Newsletter</Text>
             <Text variant="p18" className="max-w-[400px]">
-              Be part of 1000+ who gets notified when we publish new stories and
-              roadmaps.
+              Be part of {noOfSubscribers}+ subscribers who gets notified when
+              we publish new stories and roadmaps.
             </Text>
 
             <form

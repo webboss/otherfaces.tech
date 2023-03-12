@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   @font-face {
     font-family: "ClashDisplay";
     src: url(assets/fonts/ClashDisplay-Medium.otf);
@@ -79,17 +82,29 @@
   }
 
   .article {
-    @apply font-secondary;
+    @apply !font-secondary;
     line-height: 2;
   }
   .article h2,
   .article h3 {
-    @apply font-primary;
+    @apply !font-primary;
   }
 
   .article h2 {
-    @apply text-[36px];
+    @apply md:text-[36px] text-[28px];
     @apply mt-6;
+    line-height: 1.2;
+  }
+
+  .article h3 {
+    font-size: 28px !important;
+    line-height: 1.2;
+    @apply mt-6;
+    @apply mb-4;
+  }
+
+  .article p {
+    @apply !mb-4;
   }
 
   .animated-roles {
@@ -111,5 +126,15 @@
     to {
       transform: translateX(-100%);
     }
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* For IE, Edge and Firefox */
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
