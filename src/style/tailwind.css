@@ -91,4 +91,25 @@
     @apply text-[36px];
     @apply mt-6;
   }
+
+  .animated-roles {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    min-width: 100%;
+    animation: hurricane 15s linear infinite;
+  }
+
+  .animated-roles.reversed {
+    animation-direction: reverse;
+  }
+
+  @keyframes hurricane {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
 }
