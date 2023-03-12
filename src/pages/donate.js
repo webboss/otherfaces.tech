@@ -90,8 +90,8 @@ const DonatePage = () => {
             type="select"
             className="cursor-pointer"
           >
-            <option value="paystack">Paystack</option>
-            <option value="basqet">Basqet</option>
+            <option value="paystack">Paystack (NGN/USD)</option>
+            <option value="basqet">Basqet (Crypto)</option>
           </Input>
 
           <Button text="Donate" />

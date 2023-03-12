@@ -30,8 +30,8 @@ export const DonateHeader = () => {
               providing clear roadmaps they can take to succeed.
             </Text>
             <Text variant="p18" className="mt-[34px]">
-              To make donations, you can use the form below - we accept Naira
-              and Cryptocurrency.
+              To make donations, you can use the form below - we accept
+              fiat(NGN/USD) and Cryptocurrency.
             </Text>
           </div>
         </Container>
