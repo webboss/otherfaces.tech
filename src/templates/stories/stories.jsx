@@ -81,9 +81,13 @@ const ShareIcons = ({ title }) => {
   );
 };
 
-const url = document.location;
+// Check if window is defined (so if in the browser or in node.js).
+const isBrowser = typeof window !== "undefined";
+const url = isBrowser ? document.location : "";
 const popupWindow = link => {
-  window.open(link, "popup", "width=600,height=600");
+  if (isBrowser) {
+    window.open(link, "popup", "width=600,height=600");
+  }
 };
 const icons = [
   {

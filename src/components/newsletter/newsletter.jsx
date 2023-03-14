@@ -22,7 +22,7 @@ const validationSchema = yup.object().shape({
     ),
 });
 export const Newsletter = () => {
-  const { noOfSubscribers } = useSubscribersContext();
+  const { noOfSubscribers } = useSubscribersContext() ?? {};
 
   const {
     register,
