@@ -1,14 +1,14 @@
-import { Button, Text } from "components";
+import { Text } from "components";
 import { ArticlePreviewList } from "components/article";
 import Container from "components/container";
 import { Hr } from "components/hr";
 import Layout from "components/layout";
 import { graphql } from "gatsby";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
-import React, { useState } from "react";
+import React from "react";
 
-import CopyIcon from "assets/images/svgs/copy.svg";
 import Share from "./components/share";
+import CopyButton from "./components/copy-button";
 
 const Story = ({ data }) => {
   const { title, content, date, author, featuredImage, slug } = data.wpPost;
@@ -51,29 +51,6 @@ const Story = ({ data }) => {
         <ArticlePreviewList heading="More Stories" articles={relatedStories} />
       </Container>
     </Layout>
-  );
-};
-
-const CopyButton = () => {
-  const [isCopied, setIsCopied] = useState(false);
-  const copyLink = async () => {
-    await navigator.clipboard.writeText(document.location);
-    setIsCopied(true);
-    setTimeout(() => {
-      setIsCopied(false);
-    }, 3000);
-  };
-  return (
-    <button
-      onClick={copyLink}
-      className="flex items-center min-w-[120px] hover:opacity-70 "
-    >
-      <CopyIcon />
-      <span className="inline-block ml-4 ">
-        {" "}
-        {isCopied ? "Copied!" : "Copy Link"}
-      </span>
-    </button>
   );
 };
 
