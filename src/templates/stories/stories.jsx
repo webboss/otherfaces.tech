@@ -7,11 +7,8 @@ import { graphql } from "gatsby";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import React, { useState } from "react";
 
-import TwitterIcon from "assets/images/svgs/twitter.svg";
-import MailIcon from "assets/images/svgs/mail.svg";
-import LinkedInIcon from "assets/images/svgs/linkedin.svg";
-import FacebookIcon from "assets/images/svgs/facebook.svg";
 import CopyIcon from "assets/images/svgs/copy.svg";
+import Share from "./components/share";
 
 const Story = ({ data }) => {
   const { title, content, date, author, featuredImage, slug } = data.wpPost;
@@ -20,7 +17,7 @@ const Story = ({ data }) => {
   return (
     <Layout title={title} ignoreSiteName>
       <Container className="md:py-[100px] py-[50px] ">
-        <article className="article">
+        <article className="">
           <header>
             <MetaData date={date} />
             <Author author={author} />
@@ -35,13 +32,13 @@ const Story = ({ data }) => {
 
           <section className="flex md:flex-row flex-col justify-between relative">
             <content
-              className="max-w-[738px] flex-grow-0"
+              className="article max-w-[738px] flex-grow-0"
               dangerouslySetInnerHTML={{ __html: content }}
             />
             <aside>
               <div className="md:sticky md:mt-0 mt-8 top-4">
                 <Text variant="p16" value="SHARE" />
-                <ShareIcons title={title} />
+                <Share />
                 <CopyButton />
               </div>
             </aside>
@@ -54,24 +51,6 @@ const Story = ({ data }) => {
         <ArticlePreviewList heading="More Stories" articles={relatedStories} />
       </Container>
     </Layout>
-  );
-};
-
-const ShareIcons = ({ title }) => {
-  return (
-    <ul className="flex md:max-w-[200px] max-w-[160px] justify-between md:mb-8 mb-6 md:mt-6 mt-4">
-      {icons.map(({ Icon, share, isLink }) => {
-        return (
-          <a
-            href={isLink ? share(title) : "#"}
-            onClick={() => (!isLink ? share(title) : null)}
-            className="hover:opacity-70"
-          >
-            <Icon />
-          </a>
-        );
-      })}
-    </ul>
   );
 };
 
@@ -98,41 +77,6 @@ const CopyButton = () => {
   );
 };
 
-// Check if window is defined (so if in the browser or in node.js).
-const isBrowser = typeof window !== "undefined";
-const url = isBrowser ? document.location : "";
-const popupWindow = link => {
-  if (isBrowser) {
-    window.open(link, "popup", "width=600,height=600");
-  }
-};
-const icons = [
-  {
-    Icon: TwitterIcon,
-    share: title =>
-      popupWindow(`https://twitter.com/share?text=${title}&url=${url}`),
-  },
-  {
-    Icon: MailIcon,
-    share: title => `mailto: ?subject=${title}&body=${url}`,
-    isLink: true,
-  },
-  {
-    Icon: LinkedInIcon,
-    share: title =>
-      popupWindow(
-        `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${title}`
-      ),
-  },
-  {
-    Icon: FacebookIcon,
-    share: title =>
-      popupWindow(
-        `https://www.facebook.com/sharer.php?u=${url}&p[title]=${title}`
-      ),
-  },
-];
-
 const MetaData = ({ date, readTime = "4" }) => {
   return (
     <div className="flex md:justify-start justify-between gap-10 mb-[22px]">
@@ -155,7 +99,11 @@ const Author = ({ author }) => {
         className="md:mr-[19px] mr-[10px] md:w-[42px] w-[28px] md:h-[42px] h-[28px]"
       />
 
-      <Text value={authorInfo.name} variant="p18" className=" capitalize " />
+      <Text
+        value={authorInfo.name}
+        variant="p18"
+        className=" uppercase !mb-0"
+      />
     </div>
   );
 };
