@@ -49,11 +49,12 @@ const TheForm = ({ setIsSuccessful }) => {
 
   const onSubmit = async (data, e) => {
     e.preventDefault();
+    const formData = { ...data, tags: "Waitlist for Other Faces of Tech" };
 
     try {
       await fetch(`/api/waitlist`, {
         method: "POST",
-        body: JSON.stringify(data),
+        body: JSON.stringify(formData),
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
