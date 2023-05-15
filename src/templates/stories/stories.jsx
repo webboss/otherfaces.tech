@@ -5,7 +5,7 @@ import { Hr } from "components/hr";
 import Layout from "components/layout";
 import { graphql } from "gatsby";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
-import React from "react";
+import React, { useState } from "react";
 
 import TwitterIcon from "assets/images/svgs/twitter.svg";
 import MailIcon from "assets/images/svgs/mail.svg";
@@ -42,13 +42,7 @@ const Story = ({ data }) => {
               <div className="md:sticky md:mt-0 mt-8 top-4">
                 <Text variant="p16" value="SHARE" />
                 <ShareIcons title={title} />
-                <button
-                  onClick={copyLink}
-                  className="flex items-center min-w-[120px] hover:opacity-70 "
-                >
-                  <CopyIcon />
-                  <span className="inline-block ml-4 "> Copy Link</span>
-                </button>
+                <CopyButton />
               </div>
             </aside>
           </section>
@@ -78,6 +72,29 @@ const ShareIcons = ({ title }) => {
         );
       })}
     </ul>
+  );
+};
+
+const CopyButton = () => {
+  const [isCopied, setIsCopied] = useState(false);
+  const copyLink = async () => {
+    await navigator.clipboard.writeText(document.location);
+    setIsCopied(true);
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 3000);
+  };
+  return (
+    <button
+      onClick={copyLink}
+      className="flex items-center min-w-[120px] hover:opacity-70 "
+    >
+      <CopyIcon />
+      <span className="inline-block ml-4 ">
+        {" "}
+        {isCopied ? "Copied!" : "Copy Link"}
+      </span>
+    </button>
   );
 };
 
@@ -115,9 +132,7 @@ const icons = [
       ),
   },
 ];
-const copyLink = () => {
-  navigator.clipboard.writeText(document.location);
-};
+
 const MetaData = ({ date, readTime = "4" }) => {
   return (
     <div className="flex md:justify-start justify-between gap-10 mb-[22px]">
