@@ -7,8 +7,20 @@ import ctl from "@netlify/classnames-template-literals";
 import { useForm } from "react-hook-form";
 
 import { RoadmapsHeader } from "templates/roadmaps";
+import { graphql, useStaticQuery } from "gatsby";
 
 const DonatePage = () => {
+  const categoryQuery = useStaticQuery(graphql`
+    query {
+      allWpCategory {
+        nodes {
+          name
+        }
+      }
+    }
+  `);
+
+  const categories = categoryQuery.allWpCategory.nodes;
   const [isSuccesful, setIsSuccessful] = useState(false);
   const {
     register,
@@ -77,8 +89,9 @@ const DonatePage = () => {
             type="select"
             className="cursor-pointer"
           >
-            <option>Product Management</option>
-            <option>Community Management</option>
+            {categories.map((category, index) => {
+              return <option key={`roadmap-${index}`}>{category.name}</option>;
+            })}
           </Input>
 
           <Button
