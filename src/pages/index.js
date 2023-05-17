@@ -17,13 +17,8 @@ const IndexPage = () => {
         <div>
           <header className={headerStyle}>
             <h1>
-              We are <Br on="mobile" />
-              cooking something <Br on="mobile" />
-              for{" "}
-              <span className="primary">
-                non-coding <Br on="mobile" />
-                techies
-              </span>
+              Stories, roadmaps, for <Br />{" "}
+              <span className="primary">non-coding techies</span>
             </h1>
           </header>
           <div className="text-center  py-4">
@@ -57,9 +52,10 @@ text-center
 mx-auto
 md:text-[64px]
 lg:text-[72px]
-text-[38px]
+text-[34px]
 max-w-[947px]
 md:leading-[82px]
 leading-[46px]
+px-4
 `);
 export default IndexPage;
