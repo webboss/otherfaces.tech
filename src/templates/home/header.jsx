@@ -15,7 +15,7 @@ export const HomeHeader = () => {
         <div className="md:max-w-[950px] max-w-[700px] mx-auto  ">
           <Text variant="p18" className="mt-[20px] mb-20 max-w-[1000px]">
             We are telling the stories of the other faces in tech to inspire the
-            next generation of tech bros who probably thinks they need to write
+            next generation of tech bros who probably think they need to write
             code to succeed in tech. Through our roadmaps, you also gain clarity
             on the things you need to learn across various levels.
           </Text>

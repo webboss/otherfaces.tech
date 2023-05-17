@@ -26,7 +26,7 @@ const Story = ({ data }) => {
               image={
                 featuredImage.node.localFile.childImageSharp.gatsbyImageData
               }
-              className="w-full md:rounded-[100px] rounded-[50px] md:h-auto h-[370px] my-[45px]"
+              className="w-full  md:rounded-[100px] rounded-[50px] md:h-auto h-[370px] my-[45px]"
             />
           </header>
 
