@@ -129,6 +129,14 @@ const SuccessMessage = () => {
         text="Take survey"
         size="full"
       />
+      <br />
+      <br />
+      <Button
+        href={"https://paystack.shop/other-faces-of-tech"}
+        text="Get merch"
+        size="full"
+        variant="alternative"
+      />
     </section>
   );
 };
