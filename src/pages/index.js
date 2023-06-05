@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Layout from "components/layout";
 import ctl from "@netlify/classnames-template-literals";
 import WaitlistArrow from "svgs/waitlist-arrow.svg";
-import { Br, Button, Modal } from "components";
+import { Br, Button } from "components";
 import { WailistForm } from "components/waitlist-form";
 
 const IndexPage = () => {
@@ -17,12 +17,13 @@ const IndexPage = () => {
         <div>
           <header className={headerStyle}>
             <h1>
-              Stories, roadmaps, for <Br />{" "}
-              <span className="primary">non-coding techies</span>
+              Stories & <Br on="mobile" />
+              roadmaps for <Br />
+              <span className="primary"> non-coding techies</span>
             </h1>
           </header>
           <div className="text-center  py-4">
-            <WaitlistArrow className="mx-auto md:h-[200px] h-[160px]" />
+            <WaitlistArrow className="mx-auto md:h-[200px] h-[120px]" />
           </div>
           <footer className="text-center">
             <Button text="Join the waitlist" size="large" onClick={openModal} />
