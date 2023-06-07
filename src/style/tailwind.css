@@ -107,6 +107,14 @@
     @apply !mb-4;
   }
 
+  .article p > strong {
+    @apply font-primary;
+  }
+
+  .article-header .gatsby-image-wrapper img {
+    object-position: 0% 20% !important;
+  }
+
   .animated-roles {
     flex-shrink: 0;
     display: flex;

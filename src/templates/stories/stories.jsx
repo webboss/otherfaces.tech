@@ -5,36 +5,34 @@ import { Hr } from "components/hr";
 import Layout from "components/layout";
 import { graphql } from "gatsby";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
+import { readingTime } from "reading-time-estimator";
 import React from "react";
 
 import Share from "./components/share";
 import CopyButton from "./components/copy-button";
 
 const Story = ({ data }) => {
-  const { title, content, date, author, featuredImage, slug } = data.wpPost;
+  const { title, content, date, author, featuredImage } = data.wpPost;
 
+  const readTime = readingTime(content);
   const relatedStories = data.allWpPost.nodes;
   return (
     <Layout title={title} ignoreSiteName>
       <Container className="md:py-[100px] py-[50px] ">
-        <article className="">
-          <header>
-            <MetaData date={date} />
+        <article>
+          <header className="article-header">
+            <MetaData date={date} readTime={readTime.minutes} />
             <Author author={author} />
             <Text variant="h3" value={title} />
             <GatsbyImage
               image={
                 featuredImage.node.localFile.childImageSharp.gatsbyImageData
               }
-              className="w-full  md:rounded-[100px] rounded-[50px] md:h-auto h-[370px] my-[45px]"
+              className="w-full object-top  md:rounded-[100px] rounded-[50px] md:h-auto h-[370px] my-[45px]"
             />
           </header>
 
-          <section className="flex md:flex-row flex-col justify-between relative">
-            <content
-              className="article max-w-[738px] flex-grow-0"
-              dangerouslySetInnerHTML={{ __html: content }}
-            />
+          <section className="flex md:flex-row flex-col-reverse justify-between relative">
             <aside>
               <div className="md:sticky md:mt-0 mt-8 top-4">
                 <Text variant="p16" value="SHARE" />
@@ -42,6 +40,11 @@ const Story = ({ data }) => {
                 <CopyButton />
               </div>
             </aside>
+            <content
+              className="article max-w-[738px] flex-grow-0"
+              dangerouslySetInnerHTML={{ __html: content }}
+            />
+            <div></div>
           </section>
         </article>
       </Container>
@@ -69,6 +72,14 @@ const MetaData = ({ date, readTime = "4" }) => {
 
 const Author = ({ author }) => {
   const authorInfo = author.node;
+
+  const { firstName, lastName, name } = authorInfo;
+
+  const hasFullname = firstName && lastName;
+  const fullName = firstName + " " + lastName;
+
+  const nameToShow = hasFullname ? fullName : name;
+
   return (
     <div className="mb-[22px] flex items-center">
       <StaticImage
@@ -76,11 +87,7 @@ const Author = ({ author }) => {
         className="md:mr-[19px] mr-[10px] md:w-[42px] w-[28px] md:h-[42px] h-[28px]"
       />
 
-      <Text
-        value={authorInfo.name}
-        variant="p18"
-        className=" uppercase !mb-0"
-      />
+      <Text value={nameToShow} variant="p18" className=" uppercase !mb-0" />
     </div>
   );
 };
@@ -105,6 +112,8 @@ export const pageQuery = graphql`
       author {
         node {
           name
+          firstName
+          lastName
         }
       }
     }
