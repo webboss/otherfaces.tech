@@ -10,7 +10,6 @@ import { usePaystackPayment } from "react-paystack";
 import { useBasqet } from "basqet-react";
 
 const paystack_default_config = {
-  reference: new Date().getTime().toString(),
   publicKey: process.env.GATSBY_PAYSTACK_PUBLIC_KEY,
 };
 
@@ -23,6 +22,7 @@ const DonatePage = () => {
   const {
     register,
     handleSubmit,
+    reset: resetForm,
     watch,
     formState: { errors, isSubmitting, isValid },
   } = useForm({
@@ -33,17 +33,27 @@ const DonatePage = () => {
   const email = watch("email");
   const amountInKobo = amount * 100;
 
+  const onClose = () => {
+    console.log("Close");
+  };
+
+  const onSucess = () => {
+    resetForm();
+    console.log("Successful");
+  };
+
   const initializePaystackPayment = usePaystackPayment({
     ...paystack_default_config,
     amount: amountInKobo,
     email,
+    reference: new Date().getTime().toString(),
   });
 
   const initializeBasqetPayment = useBasqet({
     ...basqet_default_config,
     email,
     amount: amount,
-    onSuccess: () => console.log("success"),
+    onSuccess: () => resetForm(),
     onClose: () => console.log("closed"),
   });
 
@@ -56,7 +66,7 @@ const DonatePage = () => {
 
     const { payment_gateway } = data;
 
-    makePaymentBasedOnGateWay[payment_gateway]();
+    makePaymentBasedOnGateWay[payment_gateway](onSucess, onClose);
   };
   return (
     <Layout title="Donate">
