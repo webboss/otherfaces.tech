@@ -36,7 +36,7 @@ const Story = ({ data }) => {
             <aside>
               <div className="md:sticky md:mt-0 mt-8 top-4">
                 <Text variant="p16" value="SHARE" />
-                <Share />
+                <Share title={title} />
                 <CopyButton />
               </div>
             </aside>
