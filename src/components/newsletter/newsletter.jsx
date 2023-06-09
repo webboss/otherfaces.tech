@@ -88,7 +88,7 @@ export const Newsletter = () => {
                 isInline
                 variant="outline"
                 className={`${buttonStyle} ${
-                  errors.email_address && "mb-[44px] border-action-error"
+                  errors.email_address && "mb-[44px] border-action-error "
                 }`}
                 isLoading={isSubmitting}
                 disabled={!isValid}
@@ -117,6 +117,7 @@ const buttonStyle = ctl(`
 flex-shrink-0
 h-[53px] 
 mb-4 
+min-w-[60px] 
 !border-2 
 !rounded-l-none 
 !border-l-0  
