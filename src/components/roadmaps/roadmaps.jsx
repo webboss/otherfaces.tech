@@ -1,6 +1,7 @@
 import React from "react";
 import { Text } from "components";
 import Container from "components/container";
+import { Link } from "gatsby";
 
 export const Roadmaps = () => {
   return (
@@ -34,23 +35,25 @@ export const Roadmaps = () => {
 
 const FeaturedRoadMap = ({ title, description, comingSoon }) => {
   return (
-    <div className="text-left py-7 px-6 bg-opacity-5 rounded-[15px] relative bg-white">
-      <Text variant="h4" color="peach" className=" mb-2">
-        {title}
-      </Text>
-      <Text variant="p18">{description}</Text>
-      {comingSoon && (
-        <div className="absolute w-full h-full bg-black bg-opacity-50 left-0 top-0 flex items-center justify-center">
-          <Text
-            variant="p18"
-            as="span"
-            className="inline-block bg-blue-700 rounded-lg px-2"
-          >
-            Coming Soon
-          </Text>
-        </div>
-      )}
-    </div>
+    <Link to="/roadmaps">
+      <div className="text-left py-7 px-6 bg-opacity-5 rounded-[15px] relative bg-white">
+        <Text variant="h4" color="peach" className=" mb-2">
+          {title}
+        </Text>
+        <Text variant="p18">{description}</Text>
+        {comingSoon && (
+          <div className="absolute w-full h-full bg-black bg-opacity-50 left-0 top-0 flex items-center justify-center">
+            <Text
+              variant="p18"
+              as="span"
+              className="inline-block bg-blue-700 rounded-lg px-2"
+            >
+              Coming Soon
+            </Text>
+          </div>
+        )}
+      </div>
+    </Link>
   );
 };
 
