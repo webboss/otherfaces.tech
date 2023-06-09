@@ -41,5 +41,7 @@ p-[2px]
 md:max-w-[80%]
 mx-auto
 rounded-full
-my-16
+md:my-16
+mt-16
+mb-8
 `);

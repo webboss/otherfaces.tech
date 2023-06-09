@@ -95,7 +95,7 @@ const DonatePage = () => {
           </Input>
 
           <Button
-            text="Donate"
+            text="Submit"
             isLoading={isSubmitting}
             className="w-full mt-6"
           />
@@ -112,6 +112,6 @@ export default DonatePage;
 
 const formContainerStyle = ctl(`
 !max-w-[650px]
-mt-[60px]
+mt-[20px]
 mb-[160px]
 `);
