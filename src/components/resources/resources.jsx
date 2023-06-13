@@ -1,31 +1,48 @@
 import React from "react";
 import { Text } from "components";
 import Container from "components/container";
-import { Link } from "gatsby";
+import { Link, graphql, useStaticQuery } from "gatsby";
 
 export const Resources = () => {
+  const allCategoryQuery = useStaticQuery(graphql`
+    query {
+      allWpCategory(limit: 6, filter: { description: { ne: null } }) {
+        nodes {
+          name
+          description
+        }
+      }
+
+      allWpResource {
+        totalCount
+      }
+    }
+  `);
+
+  const allCategory = allCategoryQuery.allWpCategory.nodes;
+  const noOfResources = allCategoryQuery.allWpResource.totalCount;
   return (
     <section className="text-center">
       <Container>
-        <Text variant="h2">A clear roadmap for you.</Text>
+        <Text variant="h2">Resources to kickstart your career</Text>
 
         <Text variant="p18" className="max-w-[719px] mx-auto mt-[54px]">
-          Knowing what to learn at various levels of your career can be
-          confusing which is why we are partnering with industry experts in
-          order to help create clear roadmaps for you to succeed on your tech
-          journey.
+          Getting helpful and useful resources to kickstart your non-coding
+          career in tech can be hard. This why we have curated{" "}
+          <b>{noOfResources}+</b>
+          resources to help you get started.
         </Text>
       </Container>
 
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-[50px]">
-          {roadmaps
+          {allCategory
             .sort((a, b) => a.comingSoon - b.comingSoon)
             .map(roadmap => {
-              const { title } = roadmap;
+              const { name } = roadmap;
 
-              const key = title.replace(/\s/g, "-").toLowerCase();
-              return <FeaturedRoadMap {...roadmap} key={key} />;
+              const key = name.replace(/\s/g, "-").toLowerCase();
+              return <FeaturedRoadMap {...roadmap} key={key} sectionId={key} />;
             })}
         </div>
       </Container>
@@ -33,12 +50,12 @@ export const Resources = () => {
   );
 };
 
-const FeaturedRoadMap = ({ title, description, comingSoon }) => {
+const FeaturedRoadMap = ({ name, description, sectionId, comingSoon }) => {
   return (
-    <Link to="/roadmaps">
-      <div className="text-left py-7 px-6 bg-opacity-5 rounded-[15px] relative bg-white">
+    <Link to={`/resources#${sectionId}`} className="group">
+      <div className="text-left py-7 px-6 bg-opacity-5 rounded-[15px] relative bg-white border-2  border-transparent group-hover:border-white/10 transition-all h-full duration-300">
         <Text variant="h4" color="peach" className=" mb-2">
-          {title}
+          {name}
         </Text>
         <Text variant="p18">{description}</Text>
         {comingSoon && (
@@ -56,42 +73,3 @@ const FeaturedRoadMap = ({ title, description, comingSoon }) => {
     </Link>
   );
 };
-
-const roadmaps = [
-  {
-    title: "Product Design",
-    description:
-      "The process of imagining, creating, and iterating products that solve users' problems or address specific needs in a given market",
-    comingSoon: false,
-  },
-  {
-    title: "Product Management",
-    description:
-      "This is an organizational function that guides every step of a product's lifecycle.",
-    comingSoon: false,
-  },
-  {
-    title: "UX ",
-    description:
-      "The practice of writing carefully considered information that addresses people's contexts, needs, and behaviors. ",
-    comingSoon: false,
-  },
-  {
-    title: "Data Analytics ",
-    description:
-      "The process of examining data sets in order to find trends and draw conclusions about the information they contain.",
-    comingSoon: false,
-  },
-  {
-    title: "Community Managment ",
-    description:
-      "The process of building an authentic community among a business's customers, employees, and partners.",
-    comingSoon: false,
-  },
-  {
-    title: "Digital Marketing ",
-    description:
-      "The promotion of brands to connect with potential customers using the internet and other forms of digital communication.",
-    comingSoon: false,
-  },
-];

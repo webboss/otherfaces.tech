@@ -1,1 +1,1 @@
-export * from "./roadmaps";
+export * from "./resources";

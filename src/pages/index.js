@@ -4,6 +4,7 @@ import Layout from "components/layout";
 import { Newsletter, Partners, Roadmaps } from "components";
 
 import { HomeFeaturedStories, HomeHeader } from "templates/home";
+import { Resources } from "components/resources";
 
 const IndexPage = () => {
   return (
@@ -15,7 +16,7 @@ const IndexPage = () => {
         <Newsletter />
 
         <div className="pt-[90px]">
-          <Roadmaps />
+          <Resources />
         </div>
         <div className="md:mt-[122px] mt-[59px] mb-[90px]">
           <Partners />
