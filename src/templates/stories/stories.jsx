@@ -16,6 +16,12 @@ const Story = ({ data }) => {
 
   const readTime = readingTime(content);
   const relatedStories = data.allWpPost.nodes;
+
+  const excerptLength = excerpt.length;
+  const openingTagLength = 3; // <p>
+  const closingTagLength = 5; // </p>\n
+
+  console.log({ excerpt });
   return (
     <Layout title={title} description={excerpt} ignoreSiteName>
       <Container className="md:py-[100px] py-[50px] ">
@@ -23,7 +29,13 @@ const Story = ({ data }) => {
           <header className="article-header">
             <MetaData date={date} readTime={readTime.minutes} />
             <Author author={author} />
-            <Text variant="h3" value={title} />
+            <Text variant="h3">
+              {title} &#8212;{" "}
+              {excerpt.substring(
+                openingTagLength,
+                excerptLength - closingTagLength
+              )}
+            </Text>
             <GatsbyImage
               image={
                 featuredImage.node.localFile.childImageSharp.gatsbyImageData
@@ -98,6 +110,7 @@ export const pageQuery = graphql`
       title
       slug
       content
+      excerpt
       date(formatString: "LL")
       featuredImage {
         node {
