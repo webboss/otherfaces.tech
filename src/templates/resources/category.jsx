@@ -27,6 +27,7 @@ const ResourceItem = ({ resource }) => {
   const { title, url, resourceTypes, resourcePayments, featuredImage } =
     resource;
 
+  console.log({ resourceTypes, resource });
   const typeOfResource = resourceTypes?.nodes[0]?.name;
   const paymentOfResource = resourcePayments?.nodes[0]?.name;
 
