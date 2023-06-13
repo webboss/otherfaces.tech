@@ -4,12 +4,24 @@ import ctl from "@netlify/classnames-template-literals";
 
 import Warning from "assets/images/svgs/warning.svg";
 
-const Input = ({ label, placeholder, register, required, error }) => {
+const Input = ({
+  label,
+  placeholder,
+  register,
+  required,
+  error,
+  className,
+  type,
+  children,
+}) => {
   const inputId = label ? label.replaceAll(" ", "-").toLowerCase() : "";
 
+  const IS_SELECT_INPUT_TYPE = type?.toLowerCase().trim() === "select";
+  const InputElement = IS_SELECT_INPUT_TYPE ? "select" : "input";
   const inputStyle = ctl(`
     ${baseStyles}
     ${error && inputErrorStyle}
+    ${className}
 `);
 
   return (
@@ -20,14 +32,17 @@ const Input = ({ label, placeholder, register, required, error }) => {
         </label>
       )}
 
-      <input
+      <InputElement
         placeholder={placeholder}
         id={inputId}
         name={inputId}
         className={inputStyle}
         required={required}
         {...register}
-      />
+        type={type}
+      >
+        {children}
+      </InputElement>
 
       {error && (
         <div className={errorMessageWrapStyle}>
@@ -41,6 +56,7 @@ const Input = ({ label, placeholder, register, required, error }) => {
 
 const inputWrapStyle = ctl(`
   mb-4
+  w-full
 `);
 const baseStyles = `
   w-full

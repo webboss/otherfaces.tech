@@ -1,8 +1,7 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/browser-apis/
- */
+import React from "react";
+import SubscribersContextProvider from "context/SubscribersContext";
+import "./src/style/tailwind.css";
 
-// You can delete this file if you're not using it
-import "./src/style/tailwind.css"
+export const wrapRootElement = ({ element }) => (
+  <SubscribersContextProvider>{element}</SubscribersContextProvider>
+);

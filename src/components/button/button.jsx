@@ -16,12 +16,15 @@ const Button = ({
   href,
   to,
   children,
+  className,
+  isInline,
 }) => {
   const buttonStyle = ctl(`
   ${baseStyle}
   ${sizes[buttonSize]}
   ${variants[buttonVariant]}
-  ${buttonDisabled && `opacity-25`}
+  ${buttonDisabled && !isInline && `opacity-25`}
+  ${className}
   `);
 
   let ButtonElement = "button";
@@ -45,10 +48,13 @@ const Button = ({
       disabled={buttonDisabled || isLoading}
       {...linkProps}
     >
-      <span className={textStyle + " " + textVariants[buttonVariant]}>
-        {text || children}
-      </span>
-      {isLoading && <Loader />}
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <span className={textStyle + " " + textVariants[buttonVariant]}>
+          {text || children}
+        </span>
+      )}
     </ButtonElement>
   );
 };
@@ -63,9 +69,11 @@ const textVariants = {
   alternative: `
   bg-black
   bg-clip-content
-  w-[98%]
-  h-[90%]
-  leading-[48px]
+  w-full
+  h-full
+  flex
+  items-center
+  justify-center
   rounded-full
   `,
 };
@@ -80,6 +88,7 @@ inline-flex
 items-center
 justify-center
 disabled:cursor-not-allowed
+p-[2px]
 `);
 
 const sizes = {
@@ -93,10 +102,13 @@ const sizes = {
   `,
   medium: `
   md:min-w-[275px]
+  py-[29px]
   h-[58px]
+
   `,
   large: `
-  min-w-[320px]
+  md:min-w-[200px]
+  w-[200px]
   h-[58px]
   `,
   xlarge: `
@@ -104,7 +116,6 @@ const sizes = {
   h-[58px]
   `,
   full: `
-
   w-full
   h-[58px]
   `,
@@ -114,11 +125,17 @@ const variants = {
   primary: `
   primary
   disabled:bg-secondary
-  text-primary
+  text-primary-100
+  gradient-blue-to-red
+
 `,
   alternative: `
   alternative
-text-white
+ gradient-blue-to-red
+`,
+  outline: `
+  border
+border-white
 `,
 };
 

@@ -14,11 +14,18 @@ const Text = ({
   value,
   variant: textVariant,
   weight,
-  color = "primary",
+  color = "primary-100",
   className,
   children,
+  isPrimary,
+  html,
 }) => {
-  let TextElement = textVariant[0] === "p" ? "p" : textVariant;
+  const primaryFontsList = ["h1", "h2", "h3", "h4"];
+  const isInPrimaryFontList =
+    primaryFontsList.includes(textVariant) || isPrimary;
+
+  const firstCharacterInVariant = textVariant[0];
+  let TextElement = firstCharacterInVariant === "p" ? "p" : textVariant;
 
   // h7 is not a valid, we will use replace this with an h6 tag but the style for h7 will be retained according to the design system
   if (textVariant === "h7") {
@@ -31,6 +38,8 @@ const Text = ({
 
   const textStyle = ctl(`
   ${variants[textVariant]}
+
+  ${isInPrimaryFontList ? "font-primary" : "font-secondary"}
   ${className}
   `);
 
@@ -38,23 +47,31 @@ const Text = ({
     color: textColor,
     fontWeight: weight,
   };
-  return (
-    <TextElement style={dynamicStyle} className={textStyle}>
-      {value || children}
-    </TextElement>
+
+  const textElementProps = {
+    style: dynamicStyle,
+    className: textStyle,
+  };
+  return html ? (
+    <TextElement
+      {...textElementProps}
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
+  ) : (
+    <TextElement {...textElementProps}>{value || children}</TextElement>
   );
 };
 
 const variants = {
   h1: `
-    md:text-[65px]
+    md:text-[76px]
     text-[37px]
     md:leading-[75px]
     leading-[44.4px]
     font-bold 
     `,
   h2: `
-    md:text-[49px]
+    md:text-[48px]
     text-[28px]
     md:leading-[59.04px]
     leading-[39.2px]
@@ -62,7 +79,7 @@ const variants = {
     `,
 
   h3: `
-    md:text-[37px]
+    md:text-[38px]
     text-[21px]
     md:leading-[46.87px]
     leading-[29.4px]

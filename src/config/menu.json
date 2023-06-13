@@ -1,0 +1,26 @@
+[
+  {
+    "title": "About us",
+    "to": "/about-us"
+  },
+  {
+    "title": "Resources",
+    "to": "/resources"
+  },
+  {
+    "title": "Roadmaps",
+    "to": "/roadmaps"
+  },
+  {
+    "title": "Donate",
+    "to": "/donate"
+  },
+  {
+    "title": "Get Merch",
+    "href": { "url": "https://paystack.shop/other-faces-of-tech" }
+  },
+  {
+    "title": "Privacy Policy",
+    "to": "/privacy-policy"
+  }
+]

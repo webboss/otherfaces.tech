@@ -7,7 +7,9 @@ const addSubscriber = async (req, res) => {
   });
 
   if (req.method === "POST") {
-    const { email_address, first_name } = req.body;
+    const { email_address, first_name, tags } = req.body;
+
+    const tagsArray = tags.split(",");
 
     const subscriber_hash = md5(email_address.toLowerCase());
     try {
@@ -21,7 +23,7 @@ const addSubscriber = async (req, res) => {
             FNAME: first_name,
           },
           status_if_new: "subscribed",
-          tags: ["Waitlist for Other Faces of Tech"],
+          tags: tagsArray,
         }
       );
 

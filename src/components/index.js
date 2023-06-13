@@ -5,3 +5,6 @@ export * from "./text";
 export * from "./nlink";
 export * from "./br";
 export * from "./modal";
+export * from "./newsletter";
+export * from "./partners";
+export * from "./roadmaps";

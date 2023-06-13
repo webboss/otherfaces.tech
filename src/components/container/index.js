@@ -2,15 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 import ctl from "@netlify/classnames-template-literals";
 
-const Container = ({ children }) => {
-  return <section className={containerStyle}>{children}</section>;
+const Container = ({ className, children }) => {
+  return (
+    <section className={containerStyle + " " + className}>{children}</section>
+  );
 };
 
 const containerStyle = ctl(`
-  max-w-screen-lg  
+  max-w-[1380px]
   mx-auto 
-  md:px-0 
-  px-6`);
+  md:px-[24px]
+  px-4`);
 
 Container.propTypes = {
   children: PropTypes.node.isRequired,

@@ -1,62 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Layout from "components/layout";
-import ctl from "@netlify/classnames-template-literals";
-import WaitlistArrow from "svgs/waitlist-arrow.svg";
-import { Br, Button } from "components";
-import { WailistForm } from "components/waitlist-form";
+import { Newsletter, Partners, Roadmaps } from "components";
+
+import { HomeFeaturedStories, HomeHeader } from "templates/home";
+import { Resources } from "components/resources";
 
 const IndexPage = () => {
-  const [isOpenModal, setIsOpenModal] = useState(false);
-
-  const openModal = () => setIsOpenModal(true);
-  const closeModal = () => setIsOpenModal(false);
   return (
     <Layout title="Other Faces of Tech" ignoreSiteName={true}>
-      <section className={sectionStyle}>
-        <div>
-          <header className={headerStyle}>
-            <h1>
-              Stories & <Br on="mobile" />
-              roadmaps for <Br />
-              <span className="primary"> non-coding techies</span>
-            </h1>
-          </header>
-          <div className="text-center  py-4">
-            <WaitlistArrow className="mx-auto md:h-[200px] h-[120px]" />
-          </div>
-          <footer className="text-center">
-            <Button text="Join the waitlist" size="large" onClick={openModal} />
-            <br /> <br />
-            <Button
-              href={"https://paystack.shop/other-faces-of-tech"}
-              text="Get merch"
-              size="large"
-              variant="alternative"
-            />
-          </footer>
+      <>
+        <HomeHeader />
+
+        <HomeFeaturedStories />
+        <Newsletter />
+
+        <div className="pt-[90px]">
+          <Resources />
         </div>
-      </section>
-      <WailistForm isOpen={isOpenModal} closeModal={closeModal} />
+        <div className="md:mt-[122px] mt-[59px] mb-[90px]">
+          <Partners />
+        </div>
+      </>
     </Layout>
   );
 };
 
-const sectionStyle = ctl(`
-h-[calc(100vh-138px)]
-flex
-items-center
-justify-center
-`);
-const headerStyle = ctl(`
-text-center
-mx-auto
-md:text-[64px]
-lg:text-[72px]
-text-[34px]
-max-w-[947px]
-md:leading-[82px]
-leading-[46px]
-px-4
-`);
 export default IndexPage;
