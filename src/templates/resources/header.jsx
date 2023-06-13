@@ -20,6 +20,10 @@ export const ResourcesHeader = () => {
           {noOfResources}+ resources to kickstart your <Br on="desktop" />{" "}
           non-coding career in tech.
         </Text>
+        <Text variant="p16">
+          *PS: This is only a directory, we have no affiliation with the brands
+          listed
+        </Text>
         <div className="max-w-[800px] mx-auto mt-4"></div>
       </Container>
     </header>
