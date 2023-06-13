@@ -5,8 +5,9 @@ import RightArrowIcon from "assets/images/svgs/arrow-right.svg";
 import { GatsbyImage } from "gatsby-plugin-image";
 
 export const ResourceCategory = ({ title, list = [] }) => {
+  const categoryId = title.replace(/\s/g, "-").toLowerCase();
   return (
-    <section>
+    <section id={categoryId}>
       <header className="flex items-center">
         <Text variant="h4" className=" mr-9 ">
           {title}
@@ -15,8 +16,10 @@ export const ResourceCategory = ({ title, list = [] }) => {
       </header>
 
       <content className={contentResourceListStyle}>
-        {list.map(resource => {
-          return <ResourceItem resource={resource} />;
+        {list.map((resource, index) => {
+          return (
+            <ResourceItem key={categoryId + "-" + index} resource={resource} />
+          );
         })}
       </content>
     </section>
