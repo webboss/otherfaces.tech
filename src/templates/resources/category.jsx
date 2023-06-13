@@ -35,7 +35,7 @@ const ResourceItem = ({ resource }) => {
     <div className={resourceItemStyle}>
       <div className="w-full h-full bg-black rounded flex flex-col justify-end ">
         <div className="md:pb-[37px] pb-[4px] relative h-full flex flex-col justify-end overflow-hidden">
-          <div className="bg-gradient-to-t absolute bottom-0 left-0 w-full from-black via-black to-transparent    pb-[20px] md:pt-[100px] pt-[20px] z-[2]" />
+          <div className="bg-gradient-to-t absolute bottom-0 left-0 w-full from-black via-black to-transparent    pb-[20px] md:pt-[100px] pt-[40px] z-[2]" />
           {featuredImage && (
             <GatsbyImage
               image={
@@ -48,13 +48,13 @@ const ResourceItem = ({ resource }) => {
           <div className="md:px-[40px] px-3 relative z-10">
             <Text
               variant="h4"
-              className="md:!text-[28px] !pointer-events-autotext-[14px]   leading-4 "
+              className="md:!text-[28px] !text-[12px] !pointer-events-autotext-[14px]   leading-4 "
             >
               {title}
             </Text>
             <Text
               variant="p18"
-              className="md:text-[18px] text-[8px] md:mt-0 -mt-1"
+              className="md:text-[18px] text-[8px] md:mt-0 -mt-2"
             >
               {typeOfResource} | {paymentOfResource}
             </Text>
