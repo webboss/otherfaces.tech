@@ -33,14 +33,14 @@ const ResourceItem = ({ resource }) => {
   return (
     <div className={resourceItemStyle}>
       <div className="w-full h-full bg-black rounded flex flex-col justify-end ">
-        <div className="md:pb-[37px] pb-[4px] relative h-full flex flex-col justify-end">
+        <div className="md:pb-[37px] pb-[4px] relative h-full flex flex-col justify-end overflow-hidden">
           <div className="bg-gradient-to-t absolute bottom-0 left-0 w-full from-black via-black to-transparent    pb-[20px] md:pt-[100px] pt-[20px] z-[2]" />
           {featuredImage && (
             <GatsbyImage
               image={
                 featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData
               }
-              className="absolute left-0 right-0 top-0  h-full z-0 "
+              className="!absolute left-0 right-0 top-0  h-full z-0 "
             />
           )}
 
@@ -59,7 +59,7 @@ const ResourceItem = ({ resource }) => {
             </Text>
           </div>
         </div>
-        <div className="md:h-[100px] h-[40px]">
+        <div className="md:h-[100px] h-[40px] flex-shrink-0">
           <hr className="gradient-blue-to-red border-0 h-[1px] " />
           <div className="flex h-full flex-col justify-center md:px-[40px] px-3">
             <NLink
