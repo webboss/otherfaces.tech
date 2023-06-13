@@ -5,7 +5,7 @@ const path = require("path");
 module.exports = {
   siteMetadata: {
     title: `Other Faces of Tech`,
-    description: `A tech advocacy series where people who aren’t web/software developers are interviewed and their stories told.`,
+    description: `Stories and roadmaps to non-coding careers in tech`,
     author: `@webboss`,
   },
 
