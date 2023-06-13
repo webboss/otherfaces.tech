@@ -4,6 +4,10 @@
     "to": "/about-us"
   },
   {
+    "title": "Resources",
+    "to": "/resources"
+  },
+  {
     "title": "Roadmaps",
     "to": "/roadmaps"
   },

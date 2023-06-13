@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Layout from "components/layout";
-import { Newsletter, Text } from "components";
+import { Newsletter } from "components";
 import Container from "components/container";
 import ctl from "@netlify/classnames-template-literals";
 
@@ -17,6 +17,28 @@ const DonatePage = () => {
           resources {
             nodes {
               title
+              url
+
+              featuredImage {
+                node {
+                  localFile {
+                    childImageSharp {
+                      gatsbyImageData
+                    }
+                  }
+                }
+              }
+
+              resourceTypes {
+                nodes {
+                  name
+                }
+              }
+              resourcePayments {
+                nodes {
+                  name
+                }
+              }
             }
           }
         }
@@ -25,11 +47,12 @@ const DonatePage = () => {
   `);
 
   const allResourcesCategory = resourceCategoryQuery.allWpCategory.nodes.filter(
-    category => !!category.resources?.nodes
+    category =>
+      !!category.resources?.nodes || !!category.resources?.nodes?.length
   );
-  console.log({ allResourcesCategory });
+
   return (
-    <Layout title="Donate">
+    <Layout title="Resources">
       <ResourcesHeader />
 
       <Container className={formContainerStyle}>

@@ -1,7 +1,7 @@
 import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 
-import { Button, NLink, Text } from "components";
+import { Button, Text } from "components";
 import { Hr } from "components/hr";
 import Container from "components/container";
 
