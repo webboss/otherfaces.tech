@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Layout from "components/layout";
-import { Button, Input, Newsletter, Text } from "components";
+import { Button, Input, Newsletter } from "components";
 import Container from "components/container";
 import ctl from "@netlify/classnames-template-literals";
 import { useForm } from "react-hook-form";
@@ -25,8 +25,7 @@ const DonatePage = () => {
   const {
     register,
     handleSubmit,
-    watch,
-    formState: { errors, isSubmitting, isValid },
+    formState: { errors, isSubmitting },
   } = useForm({
     mode: "onChange",
   });

@@ -12,12 +12,12 @@ import Share from "./components/share";
 import CopyButton from "./components/copy-button";
 
 const Story = ({ data }) => {
-  const { title, content, date, author, featuredImage } = data.wpPost;
+  const { title, content, date, author, excerpt, featuredImage } = data.wpPost;
 
   const readTime = readingTime(content);
   const relatedStories = data.allWpPost.nodes;
   return (
-    <Layout title={title} ignoreSiteName>
+    <Layout title={title} description={excerpt} ignoreSiteName>
       <Container className="md:py-[100px] py-[50px] ">
         <article>
           <header className="article-header">

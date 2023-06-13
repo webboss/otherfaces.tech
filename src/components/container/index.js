@@ -12,7 +12,7 @@ const containerStyle = ctl(`
   max-w-[1380px]
   mx-auto 
   md:px-[24px]
-  px-6`);
+  px-4`);
 
 Container.propTypes = {
   children: PropTypes.node.isRequired,

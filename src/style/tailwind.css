@@ -38,6 +38,12 @@
     @apply to-red;
   }
 
+  .gradient-yellow-to-blue {
+    @apply bg-gradient-to-r;
+    @apply from-yellow;
+    @apply to-blue-400;
+  }
+
   /* Radial Gradients */
 
   .radial-gradient-blue {

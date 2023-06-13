@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Layout from "components/layout";
 import ctl from "@netlify/classnames-template-literals";
 import WaitlistArrow from "svgs/waitlist-arrow.svg";
-import { Br, Button, Modal } from "components";
+import { Br, Button } from "components";
 import { WailistForm } from "components/waitlist-form";
 
 const IndexPage = () => {

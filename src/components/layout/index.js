@@ -12,10 +12,14 @@ import { MainFooter } from "components/layout/footer";
 import { NavBar } from "./navbar";
 import ctl from "@netlify/classnames-template-literals";
 
-const Layout = ({ children, title, ignoreSiteName = false }) => {
+const Layout = ({ children, description, title, ignoreSiteName = false }) => {
   return (
     <>
-      <Seo title={title} ignoreSiteName={ignoreSiteName} />
+      <Seo
+        title={title}
+        description={description}
+        ignoreSiteName={ignoreSiteName}
+      />
       <NavBar />
       <main className="relative">{children}</main>
       <MainFooter />

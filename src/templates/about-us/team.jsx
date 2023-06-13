@@ -19,7 +19,7 @@ export const Team = () => {
 };
 
 const TeamMember = props => {
-  const { fullname, role, socials, image } = props;
+  const { fullname, role, image } = props;
 
   return (
     <div>
