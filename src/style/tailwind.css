@@ -30,6 +30,10 @@
     @apply font-medium;
   }
 
+  select option:not(:checked) {
+    color: black !important;
+  }
+
   /* Graidents */
 
   .gradient-blue-to-red {
