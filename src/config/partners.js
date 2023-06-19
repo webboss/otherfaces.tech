@@ -8,7 +8,7 @@ const partners = [
   {
     name: "web boss",
     Logo: WebBossLogo,
-    href: { url: "https://webboss.tech" },
+    href: { url: "https://www.youtube.com/@webboss" },
   },
   {
     name: "BigiBrand",
