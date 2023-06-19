@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Layout from "components/layout";
 import { Button, Input, Newsletter } from "components";
@@ -21,10 +21,11 @@ const DonatePage = () => {
   `);
 
   const categories = categoryQuery.allWpCategory.nodes;
-  const [isSuccesful, setIsSuccessful] = useState(false);
+
   const {
     register,
     handleSubmit,
+    reset: resetForm,
     formState: { errors, isSubmitting },
   } = useForm({
     mode: "onChange",
@@ -47,14 +48,16 @@ const DonatePage = () => {
       })
         .then(res => res.json())
         .then(data => {
-          setIsSuccessful(true);
+          alert("You will be the first to know when our roadmaps go live!");
+          resetForm();
         })
         .catch(error => {
           console.log(error);
           const { message } = error;
 
           if (message.includes("Exists")) {
-            setIsSuccessful(true);
+            alert("You will be the first to know when our roadmaps go live!");
+            resetForm();
           } else {
             alert("Something went wrong, kindly try again");
           }
