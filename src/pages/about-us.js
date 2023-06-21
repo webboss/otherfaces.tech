@@ -1,13 +1,38 @@
-import React, { useState } from "react";
+import ctl from "@netlify/classnames-template-literals";
+
+import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
 
 import Layout from "components/layout";
 import { Newsletter, Partners } from "components";
 
 import ArrowIcon from "assets/images/svgs/arrow.svg";
 import { AboutUsHeader, Team } from "templates/about-us";
-import ctl from "@netlify/classnames-template-literals";
 
 const AboutPage = () => {
+  const teamMembersQuery = useStaticQuery(graphql`
+    query {
+      allWpTeamMember(sort: { fields: [date] }) {
+        nodes {
+          role
+          title
+          socials {
+            linkedin
+            twitter
+          }
+          featuredImage {
+            node {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
   return (
     <Layout title="About us">
       <>
@@ -16,10 +41,7 @@ const AboutPage = () => {
           <ArrowIcon className={arrowLeftStyle} />
           <ArrowIcon className={arrowRightStyle} />
         </div>
-
-        <Team />
-        <Newsletter />
-
+        <Team members={teamMembersQuery.allWpTeamMember.nodes} /> <Newsletter />
         <div className="md:my-[122px] my-[90px]">
           <Partners />
         </div>
@@ -29,31 +51,31 @@ const AboutPage = () => {
 };
 
 const arrowsContainerStyle = ctl(`
-md:h-[300px] 
-h-[200px] 
+md:h-[300px]
+h-[200px]
 md:mt-0
 mt-[-100px]
-mb-20 
-overflow-hidden 
-relative 
+mb-20
+overflow-hidden
+relative
 `);
 
 const arrowLeftStyle = ctl(`
-absolute 
-left-[-100px] 
+absolute
+left-[-100px]
 md:bottom-[180px]
-bottom-[100px] 
-md:w-auto 
+bottom-[100px]
+md:w-auto
 w-[200px]
 `);
 
-const arrowRightStyle = ctl(`transform 
-rotate-180 
-absolute 
-right-[-100px] 
-md:w-auto 
-w-[200px] 
-md:bottom-0 
+const arrowRightStyle = ctl(`transform
+rotate-180
+absolute
+right-[-100px]
+md:w-auto
+w-[200px]
+md:bottom-0
 bottom-[50px]
 
 `);
