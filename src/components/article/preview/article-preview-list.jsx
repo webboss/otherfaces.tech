@@ -3,7 +3,6 @@ import React from "react";
 import { ArticlePreview } from "./article-preview";
 
 const ArticlePreviewList = ({ heading, articles }) => {
-  console.log({ heading });
   return (
     <section className="mt-[120px]">
       {heading && <Text variant="h4" value={heading} className="mb-[40px]" />}

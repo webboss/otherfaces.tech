@@ -16,6 +16,7 @@ export const HomeFeaturedStories = () => {
           title
           slug
           excerpt
+          role
 
           featuredImage {
             node {
@@ -57,7 +58,11 @@ export const HomeFeaturedStories = () => {
           <div className="md:col-span-5 col-span-12 flex flex-col justify-center">
             <div>
               <Text variant="h2">{firstItem.title}</Text>
-              <Text variant="p18" className="mb-8" html={firstItem.excerpt} />
+              <Text
+                variant="p18"
+                value={firstItem.role}
+                className=" mt-1 mb-4 "
+              />
 
               <Button
                 href={`/story/${firstItem.slug}`}
