@@ -12,16 +12,12 @@ import Share from "./components/share";
 import CopyButton from "./components/copy-button";
 
 const Story = ({ data }) => {
-  const { title, content, date, author, excerpt, featuredImage } = data.wpPost;
+  const { title, content, date, author, role, excerpt, featuredImage } =
+    data.wpPost;
 
   const readTime = readingTime(content);
   const relatedStories = data.allWpPost.nodes;
 
-  const excerptLength = excerpt.length;
-  const openingTagLength = 3; // <p>
-  const closingTagLength = 5; // </p>\n
-
-  console.log({ excerpt });
   return (
     <Layout title={title} description={excerpt} ignoreSiteName>
       <Container className="md:py-[100px] py-[50px] ">
@@ -30,11 +26,7 @@ const Story = ({ data }) => {
             <MetaData date={date} readTime={readTime.minutes} />
             <Author author={author} />
             <Text variant="h3">
-              {title} &#8212;{" "}
-              {excerpt.substring(
-                openingTagLength,
-                excerptLength - closingTagLength
-              )}
+              {title} &#8212; {role}
             </Text>
             <GatsbyImage
               image={
@@ -112,6 +104,7 @@ export const pageQuery = graphql`
       content
       excerpt
       date(formatString: "LL")
+      role
       featuredImage {
         node {
           localFile {
@@ -140,6 +133,7 @@ export const pageQuery = graphql`
         title
         slug
         excerpt
+        role
         featuredImage {
           node {
             localFile {
