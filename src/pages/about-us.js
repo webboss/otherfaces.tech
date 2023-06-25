@@ -16,10 +16,6 @@ const AboutPage = () => {
         nodes {
           role
           title
-          socials {
-            linkedin
-            twitter
-          }
           featuredImage {
             node {
               localFile {
