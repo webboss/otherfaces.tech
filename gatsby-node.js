@@ -1,4 +1,5 @@
 const path = require("path");
+const { copyLibFiles } = require("@builder.io/partytown/utils");
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -28,3 +29,6 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 };
 
+exports.onPreBuild = async () => {
+  await copyLibFiles(path.join(__dirname, "static", "~partytown"));
+};
