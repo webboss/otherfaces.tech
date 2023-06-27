@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "FourthCanvas <dev@fourthcanvas.co>",
   "dependencies": {
+    "@builder.io/partytown": "^0.8.0",
     "@hookform/resolvers": "^2.8.8",
     "@mailchimp/mailchimp_marketing": "^3.0.80",
     "@netlify/classnames-template-literals": "^1.0.3",

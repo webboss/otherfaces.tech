@@ -1023,6 +1023,11 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
+"@builder.io/partytown@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@builder.io/partytown/-/partytown-0.8.0.tgz#98543c1a5ba204d6b950edb53ab8a50b7df125d3"
+  integrity sha512-M6H7nSMwW2dHd1/MQ+9J1Jqdw22uhl1nKv90kIiL9G7gjFVqqouQp4qSS1oZclmtW1XjAa4Q5UnbHB4iytmxZA==
+
 "@endemolshinegroup/cosmiconfig-typescript-loader@3.0.2":
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/@endemolshinegroup/cosmiconfig-typescript-loader/-/cosmiconfig-typescript-loader-3.0.2.tgz#eea4635828dde372838b0909693ebd9aafeec22d"
@@ -9719,7 +9724,6 @@ qs@^6.5.1:
   version "6.11.1"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.11.1.tgz#6c29dff97f0c0060765911ba65cbc9764186109f"
   integrity sha512-0wsrzgTz/kAVIeuxSjnpGC56rzYtr6JT/2BwEvMaPhFIoYa1aGO8LbzuU1R0uUYQkLpWBTOj0l/CLAJB64J6nQ==
-
   dependencies:
     side-channel "^1.0.4"
 
