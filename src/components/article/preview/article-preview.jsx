@@ -25,6 +25,7 @@ const ArticlePreview = ({ title, slug, featuredImage, role }) => {
         <GatsbyImage
           image={featuredImage.node.localFile.childImageSharp.gatsbyImageData}
           className=" rounded  h-[416px]"
+          alt={title}
         />
       </div>
     </div>

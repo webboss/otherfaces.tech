@@ -1,12 +1,30 @@
 import React from "react";
 import SubscribersContextProvider from "context/SubscribersContext";
 import "./src/style/tailwind.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const wrapRootElement = ({ element }) => (
-  <SubscribersContextProvider>{element}</SubscribersContextProvider>
+  <SubscribersContextProvider>
+    <ToastContainer
+      position="top-right"
+      autoClose={5000}
+      hideProgressBar={true}
+      newestOnTop={true}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="dark"
+      toastClassName="rounded-full"
+    />
+    {element}
+  </SubscribersContextProvider>
 );
 
 export const onRouteUpdate = ({ location }) => {
+  console.log("[env]", process.env.NODE_ENV);
   if (process.env.NODE_ENV !== "production") {
     return null;
   }
