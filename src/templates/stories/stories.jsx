@@ -1,4 +1,4 @@
-import { Text } from "components";
+import { Button, Text } from "components";
 import { ArticlePreviewList } from "components/article";
 import Container from "components/container";
 import { Hr } from "components/hr";
@@ -7,10 +7,27 @@ import { graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import { readingTime } from "reading-time-estimator";
 import React from "react";
+import parse from "html-react-parser";
+import DOMPurify from "dompurify";
 
 import Share from "./components/share";
 import CopyButton from "./components/copy-button";
 import { ImageWithMock } from "components/image-with-mock";
+
+const Blockquote = ({ node, children }) => {
+  return (
+    <div>
+      <blockquote>
+        {node.map(nodeItem => {
+          const Element = nodeItem.name;
+          return <Element>{nodeItem.children[0].data}</Element>;
+          // console.log(nodeItem.name);
+        })}
+      </blockquote>
+      <Button>Tweet this</Button>
+    </div>
+  );
+};
 
 const Story = ({ data }) => {
   const { title, content, date, author, role, excerpt, featuredImage } =
@@ -18,6 +35,21 @@ const Story = ({ data }) => {
 
   const readTime = readingTime(content);
   const relatedStories = data.allWpPost.nodes;
+
+  const Content = parse(content, {
+    replace: domNode => {
+      // console.log(domNode.name);
+      if (domNode.name === "blockquote") {
+        return <Blockquote>{domNode.children}</Blockquote>;
+      }
+    },
+  });
+
+  // const window = new JSDOM("").window;
+  // const purify = DOMPurify(window);
+  const purifiedContent = DOMPurify.sanitize(content?.replace(/\n/gi, ""));
+
+  console.log({ purifiedContent });
 
   return (
     <Layout title={title} description={excerpt} ignoreSiteName>
@@ -45,10 +77,16 @@ const Story = ({ data }) => {
                 <CopyButton />
               </div>
             </aside>
-            <content
-              className="article max-w-[738px] flex-grow-0"
-              dangerouslySetInnerHTML={{ __html: content }}
-            />
+            <content className="article max-w-[738px] flex-grow-0">
+              {parse(purifiedContent, {
+                replace: domNode => {
+                  if (domNode.name === "blockquote") {
+                    console.log(domNode);
+                    return <Blockquote node={domNode.children} />;
+                  }
+                },
+              })}
+            </content>
             <div></div>
           </section>
         </article>
