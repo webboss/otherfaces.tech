@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 
 import { RoadmapsHeader } from "templates/roadmaps";
 import { graphql, useStaticQuery } from "gatsby";
+import { toast } from "react-toastify";
 
 const DonatePage = () => {
   const categoryQuery = useStaticQuery(graphql`
@@ -48,7 +49,9 @@ const DonatePage = () => {
       })
         .then(res => res.json())
         .then(data => {
-          alert("You will be the first to know when our roadmaps go live!");
+          toast.success("You are now on the mailing list.", {
+            className: "!rounded-full !font-secondary ",
+          });
           resetForm();
         })
         .catch(error => {
@@ -56,14 +59,20 @@ const DonatePage = () => {
           const { message } = error;
 
           if (message.includes("Exists")) {
-            alert("You will be the first to know when our roadmaps go live!");
+            toast.success("You are now on the mailing list.", {
+              className: "!rounded-full !font-secondary ",
+            });
             resetForm();
           } else {
-            alert("Something went wrong, kindly try again");
+            toast.error("Something went wrong, kindly try again", {
+              className: "!font-secondary",
+            });
           }
         });
     } catch (e) {
-      alert("Something went wrong, kindly try again");
+      toast.error("Something went wrong, kindly try again", {
+        className: " !font-secondary ",
+      });
     }
   };
   return (

@@ -50,15 +50,17 @@ export const Newsletter = () => {
       })
         .then(res => res.json())
         .then(data => {
-          toast.success("Let's friggin go!");
+          toast.success("You are now on the mailing list.", {
+            className: "!rounded-full !font-secondary ",
+          });
 
           reset();
         })
         .catch(e => {
-          alert("Something went wrong, kindly try again");
+          toast.error("Something went wrong, kindly try again");
         });
     } catch (error) {
-      console.long(error.message);
+      toast.error("Something went wrong, kindly try again");
     }
   };
   return (
