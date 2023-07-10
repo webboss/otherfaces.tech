@@ -16,19 +16,11 @@ const AboutPage = () => {
         nodes {
           role
           title
-          featuredImage {
-            node {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData
-                }
-              }
-            }
-          }
         }
       }
     }
   `);
+
   return (
     <Layout title="About us">
       <>
@@ -37,7 +29,8 @@ const AboutPage = () => {
           <ArrowIcon className={arrowLeftStyle} />
           <ArrowIcon className={arrowRightStyle} />
         </div>
-        <Team members={teamMembersQuery.allWpTeamMember.nodes} /> <Newsletter />
+        <Team teamData={teamMembersQuery.allWpTeamMember.nodes} />
+        <Newsletter />
         <div className="md:my-[122px] my-[90px]">
           <Partners />
         </div>
