@@ -11,6 +11,7 @@ import Seo from "./seo";
 import { MainFooter } from "components/layout/footer";
 import { NavBar } from "./navbar";
 import ctl from "@netlify/classnames-template-literals";
+import { ToastContainer } from "react-toastify";
 
 const Layout = ({ children, description, title, ignoreSiteName = false }) => {
   return (
@@ -22,6 +23,21 @@ const Layout = ({ children, description, title, ignoreSiteName = false }) => {
       />
       <NavBar />
       <main className="relative">{children}</main>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        closeButton={false}
+        hideProgressBar={true}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        className="!rounded-full"
+        style={{ fontFamily: "ClashDisplay" }}
+      />
       <MainFooter />
 
       <div

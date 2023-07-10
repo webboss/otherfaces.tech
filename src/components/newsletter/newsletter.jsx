@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useSubscribersContext } from "context/SubscribersContext";
+import { toast } from "react-toastify";
 
 const validationSchema = yup.object().shape({
   email_address: yup
@@ -49,14 +50,17 @@ export const Newsletter = () => {
       })
         .then(res => res.json())
         .then(data => {
-          alert("You have been added to our newsletter");
+          toast.success("You are now on the mailing list.", {
+            className: "!rounded-full !font-secondary ",
+          });
+
           reset();
         })
         .catch(e => {
-          alert("Something went wrong, kindly try again");
+          toast.error("Something went wrong, kindly try again");
         });
     } catch (error) {
-      console.long(error.message);
+      toast.error("Something went wrong, kindly try again");
     }
   };
   return (
