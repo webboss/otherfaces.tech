@@ -2,6 +2,8 @@ require("dotenv").config();
 
 const path = require("path");
 
+const NO_OF_WORDPRESS_ITEMS = Number(process.env.NO_OF_WORDPRESS_ITEMS);
+
 module.exports = {
   siteMetadata: {
     title: `Other Faces of Tech`,
@@ -19,9 +21,14 @@ module.exports = {
       options: {
         url: process.env.WORDPRESS_SOURCE_URL,
         type: {
-          __all: {
-            limit: process.env.NODE_ENV === "production" ? 1000 : 6,
-          },
+          ...(NO_OF_WORDPRESS_ITEMS && {
+            __all: {
+              limit:
+                process.env.NODE_ENV === "production"
+                  ? 1000
+                  : NO_OF_WORDPRESS_ITEMS,
+            },
+          }),
         },
       },
     },
