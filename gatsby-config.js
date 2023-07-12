@@ -16,22 +16,23 @@ module.exports = {
     `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
-    {
-      resolve: "gatsby-source-wordpress",
-      options: {
-        url: process.env.WORDPRESS_SOURCE_URL,
-        type: {
-          ...(NO_OF_WORDPRESS_ITEMS && {
-            __all: {
-              limit:
-                process.env.NODE_ENV === "production"
-                  ? 1000
-                  : NO_OF_WORDPRESS_ITEMS,
-            },
-          }),
-        },
-      },
-    },
+    `gatsby-mock-graphql`,
+    // {
+    //   resolve: "gatsby-source-wordpress",
+    //   options: {
+    //     url: process.env.WORDPRESS_SOURCE_URL,
+    //     type: {
+    //       ...(NO_OF_WORDPRESS_ITEMS && {
+    //         __all: {
+    //           limit:
+    //             process.env.NODE_ENV === "production"
+    //               ? 1000
+    //               : NO_OF_WORDPRESS_ITEMS,
+    //         },
+    //       }),
+    //     },
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-root-import`,
       options: {
