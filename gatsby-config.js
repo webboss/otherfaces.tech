@@ -3,6 +3,7 @@ require("dotenv").config();
 const path = require("path");
 
 const NO_OF_WORDPRESS_ITEMS = Number(process.env.NO_OF_WORDPRESS_ITEMS);
+const IS_MOCK_ENABLED = process.env.ENABLE_MOCKS === "true";
 
 module.exports = {
   siteMetadata: {
@@ -16,23 +17,23 @@ module.exports = {
     `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
-    `gatsby-mock-graphql`,
-    // {
-    //   resolve: "gatsby-source-wordpress",
-    //   options: {
-    //     url: process.env.WORDPRESS_SOURCE_URL,
-    //     type: {
-    //       ...(NO_OF_WORDPRESS_ITEMS && {
-    //         __all: {
-    //           limit:
-    //             process.env.NODE_ENV === "production"
-    //               ? 1000
-    //               : NO_OF_WORDPRESS_ITEMS,
-    //         },
-    //       }),
-    //     },
-    //   },
-    // },
+    IS_MOCK_ENABLED && `gatsby-mock-graphql`,
+    !IS_MOCK_ENABLED && {
+      resolve: "gatsby-source-wordpress",
+      options: {
+        url: process.env.WORDPRESS_SOURCE_URL,
+        type: {
+          ...(NO_OF_WORDPRESS_ITEMS && {
+            __all: {
+              limit:
+                process.env.NODE_ENV === "production"
+                  ? 10000
+                  : NO_OF_WORDPRESS_ITEMS,
+            },
+          }),
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-root-import`,
       options: {
@@ -99,5 +100,5 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
-  ],
+  ].filter(Boolean),
 };
