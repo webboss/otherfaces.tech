@@ -10,13 +10,28 @@ exports.onPreInit = ({ actions, reporter }) => {
 exports.sourceNodes = async gatsbyApi => {
   const { actions, reporter, createNodeId, createContentDigest } = gatsbyApi;
   reporter.info("Creating nodes..");
+  const categoriesWithResources = categories.wpCategory.map(category => {
+    const resourcesPerCategory = resources.wpResource.filter(resource => {
+      return resource.categories.nodes.some(
+        resourceCategory => resourceCategory.name === category.name
+      );
+    });
+
+    return {
+      ...category,
+      resources: {
+        nodes: resourcesPerCategory,
+      },
+    };
+  });
 
   const data = {
     ...posts,
     ...resources,
-    ...categories,
     ...teamMembers,
+    wpCategory: categoriesWithResources,
   };
+  // ...categories,
 
   const dataCategories = Object.keys(data);
 
