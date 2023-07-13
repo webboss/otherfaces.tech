@@ -28,12 +28,14 @@ const Story = ({ data }) => {
             <Text variant="h3">
               {title} &#8212; {role}
             </Text>
-            <GatsbyImage
-              image={
-                featuredImage.node.localFile.childImageSharp.gatsbyImageData
-              }
-              className="w-full object-top  md:rounded-[100px] rounded-[50px] md:h-auto h-[370px] my-[45px]"
-            />
+            {featuredImage && (
+              <GatsbyImage
+                image={
+                  featuredImage.node.localFile.childImageSharp.gatsbyImageData
+                }
+                className="w-full object-top  md:rounded-[100px] rounded-[50px] md:h-auto h-[370px] my-[45px]"
+              />
+            )}
           </header>
 
           <section className="flex md:flex-row flex-col-reverse justify-between relative">
@@ -96,55 +98,55 @@ const Author = ({ author }) => {
   );
 };
 
-// export const pageQuery = graphql`
-//   query StoryQuery($slug: String) {
-//     wpPost(slug: { eq: $slug }) {
-//       title
-//       slug
-//       content
-//       excerpt
-//       date(formatString: "LL")
-//       role
-//       featuredImage {
-//         node {
-//           localFile {
-//             childImageSharp {
-//               gatsbyImageData(quality: 100, placeholder: BLURRED, height: 695)
-//             }
-//           }
-//         }
-//       }
+export const pageQuery = graphql`
+  query StoryQuery($slug: String) {
+    wpPost(slug: { eq: $slug }) {
+      title
+      slug
+      content
+      excerpt
+      date(formatString: "LL")
+      role
+      author {
+        node {
+          name
+          firstName
+          lastName
+        }
+      }
+    }
 
-//       author {
-//         node {
-//           name
-//           firstName
-//           lastName
-//         }
-//       }
-//     }
-
-//     allWpPost(
-//       filter: { slug: { ne: $slug } }
-//       limit: 3
-//       sort: { order: DESC, fields: date }
-//     ) {
-//       nodes {
-//         title
-//         slug
-//         excerpt
-//         role
-//         featuredImage {
-//           node {
-//             localFile {
-//               childImageSharp {
-//                 gatsbyImageData
-//               }
-//             }
-//           }
-//         }
+    allWpPost(
+      filter: { slug: { ne: $slug } }
+      limit: 3
+      sort: { order: DESC, fields: date }
+    ) {
+      nodes {
+        title
+        slug
+        excerpt
+        role
+      }
+    }
+  }
+`;
+export default Story;
+// featuredImage {
+//   node {
+//     localFile {
+//       childImageSharp {
+//         gatsbyImageData
 //       }
 //     }
 //   }
-// `;
-export default Story;
+// }
+
+// featuredImage {
+//   node {
+//     localFile {
+//       childImageSharp {
+//         gatsbyImageData(quality: 100, placeholder: BLURRED, height: 695)
+//       }
+//     }
+//   }
+// }

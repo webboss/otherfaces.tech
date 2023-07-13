@@ -9,6 +9,14 @@ exports.posts = {
       title: "Cynthia Ekwutosi",
       slug: "cynthia-ekwuthosi",
       role: "Founder, Digital Witch and Customer Success Manager",
+      date: new Date(),
+      author: {
+        node: {
+          name: "Other Faces of Tech",
+          firstName: "Other Faces",
+          lastName: "of Tech",
+        },
+      },
       featuredImage:
         "https://oft.web-boss.com.ng/wp-content/uploads/2023/06/Cynthia-2.jpeg",
       content:
@@ -20,6 +28,14 @@ exports.posts = {
       title: "Olabanji Ewenla",
       slug: "olabanji-ewenla",
       role: "Founder, Enoverlab and Product Manager",
+      date: new Date(),
+      author: {
+        node: {
+          name: "Other Faces of Tech",
+          firstName: "Other Faces",
+          lastName: "of Tech",
+        },
+      },
       featuredImage:
         "https://oft.web-boss.com.ng/wp-content/uploads/2023/06/Olabanji-scaled.jpeg",
       content:
@@ -31,6 +47,14 @@ exports.posts = {
       title: "Juliet Godwin",
       slug: "juliet-godwin",
       role: "Freelance Illustrator and Creative Designer",
+      date: new Date(),
+      author: {
+        node: {
+          name: "Other Faces of Tech",
+          firstName: "Other Faces",
+          lastName: "of Tech",
+        },
+      },
       featuredImage:
         "https://oft.web-boss.com.ng/wp-content/uploads/2023/06/Juliet-Godwin-1.jpeg",
       content:
@@ -42,6 +66,14 @@ exports.posts = {
       title: "Jephtah Abu",
       slug: "jephthah-abu",
       role: "Founder, Talentpoel. Ex: Community Manager.",
+      date: new Date(),
+      author: {
+        node: {
+          name: "Other Faces of Tech",
+          firstName: "Other Faces",
+          lastName: "of Tech",
+        },
+      },
       featuredImage:
         "https://oft.web-boss.com.ng/wp-content/uploads/2023/05/x4bdvvka7reezoogb5md.jpg",
       content:
