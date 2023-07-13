@@ -4,25 +4,24 @@ import Container from "components/container";
 import { Link, graphql, useStaticQuery } from "gatsby";
 
 export const Resources = () => {
-  // const allCategoryQuery = useStaticQuery(graphql`
-  //   query {
-  //     allWpCategory(limit: 6, filter: { description: { ne: null } }) {
-  //       nodes {
-  //         name
-  //         description
-  //       }
-  //     }
-
-  //     allWpResource {
-  //       totalCount
-  //     }
+  const allCategoryQuery = useStaticQuery(graphql`
+    query {
+      allWpResource {
+        totalCount
+      }
+    }
+  `);
+  // allWpCategory(limit: 6, filter: { description: { ne: null } }) {
+  //   nodes {
+  //     name
+  //     description
   //   }
-  // `);
+  // }
 
   // const allCategory = allCategoryQuery.allWpCategory.nodes;
   const allCategory = [];
-  // const noOfResources = allCategoryQuery.allWpResource.totalCount;
-  const noOfResources = 50;
+  const noOfResources = allCategoryQuery.allWpResource.totalCount;
+
   return (
     <section className="text-center">
       <Container>
