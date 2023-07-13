@@ -1,3 +1,4 @@
+const { categories } = require("./data/categories");
 const { posts } = require("./data/posts");
 const { resources } = require("./data/resources");
 
@@ -12,6 +13,7 @@ exports.sourceNodes = async gatsbyApi => {
   const data = {
     ...posts,
     ...resources,
+    ...categories,
   };
 
   const dataCategories = Object.keys(data);

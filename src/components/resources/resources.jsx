@@ -6,20 +6,20 @@ import { Link, graphql, useStaticQuery } from "gatsby";
 export const Resources = () => {
   const allCategoryQuery = useStaticQuery(graphql`
     query {
+      allWpCategory(limit: 6, filter: { description: { ne: null } }) {
+        nodes {
+          name
+          description
+        }
+      }
       allWpResource {
         totalCount
       }
     }
   `);
-  // allWpCategory(limit: 6, filter: { description: { ne: null } }) {
-  //   nodes {
-  //     name
-  //     description
-  //   }
-  // }
 
-  // const allCategory = allCategoryQuery.allWpCategory.nodes;
-  const allCategory = [];
+  const allCategory = allCategoryQuery.allWpCategory.nodes;
+
   const noOfResources = allCategoryQuery.allWpResource.totalCount;
 
   return (
