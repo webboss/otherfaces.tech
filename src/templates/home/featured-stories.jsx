@@ -1,5 +1,4 @@
 import React from "react";
-import { GatsbyImage } from "gatsby-plugin-image";
 
 import { Button, Text } from "components";
 import { Hr } from "components/hr";
@@ -7,6 +6,7 @@ import Container from "components/container";
 
 import { graphql, useStaticQuery } from "gatsby";
 import { ArticlePreviewList } from "components/article";
+import { ImageWithMock } from "components/image-with-mock";
 
 export const HomeFeaturedStories = () => {
   const mostRecentStoriesQuery = useStaticQuery(graphql`
@@ -17,20 +17,20 @@ export const HomeFeaturedStories = () => {
           slug
           excerpt
           role
+          featuredImage {
+            node {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+          }
         }
       }
     }
   `);
 
-  // featuredImage {
-  //   node {
-  //     localFile {
-  //       childImageSharp {
-  //         gatsbyImageData
-  //       }
-  //     }
-  //   }
-  // }
   const mostRecentStories = mostRecentStoriesQuery.allWpPost.nodes;
   const firstItem = mostRecentStories[0];
 
@@ -45,17 +45,11 @@ export const HomeFeaturedStories = () => {
           <div className="gradient-blue-to-red p-[1px] md:col-span-5  rounded col-span-12 ">
             <div className=" overflow-hidden relative">
               <div className="absolute bg-gradient-to-t rounded filter mix-blend-multiply from-black to-white  z-10 opacity-80   left-0 right-0 top-0 w-full h-full" />
-              {typeof firstItemFeaturedImage === "object" ? (
-                <GatsbyImage
-                  image={
-                    firstItemFeaturedImage.node.localFile.childImageSharp
-                      .gatsbyImageData
-                  }
-                  className=" rounded md:h-[516px] h-[356px]"
-                />
-              ) : (
-                <div />
-              )}
+
+              <ImageWithMock
+                image={firstItemFeaturedImage}
+                className="rounded md:h-[516px] h-[356px]"
+              />
             </div>
           </div>
           <div></div>

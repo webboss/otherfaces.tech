@@ -1,8 +1,8 @@
 import React from "react";
-import { GatsbyImage } from "gatsby-plugin-image";
 import { NLink, Text } from "components";
 
 import RightArrowIcon from "assets/images/svgs/arrow-right.svg";
+import { ImageWithMock } from "components/image-with-mock";
 
 const ArticlePreview = ({ title, slug, featuredImage, role }) => {
   return (
@@ -22,13 +22,11 @@ const ArticlePreview = ({ title, slug, featuredImage, role }) => {
           </div>
         </div>
 
-        {featuredImage?.node && (
-          <GatsbyImage
-            image={featuredImage.node.localFile.childImageSharp.gatsbyImageData}
-            className=" rounded  h-[416px]"
-            alt={title}
-          />
-        )}
+        <ImageWithMock
+          image={featuredImage}
+          className=" rounded  h-[416px]"
+          alt={title}
+        />
       </div>
     </div>
   );

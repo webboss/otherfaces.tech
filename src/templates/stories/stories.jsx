@@ -4,12 +4,13 @@ import Container from "components/container";
 import { Hr } from "components/hr";
 import Layout from "components/layout";
 import { graphql } from "gatsby";
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
+import { StaticImage } from "gatsby-plugin-image";
 import { readingTime } from "reading-time-estimator";
 import React from "react";
 
 import Share from "./components/share";
 import CopyButton from "./components/copy-button";
+import { ImageWithMock } from "components/image-with-mock";
 
 const Story = ({ data }) => {
   const { title, content, date, author, role, excerpt, featuredImage } =
@@ -26,16 +27,14 @@ const Story = ({ data }) => {
             <MetaData date={date} readTime={readTime.minutes} />
             <Author author={author} />
             <Text variant="h3">
+              {/* The weird symbole here is em-dash */}
               {title} &#8212; {role}
             </Text>
-            {featuredImage && (
-              <GatsbyImage
-                image={
-                  featuredImage.node.localFile.childImageSharp.gatsbyImageData
-                }
-                className="w-full object-top  md:rounded-[100px] rounded-[50px] md:h-auto h-[370px] my-[45px]"
-              />
-            )}
+
+            <ImageWithMock
+              image={featuredImage}
+              className="w-full object-top  md:rounded-[100px] rounded-[50px] md:h-auto h-[370px] my-[45px] "
+            />
           </header>
 
           <section className="flex md:flex-row flex-col-reverse justify-between relative">
@@ -107,6 +106,15 @@ export const pageQuery = graphql`
       excerpt
       date(formatString: "LL")
       role
+      featuredImage {
+        node {
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+      }
       author {
         node {
           name
@@ -124,6 +132,15 @@ export const pageQuery = graphql`
       nodes {
         title
         slug
+        featuredImage {
+          node {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+        }
         excerpt
         role
       }
@@ -131,22 +148,3 @@ export const pageQuery = graphql`
   }
 `;
 export default Story;
-// featuredImage {
-//   node {
-//     localFile {
-//       childImageSharp {
-//         gatsbyImageData
-//       }
-//     }
-//   }
-// }
-
-// featuredImage {
-//   node {
-//     localFile {
-//       childImageSharp {
-//         gatsbyImageData(quality: 100, placeholder: BLURRED, height: 695)
-//       }
-//     }
-//   }
-// }
