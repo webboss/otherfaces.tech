@@ -18,6 +18,11 @@ module.exports = {
       resolve: "gatsby-source-wordpress",
       options: {
         url: process.env.WORDPRESS_SOURCE_URL,
+        type: {
+          __all: {
+            limit: process.env.NODE_ENV === "production" ? 1000 : 6,
+          },
+        },
       },
     },
     {
@@ -76,6 +81,7 @@ module.exports = {
         svgs: path.join(__dirname, "src/assets/images/svgs"),
         config: path.join(__dirname, "src/config"),
         utils: path.join(__dirname, "src/utils"),
+        mocks: path.join(__dirname, "src/mocks"),
         jpegs: path.join(__dirname, "src/assets/images/jpegs"),
         templates: path.join(__dirname, "src/templates"),
         illustrations: path.join(__dirname, "src/assets/images/illustrations"),
