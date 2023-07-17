@@ -3,13 +3,15 @@ const { posts } = require("./data/posts");
 const { resources } = require("./data/resources");
 const { teamMembers } = require("./data/teamMembers");
 
-exports.onPreInit = ({ actions, reporter }) => {
-  reporter.info("Shall we begin to load the mocks?");
+exports.onPreInit = async ({ actions, reporter }) => {
+  reporter.info("Mock Enabled 👀");
 };
 
 exports.sourceNodes = async gatsbyApi => {
   const { actions, reporter, createNodeId, createContentDigest } = gatsbyApi;
+
   reporter.info("Creating nodes..");
+
   const categoriesWithResources = categories.wpCategory.map(category => {
     const resourcesPerCategory = resources.wpResource.filter(resource => {
       return resource.categories.nodes.some(
@@ -17,8 +19,10 @@ exports.sourceNodes = async gatsbyApi => {
       );
     });
 
+    const theCategory = category;
+
     return {
-      ...category,
+      ...theCategory,
       resources: {
         nodes: resourcesPerCategory,
       },
@@ -31,7 +35,6 @@ exports.sourceNodes = async gatsbyApi => {
     ...teamMembers,
     wpCategory: categoriesWithResources,
   };
-  // ...categories,
 
   const dataCategories = Object.keys(data);
 
@@ -54,5 +57,5 @@ exports.sourceNodes = async gatsbyApi => {
     });
   });
 
-  reporter.success("Nodes created🎉");
+  reporter.success("Mock Nodes created🎉");
 };

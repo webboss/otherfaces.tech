@@ -2,7 +2,7 @@ import ctl from "@netlify/classnames-template-literals";
 import { Text, NLink } from "components";
 import React from "react";
 import RightArrowIcon from "assets/images/svgs/arrow-right.svg";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 
 export const ResourceCategory = ({ title, list = [] }) => {
   const categoryId = title.replace(/\s/g, "-").toLowerCase();
@@ -33,12 +33,21 @@ const ResourceItem = ({ resource }) => {
   const typeOfResource = resourceTypes?.nodes[0]?.name;
   const paymentOfResource = resourcePayments?.nodes[0]?.name;
 
+  const featuredImageGatsbyImageData =
+    featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData;
+  const featuredImageIsMock = featuredImageGatsbyImageData === "mock";
+
   return (
     <div className={resourceItemStyle}>
       <div className="w-full h-full bg-black rounded flex flex-col justify-end ">
         <div className="md:pb-[37px] pb-[4px] relative h-full flex flex-col justify-end overflow-hidden">
           <div className="bg-gradient-to-t absolute bottom-0 left-0 w-full from-black via-black to-transparent    pb-[20px] md:pt-[100px] pt-[40px] z-[2]" />
-          {featuredImage && (
+          {featuredImageIsMock ? (
+            <StaticImage
+              src="../../assets/images/mock.jpeg"
+              className="!absolute left-0 right-0 top-0  h-full z-0 "
+            />
+          ) : (
             <GatsbyImage
               image={
                 featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData

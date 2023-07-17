@@ -2,8 +2,9 @@ require("dotenv").config();
 
 const path = require("path");
 
+const IS_MOCK_ENABLED = process.env.GATSBY_ENABLE_MOCKS === "true";
+
 const NO_OF_WORDPRESS_ITEMS = Number(process.env.NO_OF_WORDPRESS_ITEMS);
-const IS_MOCK_ENABLED = process.env.ENABLE_MOCKS === "true";
 
 module.exports = {
   siteMetadata: {

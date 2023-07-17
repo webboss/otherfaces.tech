@@ -8,43 +8,9 @@ import ctl from "@netlify/classnames-template-literals";
 import { ResourceCategory, ResourcesHeader } from "templates/resources";
 import { graphql, useStaticQuery } from "gatsby";
 
-const DonatePage = () => {
-  const resourceCategoryQuery = useStaticQuery(graphql`
-    query {
-      allWpCategory {
-        nodes {
-          name
-          resources {
-            nodes {
-              title
-              url
+const ResourcePage = () => {
+  const resourceCategoryQuery = useStaticQuery(RESOURCE_QUERY);
 
-              resourceTypes {
-                nodes {
-                  name
-                }
-              }
-              resourcePayments {
-                nodes {
-                  name
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  // featuredImage {
-  //   node {
-  //     localFile {
-  //       childImageSharp {
-  //         gatsbyImageData
-  //       }
-  //     }
-  //   }
-  // }
   const allResourcesCategory = resourceCategoryQuery.allWpCategory.nodes.filter(
     category =>
       !!category.resources?.nodes || !!category.resources?.nodes?.length
@@ -67,8 +33,42 @@ const DonatePage = () => {
   );
 };
 
-export default DonatePage;
+export default ResourcePage;
 
+const RESOURCE_QUERY = graphql`
+  query {
+    allWpCategory {
+      nodes {
+        name
+        resources {
+          nodes {
+            title
+            url
+            featuredImage {
+              node {
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
+              }
+            }
+            resourceTypes {
+              nodes {
+                name
+              }
+            }
+            resourcePayments {
+              nodes {
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 const formContainerStyle = ctl(`
 mt-[60px]
 mb-[160px]
