@@ -11,17 +11,19 @@ import { graphql, useStaticQuery } from "gatsby";
 import { toast } from "react-toastify";
 
 const DonatePage = () => {
-  const categoryQuery = useStaticQuery(graphql`
-    query {
-      allWpCategory {
-        nodes {
-          name
-        }
-      }
-    }
-  `);
+  // const categoryQuery = useStaticQuery(graphql`
+  //   query {
+  //     allWpCategory {
+  //       nodes {
+  //         name
+  //       }
+  //     }
+  //   }
+  // `);
 
-  const categories = categoryQuery.allWpCategory.nodes;
+  // const categories = categoryQuery.allWpCategory.nodes;
+
+  const categories = [];
 
   const {
     register,

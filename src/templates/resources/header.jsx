@@ -4,15 +4,16 @@ import { Br, Text } from "components";
 import { graphql, useStaticQuery } from "gatsby";
 
 export const ResourcesHeader = () => {
-  const resourcesQuery = useStaticQuery(graphql`
-    query MyQuery {
-      allWpResource {
-        totalCount
-      }
-    }
-  `);
+  // const resourcesQuery = useStaticQuery(graphql`
+  //   query MyQuery {
+  //     allWpResource {
+  //       totalCount
+  //     }
+  //   }
+  // `);
 
-  const noOfResources = resourcesQuery.allWpResource.totalCount;
+  // const noOfResources = resourcesQuery.allWpResource.totalCount;
+  const noOfResources = 10;
   return (
     <header>
       <Container className="pt-[100px] px-5 md:pb-[100px] pb-[40px] text-center max-w-[1000px]">

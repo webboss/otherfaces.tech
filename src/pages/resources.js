@@ -9,57 +9,57 @@ import { ResourceCategory, ResourcesHeader } from "templates/resources";
 import { graphql, useStaticQuery } from "gatsby";
 
 const DonatePage = () => {
-  const resourceCategoryQuery = useStaticQuery(graphql`
-    query {
-      allWpCategory {
-        nodes {
-          name
-          resources {
-            nodes {
-              title
-              url
+  // const resourceCategoryQuery = useStaticQuery(graphql`
+  //   query {
+  //     allWpCategory {
+  //       nodes {
+  //         name
+  //         resources {
+  //           nodes {
+  //             title
+  //             url
 
-              featuredImage {
-                node {
-                  localFile {
-                    childImageSharp {
-                      gatsbyImageData
-                    }
-                  }
-                }
-              }
+  //             featuredImage {
+  //               node {
+  //                 localFile {
+  //                   childImageSharp {
+  //                     gatsbyImageData
+  //                   }
+  //                 }
+  //               }
+  //             }
 
-              resourceTypes {
-                nodes {
-                  name
-                }
-              }
-              resourcePayments {
-                nodes {
-                  name
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
+  //             resourceTypes {
+  //               nodes {
+  //                 name
+  //               }
+  //             }
+  //             resourcePayments {
+  //               nodes {
+  //                 name
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `);
 
-  const allResourcesCategory = resourceCategoryQuery.allWpCategory.nodes.filter(
-    category =>
-      !!category.resources?.nodes || !!category.resources?.nodes?.length
-  );
+  // const allResourcesCategory = resourceCategoryQuery.allWpCategory.nodes.filter(
+  //   category =>
+  //     !!category.resources?.nodes || !!category.resources?.nodes?.length
+  // );
 
   return (
     <Layout title="Resources">
       <ResourcesHeader />
 
       <Container className={formContainerStyle}>
-        {allResourcesCategory.map(resourceCategory => {
+        {/* {allResourcesCategory.map(resourceCategory => {
           const { name, resources } = resourceCategory;
           return <ResourceCategory title={name} list={resources.nodes} />;
-        })}
+        })} */}
       </Container>
       <section>
         <Newsletter />

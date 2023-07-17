@@ -13,7 +13,7 @@ import CopyButton from "./components/copy-button";
 
 const Story = ({ data }) => {
   const { title, content, date, author, role, excerpt, featuredImage } =
-    data.wpPost;
+    data.wpPost ?? {};
 
   const readTime = readingTime(content);
   const relatedStories = data.allWpPost.nodes;
@@ -96,55 +96,55 @@ const Author = ({ author }) => {
   );
 };
 
-export const pageQuery = graphql`
-  query StoryQuery($slug: String) {
-    wpPost(slug: { eq: $slug }) {
-      title
-      slug
-      content
-      excerpt
-      date(formatString: "LL")
-      role
-      featuredImage {
-        node {
-          localFile {
-            childImageSharp {
-              gatsbyImageData(quality: 100, placeholder: BLURRED, height: 695)
-            }
-          }
-        }
-      }
+// export const pageQuery = graphql`
+//   query StoryQuery($slug: String) {
+//     wpPost(slug: { eq: $slug }) {
+//       title
+//       slug
+//       content
+//       excerpt
+//       date(formatString: "LL")
+//       role
+//       featuredImage {
+//         node {
+//           localFile {
+//             childImageSharp {
+//               gatsbyImageData(quality: 100, placeholder: BLURRED, height: 695)
+//             }
+//           }
+//         }
+//       }
 
-      author {
-        node {
-          name
-          firstName
-          lastName
-        }
-      }
-    }
+//       author {
+//         node {
+//           name
+//           firstName
+//           lastName
+//         }
+//       }
+//     }
 
-    allWpPost(
-      filter: { slug: { ne: $slug } }
-      limit: 3
-      sort: { order: DESC, fields: date }
-    ) {
-      nodes {
-        title
-        slug
-        excerpt
-        role
-        featuredImage {
-          node {
-            localFile {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+//     allWpPost(
+//       filter: { slug: { ne: $slug } }
+//       limit: 3
+//       sort: { order: DESC, fields: date }
+//     ) {
+//       nodes {
+//         title
+//         slug
+//         excerpt
+//         role
+//         featuredImage {
+//           node {
+//             localFile {
+//               childImageSharp {
+//                 gatsbyImageData
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `;
 export default Story;

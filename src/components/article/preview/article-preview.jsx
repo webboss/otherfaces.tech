@@ -22,11 +22,13 @@ const ArticlePreview = ({ title, slug, featuredImage, role }) => {
           </div>
         </div>
 
-        <GatsbyImage
-          image={featuredImage.node.localFile.childImageSharp.gatsbyImageData}
-          className=" rounded  h-[416px]"
-          alt={title}
-        />
+        {featuredImage?.node && (
+          <GatsbyImage
+            image={featuredImage.node.localFile.childImageSharp.gatsbyImageData}
+            className=" rounded  h-[416px]"
+            alt={title}
+          />
+        )}
       </div>
     </div>
   );

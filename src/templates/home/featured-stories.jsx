@@ -11,32 +11,32 @@ import { ArticlePreviewList } from "components/article";
 export const HomeFeaturedStories = () => {
   const mostRecentStoriesQuery = useStaticQuery(graphql`
     query {
-      allWpPost(limit: 4, sort: { order: DESC, fields: date }) {
+      allWpPost(limit: 4) {
         nodes {
           title
           slug
           excerpt
           role
-
-          featuredImage {
-            node {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData
-                }
-              }
-            }
-          }
         }
       }
     }
   `);
 
+  // featuredImage {
+  //   node {
+  //     localFile {
+  //       childImageSharp {
+  //         gatsbyImageData
+  //       }
+  //     }
+  //   }
+  // }
   const mostRecentStories = mostRecentStoriesQuery.allWpPost.nodes;
-
   const firstItem = mostRecentStories[0];
 
   const remainingItems = mostRecentStories.slice(1);
+
+  const firstItemFeaturedImage = firstItem?.featuredImage;
   return (
     <div className="pt-[120px] pb-[160px]  relative" id="recent-stories">
       <Hr className="absolute xl:top-[200px] top-[152px] md:block hidden left-0 w-full " />
@@ -45,13 +45,17 @@ export const HomeFeaturedStories = () => {
           <div className="gradient-blue-to-red p-[1px] md:col-span-5  rounded col-span-12 ">
             <div className=" overflow-hidden relative">
               <div className="absolute bg-gradient-to-t rounded filter mix-blend-multiply from-black to-white  z-10 opacity-80   left-0 right-0 top-0 w-full h-full" />
-              <GatsbyImage
-                image={
-                  firstItem.featuredImage.node.localFile.childImageSharp
-                    .gatsbyImageData
-                }
-                className=" rounded md:h-[516px] h-[356px]"
-              />
+              {typeof firstItemFeaturedImage === "object" ? (
+                <GatsbyImage
+                  image={
+                    firstItemFeaturedImage.node.localFile.childImageSharp
+                      .gatsbyImageData
+                  }
+                  className=" rounded md:h-[516px] h-[356px]"
+                />
+              ) : (
+                <div />
+              )}
             </div>
           </div>
           <div></div>
