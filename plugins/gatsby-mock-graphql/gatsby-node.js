@@ -1,6 +1,7 @@
 const { categories } = require("./data/categories");
 const { posts } = require("./data/posts");
 const { resources } = require("./data/resources");
+const { teamMembers } = require("./data/teamMembers");
 
 exports.onPreInit = ({ actions, reporter }) => {
   reporter.info("Shall we begin to load the mocks?");
@@ -14,6 +15,7 @@ exports.sourceNodes = async gatsbyApi => {
     ...posts,
     ...resources,
     ...categories,
+    ...teamMembers,
   };
 
   const dataCategories = Object.keys(data);
