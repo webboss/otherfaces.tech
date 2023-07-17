@@ -13,12 +13,12 @@ export const onRouteUpdate = ({ location }) => {
     return null;
   }
 
-  // const pagePath = location
-  //   ? location.pathname + location.search + location.hash
-  //   : undefined;
-  // setTimeout(() => {
-  //   if (typeof gtag === "function") {
-  //     gtag("event", "page_view", { page_path: pagePath });
-  //   }
-  // }, 100);
+  const pagePath = location
+    ? location.pathname + location.search + location.hash
+    : undefined;
+  setTimeout(() => {
+    if (typeof gtag === "function") {
+      gtag("event", "page_view", { page_path: pagePath });
+    }
+  }, 100);
 };
