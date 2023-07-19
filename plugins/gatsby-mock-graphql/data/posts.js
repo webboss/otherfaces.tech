@@ -7,15 +7,15 @@ exports.posts = {
       slug: "cynthia-ekwuthosi",
       role: "Founder, Digital Witch and Customer Success Manager",
       date: new Date(),
-      // featuredImage: {
-      //   node: {
-      //     localFile: {
-      //       childImageSharp: {
-      //         gatsbyImageData: "mock",
-      //       },
-      //     },
-      //   },
-      // },
+      featuredImage: {
+        node: {
+          localFile: {
+            childImageSharp: {
+              gatsbyImageData: "mock",
+            },
+          },
+        },
+      },
       author: {
         node: {
           name: "Other Faces of Tech",
@@ -32,15 +32,15 @@ exports.posts = {
       slug: "olabanji-ewenla",
       role: "Founder, Enoverlab and Product Manager",
       date: new Date(),
-      // featuredImage: {
-      //   node: {
-      //     localFile: {
-      //       childImageSharp: {
-      //         gatsbyImageData: "mock",
-      //       },
-      //     },
-      //   },
-      // },
+      featuredImage: {
+        node: {
+          localFile: {
+            childImageSharp: {
+              gatsbyImageData: "mock",
+            },
+          },
+        },
+      },
       author: {
         node: {
           name: "Other Faces of Tech",
@@ -59,15 +59,15 @@ exports.posts = {
       slug: "juliet-godwin",
       role: "Freelance Illustrator and Creative Designer",
       date: new Date(),
-      // featuredImage: {
-      //   node: {
-      //     localFile: {
-      //       childImageSharp: {
-      //         gatsbyImageData: "mock",
-      //       },
-      //     },
-      //   },
-      // },
+      featuredImage: {
+        node: {
+          localFile: {
+            childImageSharp: {
+              gatsbyImageData: "mock",
+            },
+          },
+        },
+      },
       author: {
         node: {
           name: "Other Faces of Tech",
@@ -85,15 +85,15 @@ exports.posts = {
       slug: "jephthah-abu",
       role: "Founder, Talentpoel. Ex: Community Manager.",
       date: new Date(),
-      // featuredImage: {
-      //   node: {
-      //     localFile: {
-      //       childImageSharp: {
-      //         gatsbyImageData: "mock",
-      //       },
-      //     },
-      //   },
-      // },
+      featuredImage: {
+        node: {
+          localFile: {
+            childImageSharp: {
+              gatsbyImageData: "mock",
+            },
+          },
+        },
+      },
       author: {
         node: {
           name: "Other Faces of Tech",

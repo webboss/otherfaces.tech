@@ -17,15 +17,15 @@ export const HomeFeaturedStories = () => {
           slug
           excerpt
           role
-          # featuredImage {
-          #   node {
-          #     localFile {
-          #       childImageSharp {
-          #         gatsbyImageData
-          #       }
-          #     }
-          #   }
-          # }
+          featuredImage {
+            node {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+          }
         }
       }
     }

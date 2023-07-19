@@ -3,15 +3,15 @@ exports.resources = {
     {
       title: "Toolbox by SignalSupply",
       url: "https://toolbox.signalsupply.co/",
-      // featuredImage: {
-      //   node: {
-      //     localFile: {
-      //       childImageSharp: {
-      //         gatsbyImageData: "mock",
-      //       },
-      //     },
-      //   },
-      // },
+      featuredImage: {
+        node: {
+          localFile: {
+            childImageSharp: {
+              gatsbyImageData: "mock",
+            },
+          },
+        },
+      },
       resourceTypes: {
         nodes: [
           {
@@ -40,15 +40,15 @@ exports.resources = {
     {
       title: "Builders Guide to Community Management",
       url: "https://www.nonfik.com/ebook-listing/builders-guide-to-community-marketing",
-      // featuredImage: {
-      //   node: {
-      //     localFile: {
-      //       childImageSharp: {
-      //         gatsbyImageData: "mock",
-      //       },
-      //     },
-      //   },
-      // },
+      featuredImage: {
+        node: {
+          localFile: {
+            childImageSharp: {
+              gatsbyImageData: "mock",
+            },
+          },
+        },
+      },
       resourceTypes: {
         nodes: [
           {
@@ -74,15 +74,15 @@ exports.resources = {
     {
       title: "Community Builders Guide",
       url: "https://www.nonfik.com/ebook-listing/builders-guide-to-community-marketing",
-      // featuredImage: {
-      //   node: {
-      //     localFile: {
-      //       childImageSharp: {
-      //         gatsbyImageData: "mock",
-      //       },
-      //     },
-      //   },
-      // },
+      featuredImage: {
+        node: {
+          localFile: {
+            childImageSharp: {
+              gatsbyImageData: "mock",
+            },
+          },
+        },
+      },
       resourceTypes: {
         nodes: [
           {
@@ -108,15 +108,15 @@ exports.resources = {
     {
       title: "Product Management 101: Who is a Product Manager",
       url: "https://www.simplilearn.com/product-management-101-free-program-skillup",
-      // featuredImage: {
-      //   node: {
-      //     localFile: {
-      //       childImageSharp: {
-      //         gatsbyImageData: "mock",
-      //       },
-      //     },
-      //   },
-      // },
+      featuredImage: {
+        node: {
+          localFile: {
+            childImageSharp: {
+              gatsbyImageData: "mock",
+            },
+          },
+        },
+      },
       resourceTypes: {
         nodes: [
           {
@@ -142,15 +142,15 @@ exports.resources = {
     {
       title: "Designing Brand Identity by Alina Wheeler",
       url: "https://www.amazon.com/Designing-Brand-Identity-Essential-Branding/dp/1118099206",
-      // featuredImage: {
-      //   node: {
-      //     localFile: {
-      //       childImageSharp: {
-      //         gatsbyImageData: "mock",
-      //       },
-      //     },
-      //   },
-      // },
+      featuredImage: {
+        node: {
+          localFile: {
+            childImageSharp: {
+              gatsbyImageData: "mock",
+            },
+          },
+        },
+      },
       resourceTypes: {
         nodes: [
           {
@@ -179,15 +179,15 @@ exports.resources = {
     {
       title: "Ducky 3D",
       url: "https://www.youtube.com/@TheDucky3D",
-      // featuredImage: {
-      //   node: {
-      //     localFile: {
-      //       childImageSharp: {
-      //         gatsbyImageData: "mock",
-      //       },
-      //     },
-      //   },
-      // },
+      featuredImage: {
+        node: {
+          localFile: {
+            childImageSharp: {
+              gatsbyImageData: "mock",
+            },
+          },
+        },
+      },
       resourceTypes: {
         nodes: [
           {
@@ -213,15 +213,15 @@ exports.resources = {
     {
       title: "C school",
       url: "https://www.community.club/c-school#courses",
-      // featuredImage: {
-      //   node: {
-      //     localFile: {
-      //       childImageSharp: {
-      //         gatsbyImageData: "mock",
-      //       },
-      //     },
-      //   },
-      // },
+      featuredImage: {
+        node: {
+          localFile: {
+            childImageSharp: {
+              gatsbyImageData: "mock",
+            },
+          },
+        },
+      },
       resourceTypes: {
         nodes: [
           {
@@ -247,15 +247,15 @@ exports.resources = {
     {
       title: "Proup MasterClass",
       url: "https://www.youtube.com/@ProUpMasterclass4TA",
-      // featuredImage: {
-      //   node: {
-      //     localFile: {
-      //       childImageSharp: {
-      //         gatsbyImageData: "mock",
-      //       },
-      //     },
-      //   },
-      // },
+      featuredImage: {
+        node: {
+          localFile: {
+            childImageSharp: {
+              gatsbyImageData: "mock",
+            },
+          },
+        },
+      },
       resourceTypes: {
         nodes: [
           {
@@ -284,15 +284,15 @@ exports.resources = {
     {
       title: "Logo March",
       url: "https://www.instagram.com/logo.march/",
-      // featuredImage: {
-      //   node: {
-      //     localFile: {
-      //       childImageSharp: {
-      //         gatsbyImageData: "mock",
-      //       },
-      //     },
-      //   },
-      // },
+      featuredImage: {
+        node: {
+          localFile: {
+            childImageSharp: {
+              gatsbyImageData: "mock",
+            },
+          },
+        },
+      },
       resourceTypes: {
         nodes: [
           {
@@ -321,15 +321,15 @@ exports.resources = {
     {
       title: "The Freelancers Journey",
       url: "https://university.webflow.com/courses/the-freelancers-journey",
-      // featuredImage: {
-      //   node: {
-      //     localFile: {
-      //       childImageSharp: {
-      //         gatsbyImageData: "mock",
-      //       },
-      //     },
-      //   },
-      // },
+      featuredImage: {
+        node: {
+          localFile: {
+            childImageSharp: {
+              gatsbyImageData: "mock",
+            },
+          },
+        },
+      },
       resourceTypes: {
         nodes: [
           {
