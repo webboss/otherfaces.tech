@@ -7,15 +7,15 @@ exports.posts = {
       slug: "cynthia-ekwuthosi",
       role: "Founder, Digital Witch and Customer Success Manager",
       date: new Date(),
-      featuredImage: {
-        node: {
-          localFile: {
-            childImageSharp: {
-              gatsbyImageData: "mock",
-            },
-          },
-        },
-      },
+      // featuredImage: {
+      //   node: {
+      //     localFile: {
+      //       childImageSharp: {
+      //         gatsbyImageData: "mock",
+      //       },
+      //     },
+      //   },
+      // },
       author: {
         node: {
           name: "Other Faces of Tech",
@@ -23,8 +23,7 @@ exports.posts = {
           lastName: "of Tech",
         },
       },
-      content:
-        "\n<p><strong>Can you share details about the city you grew up in, your educational background, and your aspirations for the future?</strong></p>\n\n\n\n<p>My name is Ekwutosi Cynthia, and I was born in Enugu Nsukka, but I moved to Makurdi to live with my uncle during my early years. Eventually, I returned to Nsukka for my secondary and university education. Although I studied literature in university, I was initially interested in studying law. However, I couldn&#8217;t imagine leaving Nsukka and my family to study law in Kogi State. After completing my education, I served in the Bayelsa State Ministry of Education, where I had my first experience working in the IT department. This sparked my interest in technology and led me to explore cloud computing.</p>\n\n\n\n<p>Following my service, I faced a turning point in my life when my father passed away. As the eldest sibling among eight, I took on the responsibility of becoming an adult and providing for my family. I relocated to Lagos and found a job in real estate, but I felt unfulfilled and desired a career change. That&#8217;s when I stumbled upon cloud computing through an online video and became fascinated by it. Cloud computing wasn&#8217;t widely known in Nigeria at the time, but I saw an opportunity to learn and excel in this emerging field.</p>\n\n\n\n<p>I pursued my interest in cloud computing by seeking employment in the IT industry. With the help of a friend, I landed a job in a cloud computing company in Nigeria. Initially, my role focused on technical customer support, troubleshooting issues, and escalating problems as needed. Determined to excel in my new field, I dedicated myself to learning and improving my skills. I sought guidance from colleagues and took additional courses to expand my knowledge. Over time, I became known within the company for my dedication and expertise. Eventually, I felt it was time to move on, and through a series of events, I found myself in a customer success role, providing support and ensuring customer satisfaction.</p>\n\n\n\n<p>Overall, my journey has been one of self-discovery, growth, and adapting to new challenges. I&#8217;ve learned the importance of seizing opportunities, being proactive in acquiring new skills, and staying true to my ambitions. From studying literature to venturing into cloud computing, each step has shaped my professional path and brought me closer to fulfilling my aspirations.</p>\n\n\n\n<p><strong>What skills should one be gathering before diving straight into a role like Customer Success, especially when they&#8217;re just getting started?</strong></p>\n\n\n\n<p>In my experience, I have noticed that teachers often have success transitioning into customer success roles due to their training and onboarding skills. Personally, as a teacher myself, I have worked with more than three international companies and witnessed this trend. Customer success involves conducting trainings, onboarding clients, and organizing meetings. If you have a background in project management with a touch of teaching, it can be a great advantage. Starting in customer service is a common entry point, allowing you to build your portfolio and gain patience and knowledge. As a customer service representative, you can also seek opportunities to enhance your skills, such as taking courses in project management or collaborating with other teams like sales and product support. By accumulating these diverse skills and experiences, you can eventually apply for a junior customer success manager role. Initially, you may need to learn the ropes and shadow an experienced manager, but over time, you will gain independence and responsibility, handling calls, writing reports, and eventually conducting meetings on your own. It&#8217;s important to note that customer success is distinct from customer support, and starting somewhere, even in a different role, is a valuable stepping stone towards a successful customer success career.</p>\n\n\n\n<p><strong>Do founders of software as a service startups often mix up the roles within their company due to resource constraints, where they actually require customer success but end up combining it with other responsibilities?</strong></p>\n\n\n\n<p>Personally, I really enjoy working with startups because they appreciate even the smallest contributions. However, I&#8217;ve noticed that the issue of muddled roles is more common in Nigeria compared to other countries. It seems that Nigerian HR departments often lack a clear understanding of job roles, combining multiple responsibilities into one and offering low salaries. In my experience, it&#8217;s crucial for Nigerian CEOs to invest in professionals who have a solid grasp of different job roles and responsibilities. They should consider hiring specialists or even bringing in someone to establish proper role structures within the company. This investment would greatly benefit the overall effectiveness and success of the organization.</p>\n\n\n\n<p><strong>What keeps you going in your career?</strong></p>\n\n\n\n<p>My motivation has never been solely focused on money because I believe that if money is your only drive, you&#8217;ll end up frustrated. IT and similar fields don&#8217;t always pay you when you expect them to. If money is your ultimate goal, you may lose focus and constantly chase the next big thing. Instead, I strive to learn and excel in my field. When people recognize my expertise and recommend me, that&#8217;s when opportunities come rushing in.</p>\n\n\n\n<p>I had a situation where someone tried to take advantage of me financially. They wanted to employ me for far less than what we initially agreed upon. I found it unfair and decided not to proceed. However, over time, the same person approached me for other opportunities, and I made sure to negotiate on my own terms. I realized that putting skills and expertise first is crucial, as it establishes your authority and attracts genuine recognition, rather than being a jack of all trades. I&#8217;ve invested heavily in certifications and continuous learning, even during the lockdown, without knowing where it would lead. I believed that someday it would all make sense, and now I have my own venture, Digital Witch, where people associate my name with expertise in the field.</p>\n\n\n\n<p><strong>What was your inspiration and motivation to start the digital witch community?</strong></p>\n\n\n\n<p>When I first started Digital Witch, my vision was focused on creating a supportive community specifically for women. You know, I shared my personal story about losing my dad and how my mom, as a stay-at-home mom, faced immense challenges. Trust me, being the eldest child in an African setting automatically meant I had to take on a motherly role, and let me tell you, it wasn&#8217;t an easy situation.</p>\n\n\n\n<p>So, I wanted to make a difference and provide these amazing women with valuable skills. I realized that many people weren&#8217;t taking online learning seriously, even when I offered free courses and tried to encourage them. It was disheartening, to say the least. But then, one day, I took to Facebook and asked if any women were interested in learning from me. The response was overwhelming! I decided to charge a fee for the training and poured my heart into creating valuable content.</p>\n\n\n\n<p>And you know what? It paid off. The impact was beyond anything I could have imagined. After the training, several women from that first class landed jobs within just two weeks. Others started getting interviews and promising opportunities. It was such a proud moment for me when I shared their success stories on social media. But, of course, there were some who criticized me for focusing exclusively on women. They thought it was unfair. So, I opened the doors to everyone who wanted to join, regardless of gender.</p>\n\n\n\n<p>As time went on, our community blossomed. Month after month, more and more students joined, and the results were incredible. We grew from a small group of 30 to over a thousand students within a few months. Can you believe it? I was both excited and overwhelmed by the response. At times, I worried about how I would manage such a large group, but seeing the impact we were making kept me going.</p>\n\n\n\n<p>Now, if you check out platforms like LinkedIn, you&#8217;ll notice a wave of fresh faces, and guess what? The majority of them are my students! They&#8217;ve landed jobs as virtual assistants, customer support professionals, appointment setters, and tele marketers. It&#8217;s amazing to witness how this community has empowered them to achieve their dreams. And let me tell you about the &#8220;japa&#8221; trend. Once they started earning a decent income, many of them are now considering relocating to places like the UK. It&#8217;s truly a testament to the positive impact of Digital Witch.</p>\n\n\n\n<p>Seeing these individuals thrive and succeed fills me with so much joy and satisfaction. It&#8217;s the human connections, the stories of personal growth, and the dreams becoming a reality that make every effort worthwhile. Digital Witch has become more than just a training program—it&#8217;s a tight-knit community that supports and uplifts each other. And I can&#8217;t wait to see what the future holds for all of us.</p>\n",
+      content: `\n<p><strong>Can you share details about the city you grew up in, your educational background, and your aspirations for the future?</strong></p>\n\n\n\n<p>My name is Ekwutosi Cynthia, and I was born in Enugu Nsukka, but I moved to Makurdi to live with my uncle during my early years. Eventually, I returned to Nsukka for my secondary and university education. Although I studied literature in university, I was initially interested in studying law. However, I couldn&#8217;t imagine leaving Nsukka and my family to study law in Kogi State. After completing my education, I served in the Bayelsa State Ministry of Education, where I had my first experience working in the IT department. This sparked my interest in technology and led me to explore cloud computing.</p>\n\n\n\n<p>Following my service, I faced a turning point in my life when my father passed away. As the eldest sibling among eight, I took on the responsibility of becoming an adult and providing for my family. I relocated to Lagos and found a job in real estate, but I felt unfulfilled and desired a career change. That&#8217;s when I stumbled upon cloud computing through an online video and became fascinated by it. Cloud computing wasn&#8217;t widely known in Nigeria at the time, but I saw an opportunity to learn and excel in this emerging field.</p>\n\n\n\n<p>I pursued my interest in cloud computing by seeking employment in the IT industry. With the help of a friend, I landed a job in a cloud computing company in Nigeria. Initially, my role focused on technical customer support, troubleshooting issues, and escalating problems as needed. Determined to excel in my new field, I dedicated myself to learning and improving my skills. I sought guidance from colleagues and took additional courses to expand my knowledge. Over time, I became known within the company for my dedication and expertise. Eventually, I felt it was time to move on, and through a series of events, I found myself in a customer success role, providing support and ensuring customer satisfaction.</p>\n\n\n\n<p>Overall, my journey has been one of self-discovery, growth, and adapting to new challenges. I&#8217;ve learned the importance of seizing opportunities, being proactive in acquiring new skills, and staying true to my ambitions. From studying literature to venturing into cloud computing, each step has shaped my professional path and brought me closer to fulfilling my aspirations.</p>\n\n\n\n<p><strong>What skills should one be gathering before diving straight into a role like Customer Success, especially when they&#8217;re just getting started?</strong></p>\n\n\n\n<p>In my experience, I have noticed that teachers often have success transitioning into customer success roles due to their training and onboarding skills. Personally, as a teacher myself, I have worked with more than three international companies and witnessed this trend. Customer success involves conducting trainings, onboarding clients, and organizing meetings. If you have a background in project management with a touch of teaching, it can be a great advantage. Starting in customer service is a common entry point, allowing you to build your portfolio and gain patience and knowledge. As a customer service representative, you can also seek opportunities to enhance your skills, such as taking courses in project management or collaborating with other teams like sales and product support. By accumulating these diverse skills and experiences, you can eventually apply for a junior customer success manager role. Initially, you may need to learn the ropes and shadow an experienced manager, but over time, you will gain independence and responsibility, handling calls, writing reports, and eventually conducting meetings on your own. It&#8217;s important to note that customer success is distinct from customer support, and starting somewhere, even in a different role, is a valuable stepping stone towards a successful customer success career.</p>\n\n\n\n<p><strong>Do founders of software as a service startups often mix up the roles within their company due to resource constraints, where they actually require customer success but end up combining it with other responsibilities?</strong></p>\n\n\n\n<p>Personally, I really enjoy working with startups because they appreciate even the smallest contributions. However, I&#8217;ve noticed that the issue of muddled roles is more common in Nigeria compared to other countries. It seems that Nigerian HR departments often lack a clear understanding of job roles, combining multiple responsibilities into one and offering low salaries. In my experience, it&#8217;s crucial for Nigerian CEOs to invest in professionals who have a solid grasp of different job roles and responsibilities. They should consider hiring specialists or even bringing in someone to establish proper role structures within the company. This investment would greatly benefit the overall effectiveness and success of the organization.</p>\n\n\n\n<p><strong>What keeps you going in your career?</strong></p>\n\n\n\n<p>My motivation has never been solely focused on money because I believe that if money is your only drive, you&#8217;ll end up frustrated. IT and similar fields don&#8217;t always pay you when you expect them to. If money is your ultimate goal, you may lose focus and constantly chase the next big thing. Instead, I strive to learn and excel in my field. When people recognize my expertise and recommend me, that&#8217;s when opportunities come rushing in.</p>\n\n\n\n<p>I had a situation where someone tried to take advantage of me financially. They wanted to employ me for far less than what we initially agreed upon. I found it unfair and decided not to proceed. However, over time, the same person approached me for other opportunities, and I made sure to negotiate on my own terms. I realized that putting skills and expertise first is crucial, as it establishes your authority and attracts genuine recognition, rather than being a jack of all trades. I&#8217;ve invested heavily in certifications and continuous learning, even during the lockdown, without knowing where it would lead. I believed that someday it would all make sense, and now I have my own venture, Digital Witch, where people associate my name with expertise in the field.</p>\n\n\n\n<p><strong>What was your inspiration and motivation to start the digital witch community?</strong></p>\n\n\n\n<p>When I first started Digital Witch, my vision was focused on creating a supportive community specifically for women. You know, I shared my personal story about losing my dad and how my mom, as a stay-at-home mom, faced immense challenges. Trust me, being the eldest child in an African setting automatically meant I had to take on a motherly role, and let me tell you, it wasn&#8217;t an easy situation.</p>\n\n\n\n<p>So, I wanted to make a difference and provide these amazing women with valuable skills. I realized that many people weren&#8217;t taking online learning seriously, even when I offered free courses and tried to encourage them. It was disheartening, to say the least. But then, one day, I took to Facebook and asked if any women were interested in learning from me. The response was overwhelming! I decided to charge a fee for the training and poured my heart into creating valuable content.</p>\n\n\n\n<p>And you know what? It paid off. The impact was beyond anything I could have imagined. After the training, several women from that first class landed jobs within just two weeks. Others started getting interviews and promising opportunities. It was such a proud moment for me when I shared their success stories on social media. But, of course, there were some who criticized me for focusing exclusively on women. They thought it was unfair. So, I opened the doors to everyone who wanted to join, regardless of gender.</p>\n\n\n\n<p>As time went on, our community blossomed. Month after month, more and more students joined, and the results were incredible. We grew from a small group of 30 to over a thousand students within a few months. Can you believe it? I was both excited and overwhelmed by the response. At times, I worried about how I would manage such a large group, but seeing the impact we were making kept me going.</p>\n\n\n\n<p>Now, if you check out platforms like LinkedIn, you&#8217;ll notice a wave of fresh faces, and guess what? The majority of them are my students! They&#8217;ve landed jobs as virtual assistants, customer support professionals, appointment setters, and tele marketers. It&#8217;s amazing to witness how this community has empowered them to achieve their dreams. And let me tell you about the &#8220;japa&#8221; trend. Once they started earning a decent income, many of them are now considering relocating to places like the UK. It&#8217;s truly a testament to the positive impact of Digital Witch.</p>\n\n\n\n<p>Seeing these individuals thrive and succeed fills me with so much joy and satisfaction. It&#8217;s the human connections, the stories of personal growth, and the dreams becoming a reality that make every effort worthwhile. Digital Witch has become more than just a training program—it&#8217;s a tight-knit community that supports and uplifts each other. And I can&#8217;t wait to see what the future holds for all of us.</p>\n`,
     },
     {
       id: "cG9zdDo2NA==",
@@ -33,15 +32,15 @@ exports.posts = {
       slug: "olabanji-ewenla",
       role: "Founder, Enoverlab and Product Manager",
       date: new Date(),
-      featuredImage: {
-        node: {
-          localFile: {
-            childImageSharp: {
-              gatsbyImageData: "mock",
-            },
-          },
-        },
-      },
+      // featuredImage: {
+      //   node: {
+      //     localFile: {
+      //       childImageSharp: {
+      //         gatsbyImageData: "mock",
+      //       },
+      //     },
+      //   },
+      // },
       author: {
         node: {
           name: "Other Faces of Tech",
@@ -60,15 +59,15 @@ exports.posts = {
       slug: "juliet-godwin",
       role: "Freelance Illustrator and Creative Designer",
       date: new Date(),
-      featuredImage: {
-        node: {
-          localFile: {
-            childImageSharp: {
-              gatsbyImageData: "mock",
-            },
-          },
-        },
-      },
+      // featuredImage: {
+      //   node: {
+      //     localFile: {
+      //       childImageSharp: {
+      //         gatsbyImageData: "mock",
+      //       },
+      //     },
+      //   },
+      // },
       author: {
         node: {
           name: "Other Faces of Tech",
@@ -86,15 +85,15 @@ exports.posts = {
       slug: "jephthah-abu",
       role: "Founder, Talentpoel. Ex: Community Manager.",
       date: new Date(),
-      featuredImage: {
-        node: {
-          localFile: {
-            childImageSharp: {
-              gatsbyImageData: "mock",
-            },
-          },
-        },
-      },
+      // featuredImage: {
+      //   node: {
+      //     localFile: {
+      //       childImageSharp: {
+      //         gatsbyImageData: "mock",
+      //       },
+      //     },
+      //   },
+      // },
       author: {
         node: {
           name: "Other Faces of Tech",

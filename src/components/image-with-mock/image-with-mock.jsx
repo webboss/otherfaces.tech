@@ -7,11 +7,11 @@ export const ImageWithMock = ({ image, ...imageProps }) => {
   const imageIsMock = imageGatsbyImageData === "mock";
   return (
     <React.Fragment>
-      {imageIsMock ? (
-        <StaticImage src="../../assets/images/mock.jpeg" {...imageProps} />
+      {/* {imageIsMock ? (
+        // <StaticImage src="../../assets/images/mock.jpeg" {...imageProps} />
       ) : (
-        <GatsbyImage image={imageGatsbyImageData} {...imageProps} />
-      )}
+        // <GatsbyImage image={imageGatsbyImageData} {...imageProps} />
+      )} */}
     </React.Fragment>
   );
 };

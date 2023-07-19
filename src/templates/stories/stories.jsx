@@ -106,15 +106,15 @@ export const pageQuery = graphql`
       excerpt
       date(formatString: "LL")
       role
-      featuredImage {
-        node {
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-      }
+      # featuredImage {
+      #   node {
+      #     localFile {
+      #       childImageSharp {
+      #         gatsbyImageData
+      #       }
+      #     }
+      #   }
+      # }
       author {
         node {
           name
@@ -132,15 +132,15 @@ export const pageQuery = graphql`
       nodes {
         title
         slug
-        featuredImage {
-          node {
-            localFile {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-          }
-        }
+        # featuredImage {
+        #   node {
+        #     localFile {
+        #       childImageSharp {
+        #         gatsbyImageData
+        #       }
+        #     }
+        #   }
+        # }
         excerpt
         role
       }
