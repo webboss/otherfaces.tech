@@ -25,7 +25,7 @@ export const HomeHeader = () => {
 
       <div className=" w-full overflow-hidden">
         <div className="mt-32 relative">
-          <div className=" absolute translate-y-[-34%]  right-0 ">
+          <div className=" absolute translate-y-[-34%]  right-0 lg:block hidden">
             <svg
               width="261"
               height="144"
@@ -67,7 +67,7 @@ export const HomeHeader = () => {
           </div>
         </div>
         <div className="relative mt-8 ">
-          <div className=" absolute translate-y-[-34%]  left-0 ">
+          <div className=" absolute translate-y-[-34%]  left-0 lg:block hidden">
             <svg
               width="230"
               height="124"
