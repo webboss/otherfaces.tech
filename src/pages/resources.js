@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Layout from "components/layout";
 import { Newsletter } from "components";
@@ -16,12 +16,45 @@ const ResourcePage = () => {
       !!category.resources?.nodes || !!category.resources?.nodes?.length
   );
 
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResult, setSearchResult] = useState(allResourcesCategory);
+
+  useEffect(() => {
+    if (searchQuery === "") {
+      setSearchResult(allResourcesCategory);
+    } else {
+      const lowercaseSearchQuery = searchQuery.toLowerCase().trim();
+
+      const filteredResult = allResourcesCategory
+        .filter(category =>
+          category.resources.nodes.some(node =>
+            node.title.toLowerCase().includes(lowercaseSearchQuery)
+          )
+        )
+        .map(category => {
+          category.resources.nodes = category.resources.nodes.filter(node =>
+            node.title.toLowerCase().includes(lowercaseSearchQuery)
+          );
+
+          return category;
+        });
+
+      setSearchResult(filteredResult);
+    }
+
+    return () => {
+      setSearchResult(allResourcesCategory);
+    };
+  }, [searchQuery]);
+
   return (
     <Layout title="Resources">
-      <ResourcesHeader />
-
+      <ResourcesHeader
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+      />
       <Container className={formContainerStyle}>
-        {allResourcesCategory.map(resourceCategory => {
+        {searchResult.map(resourceCategory => {
           const { name, resources } = resourceCategory;
           return <ResourceCategory title={name} list={resources.nodes} />;
         })}
@@ -70,6 +103,5 @@ const RESOURCE_QUERY = graphql`
   }
 `;
 const formContainerStyle = ctl(`
-mt-[60px]
 mb-[160px]
 `);

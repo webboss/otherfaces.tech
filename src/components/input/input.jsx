@@ -7,6 +7,8 @@ import Warning from "assets/images/svgs/warning.svg";
 const Input = ({
   label,
   placeholder,
+  value,
+  onChange,
   register,
   required,
   error,
@@ -38,6 +40,8 @@ const Input = ({
         name={inputId}
         className={inputStyle}
         required={required}
+        value={value}
+        onChange={e => onChange(e.target.value)}
         {...register}
         type={type}
       >
@@ -72,7 +76,7 @@ const baseStyles = `
 `;
 
 const inputErrorStyle = `
-  border-action-error 
+  border-action-error
   `;
 
 const labelStyle = ctl(`
@@ -83,7 +87,7 @@ const labelStyle = ctl(`
   font-semibold
 `);
 const errorMessageWrapStyle = ctl(`
-  flex 
+  flex
   gap-2
   items-center
   mt-[10px]

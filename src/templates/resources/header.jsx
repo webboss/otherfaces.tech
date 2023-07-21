@@ -1,9 +1,9 @@
 import React from "react";
 import Container from "components/container";
-import { Br, Text } from "components";
+import { Br, SearchInput, Text } from "components";
 import { graphql, useStaticQuery } from "gatsby";
 
-export const ResourcesHeader = () => {
+export const ResourcesHeader = ({ searchQuery, setSearchQuery }) => {
   // const resourcesQuery = useStaticQuery(graphql`
   //   query MyQuery {
   //     allWpResource {
@@ -25,7 +25,14 @@ export const ResourcesHeader = () => {
           *PS: This is only a directory, we have no affiliation with the brands
           listed
         </Text>
-        <div className="max-w-[800px] mx-auto mt-4"></div>
+
+        <div className="max-w-[700px] mx-auto mt-16">
+          <SearchInput
+            value={searchQuery}
+            onChange={setSearchQuery}
+            placeholder="Search Resources"
+          />
+        </div>
       </Container>
     </header>
   );
