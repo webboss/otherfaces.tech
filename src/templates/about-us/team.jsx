@@ -72,4 +72,5 @@ const teamNameStyle = ctl(`
   bg-clip-text
   mb-2
   md:mb-3
+  inline-block
 `);
