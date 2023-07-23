@@ -58,6 +58,10 @@ const inputWrapStyle = ctl(`
   mb-4
   w-full
 `);
+
+const oftBlueGold =
+  "linear-gradient(82deg, #0523F2 0%, #ACFC73 25%, #031383 50%, #F2CB05 75%, rgba(252, 230, 115, 0.00) 100%)";
+
 const baseStyles = `
   w-full
   rounded-full
@@ -68,7 +72,6 @@ const baseStyles = `
   pl-6
   text-[14px]
   bg-transparent
-
 `;
 
 const inputErrorStyle = `

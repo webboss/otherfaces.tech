@@ -4,7 +4,8 @@ import { Text } from "../text";
 import { Input } from "components/input";
 import { Hr } from "components/hr";
 import { Button } from "components/button";
-
+import Pattern from "assets/images/svgs/patterns.svg";
+import MobilePattern from "assets/images/svgs/mobile-pattern.svg";
 import ArrowIcon from "assets/images/svgs/arrow-right.svg";
 import ctl from "@netlify/classnames-template-literals";
 import { useForm } from "react-hook-form";
@@ -67,40 +68,53 @@ export const Newsletter = () => {
     <>
       <Hr />
       <Container>
-        <section className="grid grid-cols-12 my-[100px]">
+        <section className=" my-[100px]">
           <div></div>
-          <div className=" md:col-span-6  col-span-12">
-            <Text variant="p18" color="yellow" value="Subscribe" />
-            <Text variant="h2">Join Our Newsletter</Text>
-            <Text variant="p18" className="max-w-[400px]">
-              Be part of {noOfSubscribers}+ subscribers who gets notified when
-              we publish new stories and roadmaps.
-            </Text>
-
-            <form
-              className="mt-[45px] flex w-full  items-center"
-              onSubmit={handleSubmit(subscribeToNewsletter)}
-            >
-              <Input
-                isInline
-                register={register("email_address")}
-                placeholder="Enter your email"
-                className={inputStyle}
-                error={errors?.email_address?.message}
-              />
-
-              <Button
-                isInline
-                variant="outline"
-                className={`${buttonStyle} ${
-                  errors.email_address && "mb-[44px] border-action-error "
-                }`}
-                isLoading={isSubmitting}
-                disabled={!isValid}
+          <div className=" flex md:flex-row flex-col-reverse items-center justify-between">
+            <div className="md:text-left text-center md:mt-0 mt-[15px] ">
+              <Text variant="p18" color="yellow" value="Subscribe" />
+              <Text variant="h2" className="md:mt-[40px] mt-[15px]">
+                Join thousands of Techies who are ready for the Big Hit
+              </Text>
+              <Text
+                variant="p18"
+                className="max-w-[400px] md:mt-[21px] mt-[16px] "
               >
-                <ArrowIcon />{" "}
-              </Button>
-            </form>
+                Be part of {noOfSubscribers}+ who gets notified when we publish
+                new stories and roadmaps.
+              </Text>
+
+              <form
+                className="mt-[45px] flex w-full max-w-[732px] items-center"
+                onSubmit={handleSubmit(subscribeToNewsletter)}
+              >
+                <Input
+                  isInline
+                  register={register("email_address")}
+                  placeholder="Enter your email"
+                  className={inputStyle}
+                  error={errors?.email_address?.message}
+                />
+
+                <Button
+                  isInline
+                  variant="outline"
+                  className={`${buttonStyle} ${
+                    errors.email_address && "mb-[44px] border-action-error "
+                  }`}
+                  isLoading={isSubmitting}
+                  disabled={!isValid}
+                >
+                  <ArrowIcon />{" "}
+                </Button>
+              </form>
+            </div>
+            <div className="md:block hidden">
+              <Pattern />
+            </div>
+            <div className="md:hidden block">
+              <MobilePattern />
+            </div>
           </div>
 
           <div></div>
