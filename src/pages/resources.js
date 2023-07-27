@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import Layout from "components/layout";
-import { Input, Newsletter } from "components";
+import { Input, Newsletter, Text } from "components";
 import Container from "components/container";
 import ctl from "@netlify/classnames-template-literals";
 
 import { ResourceCategory, ResourcesHeader } from "templates/resources";
 import { graphql, useStaticQuery } from "gatsby";
 import SearchIcon from "assets/images/svgs/search.svg";
+import SearchInfoIcon from "assets/images/svgs/search-info.svg";
 
 const ResourcePage = () => {
   const resourceCategoryQuery = useStaticQuery(RESOURCE_QUERY);
@@ -62,10 +63,20 @@ const ResourcePage = () => {
         />
       </div>
       <Container className={formContainerStyle}>
-        {searchResult.map(resourceCategory => {
-          const { name, resources } = resourceCategory;
-          return <ResourceCategory title={name} list={resources.nodes} />;
-        })}
+        {searchResult.length ? (
+          searchResult.map(resourceCategory => {
+            const { name, resources } = resourceCategory;
+            return <ResourceCategory title={name} list={resources.nodes} />;
+          })
+        ) : (
+          <div className={emptyStateContainer}>
+            <SearchInfoIcon />
+            <Text variant="p" className="mt-8 leading-10">
+              We couldn’ t find anything matching to your search. <br />
+              Try again with different terms
+            </Text>
+          </div>
+        )}
       </Container>
       <section>
         <Newsletter />
@@ -132,4 +143,13 @@ const searchInputStyle = ctl(`
     border-none
     pb-0
     rounded-none
+`);
+
+const emptyStateContainer = ctl(`
+  mx-auto
+  flex
+  flex-col
+  items-center
+  justify-center
+  text-center
 `);

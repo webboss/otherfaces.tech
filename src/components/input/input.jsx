@@ -83,7 +83,7 @@ const labelStyle = ctl(`
   font-semibold
 `);
 const errorMessageWrapStyle = ctl(`
-  flex
+  flex 
   gap-2
   items-center
   mt-[10px]
