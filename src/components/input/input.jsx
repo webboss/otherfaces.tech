@@ -7,8 +7,6 @@ import Warning from "assets/images/svgs/warning.svg";
 const Input = ({
   label,
   placeholder,
-  value,
-  onChange,
   register,
   required,
   error,
@@ -40,8 +38,6 @@ const Input = ({
         name={inputId}
         className={inputStyle}
         required={required}
-        value={value}
-        onChange={e => onChange(e.target.value)}
         {...register}
         type={type}
       >

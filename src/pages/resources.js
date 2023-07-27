@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 
 import Layout from "components/layout";
-import { Newsletter } from "components";
+import { Input, Newsletter } from "components";
 import Container from "components/container";
 import ctl from "@netlify/classnames-template-literals";
 
 import { ResourceCategory, ResourcesHeader } from "templates/resources";
 import { graphql, useStaticQuery } from "gatsby";
+import SearchIcon from "assets/images/svgs/search.svg";
 
 const ResourcePage = () => {
   const resourceCategoryQuery = useStaticQuery(RESOURCE_QUERY);
@@ -16,14 +18,19 @@ const ResourcePage = () => {
       !!category.resources?.nodes || !!category.resources?.nodes?.length
   );
 
-  const [searchQuery, setSearchQuery] = useState("");
   const [searchResult, setSearchResult] = useState(allResourcesCategory);
+
+  const { register, watch } = useForm({
+    mode: "onChange",
+  });
+
+  const searchQuery = watch("search");
 
   useEffect(() => {
     if (searchQuery === "") {
       setSearchResult(allResourcesCategory);
     } else {
-      const lowercaseSearchQuery = searchQuery.toLowerCase().trim();
+      const lowercaseSearchQuery = searchQuery?.toLowerCase()?.trim();
 
       const filteredResult = allResourcesCategory
         .filter(category =>
@@ -41,18 +48,19 @@ const ResourcePage = () => {
 
       setSearchResult(filteredResult);
     }
-
-    return () => {
-      setSearchResult(allResourcesCategory);
-    };
   }, [searchQuery]);
 
   return (
     <Layout title="Resources">
-      <ResourcesHeader
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-      />
+      <ResourcesHeader />
+      <div className={searchWrapperStyle}>
+        <SearchIcon />
+        <Input
+          placeholder="Search Resources"
+          className={searchInputStyle}
+          register={register("search")}
+        />
+      </div>
       <Container className={formContainerStyle}>
         {searchResult.map(resourceCategory => {
           const { name, resources } = resourceCategory;
@@ -104,4 +112,24 @@ const RESOURCE_QUERY = graphql`
 `;
 const formContainerStyle = ctl(`
 mb-[160px]
+`);
+
+const searchWrapperStyle = ctl(`
+    flex
+    items-center
+    !border-2
+    rounded-full
+    px-10
+    md:px-14
+    max-w-[700px]
+    md:mx-auto
+    mb-20
+    mx-5
+`);
+
+const searchInputStyle = ctl(`
+    placeholder:text-[#4B4B4B]
+    border-none
+    pb-0
+    rounded-none
 `);
