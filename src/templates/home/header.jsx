@@ -2,6 +2,8 @@ import React from "react";
 
 import { Br, Button, Text } from "components";
 import Container from "components/container";
+import Rightpath from "assets/images/svgs/rightpath.svg";
+import Leftpath from "assets/images/svgs/leftpath.svg";
 
 export const HomeHeader = () => {
   return (
@@ -23,49 +25,59 @@ export const HomeHeader = () => {
         </Button>
       </Container>
 
-      <div className=" w-full overflow-hidden">
-        <div className="flex flex-nowrap mt-32  ">
-          <div className="animated-roles">
-            {roles.map(role => {
-              return (
-                <Role
-                  name={role}
-                  key={role.replace(/\s/g, "-").toLowerCase()}
-                />
-              );
-            })}
+      <div className=" w-full mt-32  overflow-hidden">
+        <div className="flex items-center flex-row-reverse">
+          <div className="">
+            <Rightpath />
           </div>
-          <div className="animated-roles" aria-hidden="true">
-            {roles.map(role => {
-              return (
-                <Role
-                  name={role}
-                  key={role.replace(/\s/g, "-").toLowerCase()}
-                />
-              );
-            })}
+          <div className="flex flex-nowrap overflow-hidden ">
+            <div className="animated-roles">
+              {roles.map(role => {
+                return (
+                  <Role
+                    name={role}
+                    key={role.replace(/\s/g, "-").toLowerCase()}
+                  />
+                );
+              })}
+            </div>
+            <div className="animated-roles" aria-hidden="true">
+              {roles.map(role => {
+                return (
+                  <Role
+                    name={role}
+                    key={role.replace(/\s/g, "-").toLowerCase()}
+                  />
+                );
+              })}
+            </div>
           </div>
         </div>
-        <div className="flex flex-nowrap mt-8  ">
-          <div className="animated-roles reversed">
-            {roles.reverse().map(role => {
-              return (
-                <Role
-                  name={role}
-                  key={role.replace(/\s/g, "-").toLowerCase()}
-                />
-              );
-            })}
+        <div className=" flex items-center  ">
+          <div>
+            <Leftpath />
           </div>
-          <div className="animated-roles reversed" aria-hidden="true">
-            {roles.map(role => {
-              return (
-                <Role
-                  name={role}
-                  key={role.replace(/\s/g, "-").toLowerCase()}
-                />
-              );
-            })}
+          <div className="flex flex-nowrap mt-8  overflow-hidden  ">
+            <div className="animated-roles reversed">
+              {roles.reverse().map(role => {
+                return (
+                  <Role
+                    name={role}
+                    key={role.replace(/\s/g, "-").toLowerCase()}
+                  />
+                );
+              })}
+            </div>
+            <div className="animated-roles reversed" aria-hidden="true">
+              {roles.map(role => {
+                return (
+                  <Role
+                    name={role}
+                    key={role.replace(/\s/g, "-").toLowerCase()}
+                  />
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
