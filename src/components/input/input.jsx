@@ -72,7 +72,7 @@ const baseStyles = `
 `;
 
 const inputErrorStyle = `
-  border-action-error
+  border-action-error 
   `;
 
 const labelStyle = ctl(`

@@ -98,7 +98,7 @@ export const Newsletter = () => {
                 isLoading={isSubmitting}
                 disabled={!isValid}
               >
-                <ArrowIcon />{" "}
+                <ArrowIcon />
               </Button>
             </form>
           </div>
@@ -114,16 +114,16 @@ export const Newsletter = () => {
 const inputStyle = ctl(`
 
 flex-shrink
-border-r-0  
+border-r-0
 rounded-r-none
 `);
 
 const buttonStyle = ctl(`
 flex-shrink-0
-h-[53px] 
-mb-4 
-min-w-[60px] 
-!border-2 
-!rounded-l-none 
-!border-l-0  
+h-[53px]
+mb-4
+min-w-[60px]
+!border-2
+!rounded-l-none
+!border-l-0
 `);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 
 import Layout from "components/layout";
@@ -19,21 +19,17 @@ const ResourcePage = () => {
       !!category.resources?.nodes || !!category.resources?.nodes?.length
   );
 
-  const [searchResult, setSearchResult] = useState(allResourcesCategory);
-
   const { register, watch } = useForm({
     mode: "onChange",
+    defaultValues: { search: ""}
   });
 
   const searchQuery = watch("search");
 
-  useEffect(() => {
-    if (searchQuery === "") {
-      setSearchResult(allResourcesCategory);
-    } else {
+  const searchResources = (items) => {
       const lowercaseSearchQuery = searchQuery?.toLowerCase()?.trim();
 
-      const filteredResult = allResourcesCategory
+      const filteredResult = searchQuery ? items
         .filter(category =>
           category.resources.nodes.some(node =>
             node.title.toLowerCase().includes(lowercaseSearchQuery)
@@ -45,11 +41,12 @@ const ResourcePage = () => {
           );
 
           return category;
-        });
+        }) : items;
 
-      setSearchResult(filteredResult);
-    }
-  }, [searchQuery]);
+      return filteredResult;
+  };
+
+  const filteredResult = searchResources(allResourcesCategory);
 
   return (
     <Layout title="Resources">
@@ -63,15 +60,15 @@ const ResourcePage = () => {
         />
       </div>
       <Container className={formContainerStyle}>
-        {searchResult.length ? (
-          searchResult.map(resourceCategory => {
+        {filteredResult.length ? (
+          filteredResult.map((resourceCategory, index) => {
             const { name, resources } = resourceCategory;
-            return <ResourceCategory title={name} list={resources.nodes} />;
+            return <ResourceCategory key={`resource-category-${index}`} title={name} list={resources.nodes} />;
           })
         ) : (
           <div className={emptyStateContainer}>
             <SearchInfoIcon />
-            <Text variant="p" className="mt-8 leading-10">
+            <Text variant="p16" className="mt-8 leading-10">
               We couldn’ t find anything matching to your search. <br />
               Try again with different terms
             </Text>
