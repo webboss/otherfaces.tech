@@ -4,8 +4,7 @@ import { Text } from "../text";
 import { Input } from "components/input";
 import { Hr } from "components/hr";
 import { Button } from "components/button";
-import Pattern from "assets/images/svgs/patterns.svg";
-import MobilePattern from "assets/images/svgs/mobile-pattern.svg";
+import NewsletterPattern from "assets/images/svgs/newsletter-pattern.svg";
 import ArrowIcon from "assets/images/svgs/arrow-right.svg";
 import ctl from "@netlify/classnames-template-literals";
 import { useForm } from "react-hook-form";
@@ -14,6 +13,7 @@ import * as yup from "yup";
 import { useSubscribersContext } from "context/SubscribersContext";
 import { toast } from "react-toastify";
 
+/*eslint no-useless-escape: "off"*/
 const validationSchema = yup.object().shape({
   email_address: yup
     .string()
@@ -65,27 +65,22 @@ export const Newsletter = () => {
     }
   };
   return (
-    <>
+    <React.Fragment>
       <Hr />
-      <Container>
-        <section className=" my-[100px]">
-          <div></div>
-          <div className=" flex md:flex-row flex-col-reverse items-center justify-between">
-            <div className="md:text-left text-center md:mt-0 mt-[15px] ">
-              <Text variant="p18" color="yellow" value="Subscribe" />
-              <Text variant="h2" className="md:mt-[40px] mt-[15px]">
-                Join thousands of Techies who are ready for the Big Hit
-              </Text>
-              <Text
-                variant="p18"
-                className="max-w-[400px] md:mt-[21px] mt-[16px] "
-              >
-                Be part of {noOfSubscribers}+ who gets notified when we publish
-                new stories and roadmaps.
+      <section className="relative overflow-x-hidden md:py-[120px] py-[0px]">
+        <NewsletterPattern className="md:absolute block top-0 md:left-[50%] md:h-full md:w-[95%] sm:w-[1000px] w-[700px] h-[250px] " />
+        <Container>
+          <section className="grid grid-cols-12 my-[100px]">
+            <div className=" md:col-span-6  col-span-12">
+              <Text variant="p18" color="yellow" value="Subscribe to" />
+              <Text variant="h2">Join Our Newsletter</Text>
+              <Text variant="p18" className="max-w-[400px]">
+                Be part of {noOfSubscribers}+ subscribers who gets notified when
+                we publish new stories and roadmaps.
               </Text>
 
               <form
-                className="mt-[45px] flex w-full max-w-[732px] items-center"
+                className="mt-[45px] flex w-full  items-center"
                 onSubmit={handleSubmit(subscribeToNewsletter)}
               >
                 <Input
@@ -109,19 +104,11 @@ export const Newsletter = () => {
                 </Button>
               </form>
             </div>
-            <div className="md:block hidden">
-              <Pattern />
-            </div>
-            <div className="md:hidden block">
-              <MobilePattern />
-            </div>
-          </div>
-
-          <div></div>
-        </section>
-      </Container>
+          </section>
+        </Container>
+      </section>
       <Hr />
-    </>
+    </React.Fragment>
   );
 };
 

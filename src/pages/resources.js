@@ -44,15 +44,15 @@ const RESOURCE_QUERY = graphql`
           nodes {
             title
             url
-            # featuredImage {
-            #   node {
-            #     localFile {
-            #       childImageSharp {
-            #         gatsbyImageData
-            #       }
-            #     }
-            #   }
-            # }
+            featuredImage {
+              node {
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
+              }
+            }
             resourceTypes {
               nodes {
                 name
@@ -72,33 +72,4 @@ const RESOURCE_QUERY = graphql`
 const formContainerStyle = ctl(`
 mt-[60px]
 mb-[160px]
-`);
-const arrowsContainerStyle = ctl(`
-md:h-[300px]
-h-[200px]
-md:mt-0
-mt-[-100px]
-mb-20
-overflow-hidden
-relative
-`);
-
-const arrowLeftStyle = ctl(`
-absolute
-left-[-100px]
-md:bottom-[180px]
-bottom-[100px]
-md:w-auto
-w-[200px]
-`);
-
-const arrowRightStyle = ctl(`transform
-rotate-180
-absolute
-right-[-100px]
-md:w-auto
-w-[200px]
-md:bottom-0
-bottom-[50px]
-
 `);

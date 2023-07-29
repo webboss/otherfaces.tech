@@ -27,6 +27,7 @@ const WailistForm = ({ isOpen, closeModal }) => {
   );
 };
 
+/*eslint no-useless-escape: "off"*/
 const TheForm = ({ setIsSuccessful }) => {
   const schema = yup.object().shape({
     email_address: yup
