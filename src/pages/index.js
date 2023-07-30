@@ -1,7 +1,7 @@
 import React from "react";
 
 import Layout from "components/layout";
-import { Newsletter, Partners, Roadmaps } from "components";
+import { Newsletter, Partners } from "components";
 
 import { HomeFeaturedStories, HomeHeader } from "templates/home";
 import { Resources } from "components/resources";

@@ -93,15 +93,15 @@ const RESOURCE_QUERY = graphql`
           nodes {
             title
             url
-            # featuredImage {
-            #   node {
-            #     localFile {
-            #       childImageSharp {
-            #         gatsbyImageData
-            #       }
-            #     }
-            #   }
-            # }
+            featuredImage {
+              node {
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
+              }
+            }
             resourceTypes {
               nodes {
                 name
