@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Layout from "components/layout";
-import { Button, Input, Newsletter, Text } from "components";
+import { Button, Input, Newsletter } from "components";
 import { DonateHeader } from "templates/donate";
 import Container from "components/container";
 import ctl from "@netlify/classnames-template-literals";
@@ -24,7 +24,7 @@ const DonatePage = () => {
     handleSubmit,
     reset: resetForm,
     watch,
-    formState: { errors, isSubmitting, isValid },
+    formState: { errors },
   } = useForm({
     mode: "onChange",
   });

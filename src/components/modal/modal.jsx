@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import CloseIcon from "assets/images/svgs/close.svg";
 
 import ctl from "@netlify/classnames-template-literals";
