@@ -21,29 +21,37 @@ const ResourcePage = () => {
 
   const { register, watch } = useForm({
     mode: "onChange",
-    defaultValues: { search: ""}
+    defaultValues: { search: "" },
   });
 
   const searchQuery = watch("search");
 
-  const searchResources = (items) => {
-      const lowercaseSearchQuery = searchQuery?.toLowerCase()?.trim();
+  const searchResources = items => {
+    const lowercaseSearchQuery = searchQuery?.toLowerCase()?.trim();
 
-      const filteredResult = searchQuery ? items
-        .filter(category =>
-          category.resources.nodes.some(node =>
-            node.title.toLowerCase().includes(lowercaseSearchQuery)
-          )
+    const categoryFilter = items.filter(category =>
+      category.name.toLowerCase().includes(lowercaseSearchQuery)
+    );
+
+    const resourceFilter = items
+      .filter(category =>
+        category.resources.nodes.some(node =>
+          node.title.toLowerCase().includes(lowercaseSearchQuery)
         )
-        .map(category => {
-          category.resources.nodes = category.resources.nodes.filter(node =>
-            node.title.toLowerCase().includes(lowercaseSearchQuery)
-          );
+      )
+      .map(category => {
+        category.resources.nodes = category.resources.nodes.filter(node =>
+          node.title.toLowerCase().includes(lowercaseSearchQuery)
+        );
 
-          return category;
-        }) : items;
+        return category;
+      });
 
-      return filteredResult;
+    const filteredResult = searchQuery
+      ? [...new Set([...categoryFilter, ...resourceFilter])]
+      : items;
+
+    return filteredResult;
   };
 
   const filteredResult = searchResources(allResourcesCategory);
@@ -63,7 +71,13 @@ const ResourcePage = () => {
         {filteredResult.length ? (
           filteredResult.map((resourceCategory, index) => {
             const { name, resources } = resourceCategory;
-            return <ResourceCategory key={`resource-category-${index}`} title={name} list={resources.nodes} />;
+            return (
+              <ResourceCategory
+                key={`resource-category-${index}`}
+                title={name}
+                list={resources.nodes}
+              />
+            );
           })
         ) : (
           <div className={emptyStateContainer}>
