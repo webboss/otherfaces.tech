@@ -74,5 +74,9 @@
     },
     "lint-staged": {
         "*.{js,jsx,ts,tsx,json,md}": "prettier --write"
+    },
+    "engines": {
+        "node":">=18.0.0"
     }
+    
 }
