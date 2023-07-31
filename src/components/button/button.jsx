@@ -145,7 +145,7 @@ Button.defaultProps = {
 };
 Button.propTypes = {
   text: PropTypes.string,
-  variant: PropTypes.oneOf(["primary", "alternative"]),
+  variant: PropTypes.oneOf(["primary", "alternative", "outline"]),
   size: PropTypes.oneOf(["xsmall", "small", "medium", "large", "xlarge"]),
   href: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   to: PropTypes.string,
