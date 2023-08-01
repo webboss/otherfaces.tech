@@ -28,33 +28,15 @@ const ResourcePage = () => {
 
   const searchResources = items => {
     const lowercaseSearchQuery = searchQuery?.toLowerCase()?.trim();
-
     const categoryFilter = items.filter(category =>
       category.name.toLowerCase().includes(lowercaseSearchQuery)
     );
-
-    const resourceFilter = items
-      .filter(category =>
-        category.resources.nodes.some(node =>
-          node.title.toLowerCase().includes(lowercaseSearchQuery)
-        )
-      )
-      .map(category => {
-        category.resources.nodes = category.resources.nodes.filter(node =>
-          node.title.toLowerCase().includes(lowercaseSearchQuery)
-        );
-
-        return category;
-      });
-
-    const filteredResult = searchQuery
-      ? [...new Set([...categoryFilter, ...resourceFilter])]
-      : items;
-
-    return filteredResult;
+    return categoryFilter;
   };
 
-  const filteredResult = searchResources(allResourcesCategory);
+  const filteredResult = searchQuery
+    ? searchResources(allResourcesCategory)
+    : allResourcesCategory;
 
   return (
     <Layout title="Resources">
@@ -62,7 +44,7 @@ const ResourcePage = () => {
       <div className={searchWrapperStyle}>
         <SearchIcon />
         <Input
-          placeholder="Search Resources"
+          placeholder="Search Resources e.g Product Design"
           className={searchInputStyle}
           register={register("search")}
         />
