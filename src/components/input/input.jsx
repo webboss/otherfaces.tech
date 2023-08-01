@@ -58,6 +58,7 @@ const inputWrapStyle = ctl(`
   mb-4
   w-full
 `);
+
 const baseStyles = `
   w-full
   rounded-full
@@ -68,7 +69,6 @@ const baseStyles = `
   pl-6
   text-[14px]
   bg-transparent
-
 `;
 
 const inputErrorStyle = `

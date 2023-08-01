@@ -2,6 +2,10 @@ require("dotenv").config();
 
 const path = require("path");
 
+const IS_MOCK_ENABLED = process.env.GATSBY_ENABLE_MOCKS === "true";
+
+const NO_OF_WORDPRESS_ITEMS = Number(process.env.NO_OF_WORDPRESS_ITEMS);
+
 module.exports = {
   siteMetadata: {
     title: `Other Faces of Tech`,
@@ -14,10 +18,21 @@ module.exports = {
     `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
-    {
+    IS_MOCK_ENABLED && `gatsby-mock-graphql`,
+    !IS_MOCK_ENABLED && {
       resolve: "gatsby-source-wordpress",
       options: {
         url: process.env.WORDPRESS_SOURCE_URL,
+        type: {
+          ...(NO_OF_WORDPRESS_ITEMS && {
+            __all: {
+              limit:
+                process.env.NODE_ENV === "production"
+                  ? 10000
+                  : NO_OF_WORDPRESS_ITEMS,
+            },
+          }),
+        },
       },
     },
     {
@@ -76,6 +91,7 @@ module.exports = {
         svgs: path.join(__dirname, "src/assets/images/svgs"),
         config: path.join(__dirname, "src/config"),
         utils: path.join(__dirname, "src/utils"),
+        mocks: path.join(__dirname, "src/mocks"),
         jpegs: path.join(__dirname, "src/assets/images/jpegs"),
         templates: path.join(__dirname, "src/templates"),
         illustrations: path.join(__dirname, "src/assets/images/illustrations"),
@@ -85,5 +101,5 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
-  ],
+  ].filter(Boolean),
 };

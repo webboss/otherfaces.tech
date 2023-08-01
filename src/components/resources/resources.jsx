@@ -12,7 +12,6 @@ export const Resources = () => {
           description
         }
       }
-
       allWpResource {
         totalCount
       }
@@ -20,7 +19,9 @@ export const Resources = () => {
   `);
 
   const allCategory = allCategoryQuery.allWpCategory.nodes;
+
   const noOfResources = allCategoryQuery.allWpResource.totalCount;
+
   return (
     <section className="text-center">
       <Container>

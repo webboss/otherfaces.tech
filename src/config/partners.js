@@ -1,4 +1,3 @@
-import React from "react";
 import WebBossLogo from "svgs/partners/web-boss.svg";
 import BigiBrandLogo from "svgs/partners/bigibrand.svg";
 import DearDesignerLogo from "svgs/partners/deardesigner.svg";

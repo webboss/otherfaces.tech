@@ -75,7 +75,7 @@ const variants = {
     text-[28px]
     md:leading-[59.04px]
     leading-[39.2px]
-    font-semibold 
+    font-[500] 
     `,
 
   h3: `
