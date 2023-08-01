@@ -1,9 +1,9 @@
 {
-    "name": "gatsby-starter-default",
+    "name": "otherfaces.tech",
     "private": true,
-    "description": "A simple starter to get up and developing quickly with Gatsby",
+    "description": "Stories Roadmaps and Resources to Non-coding Careers in Tech",
     "version": "0.1.0",
-    "author": "FourthCanvas <dev@fourthcanvas.co>",
+    "author": "Other Faces of Tech <dev@otherfaces.tech>",
     "dependencies": {
         "@builder.io/partytown": "^0.8.0",
         "@hookform/resolvers": "^2.8.8",
@@ -74,9 +74,6 @@
     },
     "lint-staged": {
         "*.{js,jsx,ts,tsx,json,md}": "prettier --write"
-    },
-    "engines": {
-        "node":">=16.0.0"
     }
     
 }
