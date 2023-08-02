@@ -13,7 +13,18 @@ import { NavBar } from "./navbar";
 import ctl from "@netlify/classnames-template-literals";
 import { ToastContainer } from "react-toastify";
 
-const Layout = ({ children, description, title, ignoreSiteName = false }) => {
+interface LayoutProps {
+  description?: string;
+  title: string;
+  ignoreSiteName: true | false;
+  children: React.ReactElement;
+}
+const Layout = ({
+  description,
+  title,
+  ignoreSiteName = false,
+  children,
+}: LayoutProps) => {
   return (
     <>
       <Seo
