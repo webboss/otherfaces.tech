@@ -6,6 +6,15 @@ import ctl from "@netlify/classnames-template-literals";
 import Loader from "src/assets/images/svgs/loader.svg";
 import { NLink } from "../nlink";
 
+interface ButtonProps {
+  text: string;
+  variant?: "primary" | "alternative" | "outline";
+  isLoading?: true | false;
+  href?: String;
+  to?: String;
+  isInline?: Boolean;
+  size?: "xsmall" | "small" | "medium" | "large" | "xlarge";
+}
 const Button = ({
   text,
   variant: buttonVariant = "primary",
@@ -18,7 +27,7 @@ const Button = ({
   children,
   className,
   isInline,
-}) => {
+}: ButtonProps & React.ComponentPropsWithoutRef<"button">) => {
   const buttonStyle = ctl(`
   ${baseStyle}
   ${sizes[buttonSize]}

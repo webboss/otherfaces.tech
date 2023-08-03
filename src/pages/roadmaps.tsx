@@ -84,12 +84,12 @@ const DonatePage = () => {
           <Input
             placeholder="Firstname"
             register={register("first_name")}
-            error={errors?.fullname?.message}
+            error={errors?.fullname}
           />
           <Input
             placeholder="E-mail Address"
             register={register("email_address")}
-            error={errors?.email?.message}
+            error={errors?.email}
             type="email"
           />
 

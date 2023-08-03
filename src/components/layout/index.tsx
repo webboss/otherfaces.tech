@@ -16,8 +16,8 @@ import { ToastContainer } from "react-toastify";
 interface LayoutProps {
   description?: string;
   title: string;
-  ignoreSiteName: true | false;
-  children: React.ReactElement;
+  ignoreSiteName?: true | false;
+  children: React.ReactElement | React.ReactElement[];
 }
 const Layout = ({
   description,

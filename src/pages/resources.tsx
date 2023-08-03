@@ -65,8 +65,10 @@ const ResourcePage = () => {
           <div className={emptyStateContainer}>
             <SearchInfoIcon />
             <Text variant="p16" className="mt-8 leading-10">
-              We couldn’ t find anything matching to your search. <br />
-              Try again with different terms
+              <>
+                We couldn’ t find anything matching to your search. <br />
+                Try again with different terms
+              </>
             </Text>
           </div>
         )}
