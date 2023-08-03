@@ -41,7 +41,7 @@ const Text = ({
   children,
   isPrimary,
   html,
-}: TextProps & HTMLElement) => {
+}: TextProps) => {
   const primaryFontsList = ["h1", "h2", "h3", "h4"];
   const isInPrimaryFontList =
     primaryFontsList.includes(textVariant) || isPrimary;

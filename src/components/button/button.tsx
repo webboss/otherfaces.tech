@@ -36,8 +36,11 @@ const Button = ({
   ${className}
   `);
 
-  let ButtonElement = "button";
-  let linkProps = {};
+  let ButtonElement: any = "button";
+  let linkProps: {
+    to?: String;
+    href?: String;
+  } = {};
 
   if (href || to) {
     ButtonElement = NLink;

@@ -3,5 +3,6 @@
     "jsx": "react",
     "baseUrl": "./src"
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "include": ["custom.d.ts", "./src"]
 }
