@@ -114,7 +114,7 @@ const variants = {
     md:text-[28px]
     text-[18px]
     md:leading-[39.2px]
-    leading-[25.2px]
+    leading-[18px]
     font-semibold 
     `,
   h5: `
