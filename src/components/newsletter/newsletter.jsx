@@ -69,7 +69,7 @@ export const Newsletter = () => {
       <Hr />
       <section className="relative overflow-x-hidden md:py-[120px] py-[0px]">
         <NewsletterPattern className="md:absolute block top-0 md:left-[50%] md:h-full md:w-[95%] sm:w-[1000px] w-[700px] h-[250px] " />
-        <Container>
+        <Container className="md:mt-0 -mt-[80px]">
           <section className="grid grid-cols-12 my-[100px]">
             <div className=" md:col-span-6  col-span-12">
               <Text variant="p18" color="yellow" value="Subscribe to" />

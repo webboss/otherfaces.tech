@@ -16,7 +16,7 @@ export const ResourcesHeader = () => {
 
   return (
     <header>
-      <Container className="pt-[100px] px-5 pb-[40px] text-center max-w-[1000px]">
+      <Container className=" pt-[50px] md:pt-[100px] px-5 pb-[40px] text-center max-w-[1000px]">
         <Text variant="h2">
           {noOfResources}+ resources to kickstart your <Br on="desktop" />{" "}
           non-coding career in tech.

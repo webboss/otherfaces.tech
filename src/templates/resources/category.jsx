@@ -35,18 +35,21 @@ const ResourceItem = ({ resource }) => {
 
   return (
     <div className={resourceItemStyle}>
-      <div className="w-full h-full bg-black rounded flex flex-col justify-end ">
-        <div className="md:pb-[37px] pb-[4px] relative h-full flex flex-col justify-end overflow-hidden">
-          <div className="bg-gradient-to-t absolute bottom-0 left-0 w-full from-black via-black to-transparent    pb-[20px] md:pt-[100px] pt-[40px] z-[2]" />
+      <div className="w-full h-full bg-black rounded flex flex-col justify-end overflow-hidden">
+        <div className="md:pb-[18px] pb-[4px] relative h-full flex flex-col justify-end overflow-hidden">
+          <div
+            className="bg-gradient-to-t absolute bottom-0 left-0 w-full from-black to-transparent   
+           pb-[20px]  pt-[100%] z-[2]"
+          />
           <ImageWithMock
             image={featuredImage}
             className="!absolute left-0 right-0 top-0  h-full z-0 "
           />
 
-          <div className="md:px-[40px] px-3 relative z-10">
+          <div className="md:px-[24px] px-2 relative z-10">
             <Text
               variant="h4"
-              className="md:!text-[28px] !text-[12px] !pointer-events-autotext-[14px]   leading-4 "
+              className="md:!text-[28px] !text-[12px] !pointer-events-autotext-[14px] "
             >
               {title}
             </Text>
@@ -60,7 +63,7 @@ const ResourceItem = ({ resource }) => {
         </div>
         <div className="md:h-[100px] h-[40px] flex-shrink-0">
           <hr className="gradient-blue-to-red border-0 h-[1px] " />
-          <div className="flex h-full flex-col justify-center md:px-[40px] px-3">
+          <div className="flex h-full flex-col justify-center md:px-[24px] px-2">
             <NLink
               href={{ url }}
               className="flex md:text-inherit md:text-[16px] font-secondary text-[8px] items-center group"

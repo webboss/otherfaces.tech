@@ -10,6 +10,28 @@ const {
   },
 } = tailwindconfig;
 
+interface TextProps {
+  value?: String | React.ReactElement;
+  variant:
+    | "h1"
+    | "h2"
+    | "h3"
+    | "h4"
+    | "h5"
+    | "h6"
+    | "h7"
+    | "p18"
+    | "p16"
+    | "p14"
+    | "p12";
+  color?: String;
+  weight?: String;
+  className?: String;
+  children?: React.ReactElement;
+  isPrimary?: true | false;
+  html?: String;
+}
+
 const Text = ({
   value,
   variant: textVariant,
@@ -19,18 +41,20 @@ const Text = ({
   children,
   isPrimary,
   html,
-}) => {
+}: TextProps) => {
   const primaryFontsList = ["h1", "h2", "h3", "h4"];
   const isInPrimaryFontList =
     primaryFontsList.includes(textVariant) || isPrimary;
 
   const firstCharacterInVariant = textVariant[0];
-  let TextElement = firstCharacterInVariant === "p" ? "p" : textVariant;
 
+  let textTag = firstCharacterInVariant === "p" ? "p" : textVariant;
   // h7 is not a valid, we will use replace this with an h6 tag but the style for h7 will be retained according to the design system
   if (textVariant === "h7") {
-    TextElement = "h6";
+    textTag = "h6";
   }
+
+  const TextElement = textTag;
 
   const [_color, _shade] = color.split("-");
 
@@ -48,10 +72,11 @@ const Text = ({
     fontWeight: weight,
   };
 
-  const textElementProps = {
+  const textElementProps: any = {
     style: dynamicStyle,
     className: textStyle,
   };
+
   return html ? (
     <TextElement
       {...textElementProps}
@@ -89,7 +114,7 @@ const variants = {
     md:text-[28px]
     text-[18px]
     md:leading-[39.2px]
-    leading-[25.2px]
+    leading-[18px]
     font-semibold 
     `,
   h5: `

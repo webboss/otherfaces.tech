@@ -2,7 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import ctl from "@netlify/classnames-template-literals";
 
-const Container = ({ className, children }) => {
+interface ContainerProps {
+  className?: String;
+  children: React.ReactElement;
+}
+const Container = ({ className, children }: ContainerProps) => {
   return (
     <section className={containerStyle + " " + className}>{children}</section>
   );

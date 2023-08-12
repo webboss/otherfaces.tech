@@ -12,7 +12,7 @@ const PrivacyPolicyPage = () => {
           <header className="py-[60px]">
             <Text variant="h2" value="Privacy Policy" />
           </header>
-          <content className=" article block max-w-[758px]">
+          <div className=" article block max-w-[758px]">
             <p>
               Thank you for accessing otherfaces.tech. We respect your privacy
               and want to protect your personal information. To learn more,
@@ -159,7 +159,7 @@ const PrivacyPolicyPage = () => {
               using any other information. The use of cookies does not contain
               any personal or private details and are free from viruses.
             </p>
-          </content>
+          </div>
         </section>
       </Container>
     </Layout>

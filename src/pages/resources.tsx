@@ -42,7 +42,7 @@ const ResourcePage = () => {
     <Layout title="Resources">
       <ResourcesHeader />
       <div className={searchWrapperStyle}>
-        <SearchIcon />
+        <SearchIcon className="md:w-auto w-[24px]" />
         <Input
           placeholder="Search Resources e.g Product Design"
           className={searchInputStyle}
@@ -65,8 +65,10 @@ const ResourcePage = () => {
           <div className={emptyStateContainer}>
             <SearchInfoIcon />
             <Text variant="p16" className="mt-8 leading-10">
-              We couldn’ t find anything matching to your search. <br />
-              Try again with different terms
+              <>
+                We couldn’ t find anything matching to your search. <br />
+                Try again with different terms
+              </>
             </Text>
           </div>
         )}
@@ -121,9 +123,10 @@ mb-[160px]
 const searchWrapperStyle = ctl(`
     flex
     items-center
-    !border-2
+    !border-[1.5px]
+    !md:border-2
     rounded-full
-    px-10
+    px-4
     md:px-14
     max-w-[700px]
     md:mx-auto
