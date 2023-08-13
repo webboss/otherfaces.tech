@@ -1,9 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ctl from "@netlify/classnames-template-literals";
-
+import { FieldError } from "react-hook-form";
 import Warning from "assets/images/svgs/warning.svg";
 
+interface InputProps {
+  label?: String;
+  error?: Pick<FieldError, "message">;
+  register: {};
+}
 const Input = ({
   label,
   placeholder,
@@ -13,8 +18,8 @@ const Input = ({
   className,
   type,
   children,
-}) => {
-  const inputId = label ? label.replaceAll(" ", "-").toLowerCase() : "";
+}: React.ComponentPropsWithoutRef<"input"> & InputProps) => {
+  const inputId = label ? label.replace(/\S/, "-").toLowerCase() : "";
 
   const IS_SELECT_INPUT_TYPE = type?.toLowerCase().trim() === "select";
   const InputElement = IS_SELECT_INPUT_TYPE ? "select" : "input";
@@ -23,6 +28,8 @@ const Input = ({
     ${error && inputErrorStyle}
     ${className}
 `);
+
+  const errorMessage = error?.message;
 
   return (
     <div className={inputWrapStyle}>
@@ -44,10 +51,10 @@ const Input = ({
         {children}
       </InputElement>
 
-      {error && (
+      {errorMessage && (
         <div className={errorMessageWrapStyle}>
           <Warning />
-          <p className={errorMessageStyle}>{error}</p>
+          <p className={errorMessageStyle}>{errorMessage}</p>
         </div>
       )}
     </div>

@@ -55,6 +55,7 @@ const DonatePage = () => {
     amount: amount,
     onSuccess: () => resetForm(),
     onClose: () => console.log("closed"),
+    onAbandoned: () => console.log("Checkout abandoned"),
   });
 
   const makePaymentBasedOnGateWay = {
@@ -77,19 +78,19 @@ const DonatePage = () => {
           <Input
             placeholder="Fullname"
             register={register("fullname")}
-            error={errors?.fullname?.message}
+            error={errors?.fullname}
           />
           <Input
             placeholder="E-mail Address"
             register={register("email")}
-            error={errors?.email?.message}
+            error={errors?.email}
             type="email"
           />
 
           <Input
             placeholder="Amount e.g 5000"
             register={register("amount")}
-            error={errors?.amount?.message}
+            error={errors?.amount}
             type="number"
           />
 
