@@ -6,11 +6,16 @@ import ctl from "@netlify/classnames-template-literals";
 import Loader from "src/assets/images/svgs/loader.svg";
 import { NLink } from "../nlink";
 
+type Href =
+  | String
+  | {
+      url?: String;
+    };
 interface ButtonProps {
   text: string;
   variant?: "primary" | "alternative" | "outline";
   isLoading?: true | false;
-  href?: String;
+  href?: Href;
   to?: String;
   isInline?: Boolean;
   size?: "xsmall" | "small" | "medium" | "large" | "xlarge";
@@ -39,7 +44,7 @@ const Button = ({
   let ButtonElement: any = "button";
   let linkProps: {
     to?: String;
-    href?: String;
+    href?: Href;
   } = {};
 
   if (href || to) {

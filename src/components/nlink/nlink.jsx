@@ -36,6 +36,7 @@ const NLink = ({ href, to, className, activeClassName, children }) => {
 NLink.propTypes = {
   href: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   to: PropTypes.string,
+  activeClassName: PropTypes.string,
 };
 
 export { NLink };

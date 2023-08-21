@@ -75,7 +75,6 @@ shrink-0
 `);
 // fixed
 const mainHeaderStlye = ctl(`
-bg-black
 top-0
 left-0
 w-full
