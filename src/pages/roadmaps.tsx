@@ -76,7 +76,11 @@ const DonatePage = () => {
     }
   };
   return (
-    <Layout title="Roadmaps">
+    <Layout
+      title="Roadmaps"
+      description="A clear roadmap for you.
+    Gain clarity on the right steps to kickstart or level up your career in tech."
+    >
       <RoadmapsHeader />
 
       <Container className={formContainerStyle}>
