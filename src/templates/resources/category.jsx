@@ -5,15 +5,17 @@ import RightArrowIcon from "assets/images/svgs/arrow-right.svg";
 import { ImageWithMock } from "components/image-with-mock";
 
 export const ResourceCategory = ({ title, list = [] }) => {
-  const categoryId = title.replace(/\s/g, "-").toLowerCase();
+  const categoryId = title && title.replace(/\s/g, "-").toLowerCase();
   return (
     <section id={categoryId}>
-      <header className="flex items-center">
-        <Text variant="h4" className=" mr-9 ">
-          {title}
-        </Text>
-        <hr className="gradient-yellow-to-blue h-[1px] border-0 md:flex hidden flex-1" />
-      </header>
+      {title && (
+        <header className="flex items-center">
+          <Text variant="h4" className=" mr-9 ">
+            {title}
+          </Text>
+          <hr className="gradient-yellow-to-blue h-[1px] border-0 md:flex hidden flex-1" />
+        </header>
+      )}
 
       <content className={contentResourceListStyle}>
         {list.map((resource, index) => {

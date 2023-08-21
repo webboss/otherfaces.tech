@@ -27,6 +27,42 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     });
   });
+
+  const SingleResourcePage = path.resolve(
+    "./src/templates/resources/single.jsx"
+  );
+  const allWpCategories = await graphql(`
+    query {
+      allWpCategory {
+        nodes {
+          name
+          slug
+          resources {
+            nodes {
+              title
+              url
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const resourceCategories =
+    await allWpCategories.data.allWpCategory.nodes.filter(
+      category => category.resources.nodes.length > 0
+    );
+
+  resourceCategories.forEach(categoryNode => {
+    const { slug } = categoryNode;
+    createPage({
+      path: `resources/${slug}`,
+      component: SingleResourcePage,
+      context: {
+        slug,
+      },
+    });
+  });
 };
 
 exports.onPreBuild = async () => {
