@@ -51,11 +51,11 @@
   /* Radial Gradients */
 
   .radial-gradient-blue {
-    background: radial-gradient(circle at 50%, blue 0%, black 75%);
+    background: radial-gradient(circle at 50%, blue 0%, #101010 75%);
     animation: glow-up 4s alternate 1s infinite;
   }
   .radial-gradient-red {
-    background: radial-gradient(circle at 50%, red 0%, black 75%);
+    background: radial-gradient(circle at 50%, red 0%, #101010 75%);
     animation: glow-up 3s ease-in-out alternate infinite;
   }
 
