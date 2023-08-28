@@ -70,7 +70,10 @@ const DonatePage = () => {
     makePaymentBasedOnGateWay[payment_gateway](onSucess, onClose);
   };
   return (
-    <Layout title="Donate">
+    <Layout
+      title="Donate"
+      description="The work we do is largely funded by individuals who buy our merch and organizations who make direct donations."
+    >
       <DonateHeader />
 
       <Container className={formContainerStyle}>
