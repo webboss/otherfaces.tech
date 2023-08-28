@@ -39,7 +39,10 @@ const ResourcePage = () => {
     : allResourcesCategory;
 
   return (
-    <Layout title="Resources">
+    <Layout
+      title="Resources"
+      description="Carefully selected books, schools, courses to kickstart and supercharge your non-coding career in tech "
+    >
       <ResourcesHeader />
       <div className={searchWrapperStyle}>
         <SearchIcon className="md:w-auto w-[24px]" />

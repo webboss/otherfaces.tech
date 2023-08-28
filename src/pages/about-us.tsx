@@ -22,7 +22,10 @@ const AboutPage = () => {
   `);
 
   return (
-    <Layout title="About us">
+    <Layout
+      title="About us"
+      description="Like you, our path to tech wasn’t straight but yours doesn’t have to be like that."
+    >
       <>
         <AboutUsHeader />
         <div className={arrowsContainerStyle}>

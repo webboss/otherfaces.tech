@@ -8,7 +8,11 @@ import { Resources } from "components/resources";
 
 const IndexPage = () => {
   return (
-    <Layout title="Other Faces of Tech" ignoreSiteName={true}>
+    <Layout
+      title="Other Faces of Tech"
+      ignoreSiteName={true}
+      description="Let's help you put a face your career in tech. Through stories, roadmaps, and resources"
+    >
       <>
         <HomeHeader />
 
