@@ -68,7 +68,7 @@ export const Newsletter = () => {
     <React.Fragment>
       <Hr />
       <section className="relative overflow-x-hidden md:py-[120px] py-[0px]">
-        <NewsletterPattern className="md:absolute block top-0 md:left-[50%] md:h-full md:w-[95%] sm:w-[1000px] w-[700px] h-[250px] " />
+        <NewsletterPattern className="md:absolute block top-0 md:left-[65%] md:h-full md:w-[95%] sm:w-[1000px] w-[700px] h-[250px]" />
         <Container className="md:mt-0 -mt-[80px]">
           <section className="grid grid-cols-12 my-[100px]">
             <div className=" md:col-span-6  col-span-12">
@@ -80,7 +80,7 @@ export const Newsletter = () => {
               </Text>
 
               <form
-                className="mt-[45px] flex w-full  items-center"
+                className="mt-[45px] flex w-full items-center"
                 onSubmit={handleSubmit(subscribeToNewsletter)}
               >
                 <Input
@@ -94,12 +94,12 @@ export const Newsletter = () => {
                   isInline
                   variant="outline"
                   className={`${buttonStyle} ${
-                    errors.email_address && "mb-[44px] border-action-error "
+                    errors.email_address && "border-action-error "
                   }`}
                   isLoading={isSubmitting}
                   disabled={!isValid}
                 >
-                  <ArrowIcon />{" "}
+                  <ArrowIcon />
                 </Button>
               </form>
             </div>
@@ -112,18 +112,17 @@ export const Newsletter = () => {
 };
 
 const inputStyle = ctl(`
-
-flex-shrink
-border-r-0
-rounded-r-none
+  flex-shrink
+  border-r-0
+  rounded-r-none
 `);
 
 const buttonStyle = ctl(`
-flex-shrink-0
-h-[53px]
-mb-4
-min-w-[60px]
-!border-2
-!rounded-l-none
-!border-l-0
+  flex-shrink-0
+  h-[53px]
+  mb-4
+  min-w-[60px]
+  !border-2
+  !rounded-l-none
+  !border-l-0
 `);
