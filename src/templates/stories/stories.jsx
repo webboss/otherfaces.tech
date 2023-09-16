@@ -10,21 +10,41 @@ import React from "react";
 import parse from "html-react-parser";
 import DOMPurify from "dompurify";
 
-import Share from "./components/share";
+import Share, { popupWindow, url } from "./components/share";
 import CopyButton from "./components/copy-button";
 import { ImageWithMock } from "components/image-with-mock";
 
-const Blockquote = ({ node, children }) => {
+const Blockquote = ({ node }) => {
+  const urlLength = `${url}`.length;
+  const tweetLength = 280;
+  const expectedStringLength = tweetLength - urlLength;
+
+  const firstParagraph = `${node[0].children[0].data}`.substring(
+    0,
+    expectedStringLength
+  );
   return (
-    <div>
+    <div
+      className="bg-primary-200
+    bg-opacity-5 p-6 rounded-3xl my-4"
+    >
       <blockquote>
         {node.map(nodeItem => {
           const Element = nodeItem.name;
           return <Element>{nodeItem.children[0].data}</Element>;
-          // console.log(nodeItem.name);
         })}
       </blockquote>
-      <Button>Tweet this</Button>
+      <div>
+        <Button
+          onClick={() =>
+            popupWindow(
+              `https://twitter.com/share?text=${firstParagraph}&url=${url}`
+            )
+          }
+        >
+          Tweet this
+        </Button>
+      </div>
     </div>
   );
 };
@@ -36,20 +56,7 @@ const Story = ({ data }) => {
   const readTime = readingTime(content);
   const relatedStories = data.allWpPost.nodes;
 
-  const Content = parse(content, {
-    replace: domNode => {
-      // console.log(domNode.name);
-      if (domNode.name === "blockquote") {
-        return <Blockquote>{domNode.children}</Blockquote>;
-      }
-    },
-  });
-
-  // const window = new JSDOM("").window;
-  // const purify = DOMPurify(window);
   const purifiedContent = DOMPurify.sanitize(content?.replace(/\n/gi, ""));
-
-  console.log({ purifiedContent });
 
   return (
     <Layout title={title} description={excerpt} ignoreSiteName>
@@ -81,7 +88,6 @@ const Story = ({ data }) => {
               {parse(purifiedContent, {
                 replace: domNode => {
                   if (domNode.name === "blockquote") {
-                    console.log(domNode);
                     return <Blockquote node={domNode.children} />;
                   }
                 },
