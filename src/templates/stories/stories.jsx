@@ -59,7 +59,7 @@ const Story = ({ data }) => {
   const purifiedContent = DOMPurify.sanitize(content?.replace(/\n/gi, ""));
 
   return (
-    <Layout title={title} description={excerpt} ignoreSiteName>
+    <Layout title={title} description={excerpt}>
       <Container className="md:py-[100px] py-[50px] ">
         <article>
           <header className="article-header">
