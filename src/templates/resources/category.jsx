@@ -2,7 +2,7 @@ import ctl from "@netlify/classnames-template-literals";
 import { Text, NLink } from "components";
 import React from "react";
 import RightArrowIcon from "assets/images/svgs/arrow-right.svg";
-import { ImageWithMock } from "components/image-with-mock";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 export const ResourceCategory = ({ title, list = [] }) => {
   const categoryId = title && title.replace(/\s/g, "-").toLowerCase();
@@ -29,11 +29,10 @@ export const ResourceCategory = ({ title, list = [] }) => {
 };
 
 const ResourceItem = ({ resource }) => {
-  const { title, url, resourceTypes, resourcePayments, featuredImage } =
-    resource;
+  const { title, url, resourceType, paymentType, featuredImage } = resource;
 
-  const typeOfResource = resourceTypes?.nodes[0]?.name;
-  const paymentOfResource = resourcePayments?.nodes[0]?.name;
+  const typeOfResource = resourceType[0];
+  const paymentOfResource = paymentType[0];
 
   return (
     <div className={resourceItemStyle}>
@@ -43,9 +42,9 @@ const ResourceItem = ({ resource }) => {
             className="bg-gradient-to-t absolute bottom-0 left-0 w-full from-black to-transparent   
            pb-[20px]  pt-[100%] z-[2]"
           />
-          <ImageWithMock
-            image={featuredImage}
-            className="!absolute left-0 right-0 top-0  h-full z-0 "
+          <GatsbyImage
+            image={getImage(featuredImage)}
+            className="!absolute left-0 right-0 top-0  h-full z-0"
           />
 
           <div className="md:px-[24px] px-2 relative z-10">

@@ -14,10 +14,21 @@ import SearchInfoIcon from "assets/images/svgs/search-info.svg";
 const ResourcePage = () => {
   const resourceCategoryQuery = useStaticQuery(RESOURCE_QUERY);
 
-  const allResourcesCategory = resourceCategoryQuery.allWpCategory.nodes.filter(
-    category =>
-      !!category.resources?.nodes || !!category.resources?.nodes?.length
-  );
+  const allResourcesCategory =
+    resourceCategoryQuery?.contentfulResources?.category;
+  const allResources = resourceCategoryQuery?.allContentfulResources?.nodes;
+
+  const categoriesWithResources = allResourcesCategory
+    .map(category => {
+      const resources = allResources.filter(resource =>
+        resource.category.includes(category)
+      );
+      return {
+        category,
+        resources,
+      };
+    })
+    .filter(category => !!category.resources.length);
 
   const { register, watch } = useForm({
     mode: "onChange",
@@ -29,14 +40,14 @@ const ResourcePage = () => {
   const searchResources = items => {
     const lowercaseSearchQuery = searchQuery?.toLowerCase()?.trim();
     const categoryFilter = items.filter(category =>
-      category.name.toLowerCase().includes(lowercaseSearchQuery)
+      category.toLowerCase().includes(lowercaseSearchQuery)
     );
     return categoryFilter;
   };
 
   const filteredResult = searchQuery
     ? searchResources(allResourcesCategory)
-    : allResourcesCategory;
+    : categoriesWithResources;
 
   return (
     <Layout
@@ -55,12 +66,12 @@ const ResourcePage = () => {
       <Container className={formContainerStyle}>
         {filteredResult.length ? (
           filteredResult.map((resourceCategory, index) => {
-            const { name, resources } = resourceCategory;
+            const { category, resources } = resourceCategory;
             return (
               <ResourceCategory
                 key={`resource-category-${index}`}
-                title={name}
-                list={resources.nodes}
+                title={category}
+                list={resources}
               />
             );
           })
@@ -87,33 +98,18 @@ export default ResourcePage;
 
 const RESOURCE_QUERY = graphql`
   query {
-    allWpCategory {
+    contentfulResources(title: { eq: "All Categorization" }) {
+      category
+    }
+    allContentfulResources(filter: { title: { ne: "All Categorization" } }) {
       nodes {
-        name
-        resources {
-          nodes {
-            title
-            url
-            featuredImage {
-              node {
-                localFile {
-                  childImageSharp {
-                    gatsbyImageData
-                  }
-                }
-              }
-            }
-            resourceTypes {
-              nodes {
-                name
-              }
-            }
-            resourcePayments {
-              nodes {
-                name
-              }
-            }
-          }
+        title
+        url
+        paymentType
+        resourceType
+        category
+        featuredImage {
+          gatsbyImageData(placeholder: BLURRED, formats: WEBP)
         }
       }
     }

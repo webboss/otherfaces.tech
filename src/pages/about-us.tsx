@@ -10,16 +10,16 @@ import ArrowIcon from "assets/images/svgs/arrow.svg";
 import { AboutUsHeader, Team } from "templates/about-us";
 
 const AboutPage = () => {
-  const teamMembersQuery = useStaticQuery(graphql`
-    query {
-      allWpTeamMember(sort: { fields: [date] }) {
-        nodes {
-          role
-          title
-        }
-      }
-    }
-  `);
+  // const teamMembersQuery = useStaticQuery(graphql`
+  //   query {
+  //     allWpTeamMember(sort: { fields: [date] }) {
+  //       nodes {
+  //         role
+  //         title
+  //       }
+  //     }
+  //   }
+  // `);
 
   return (
     <Layout
@@ -32,7 +32,7 @@ const AboutPage = () => {
           <ArrowIcon className={arrowLeftStyle} />
           <ArrowIcon className={arrowRightStyle} />
         </div>
-        <Team teamData={teamMembersQuery.allWpTeamMember.nodes} />
+        {/* <Team teamData={teamMembersQuery.allWpTeamMember.nodes} /> */}
         <Newsletter />
         <div className="md:my-[122px] my-[90px]">
           <Partners />
