@@ -6,8 +6,11 @@ import { Link, graphql, useStaticQuery } from "gatsby";
 export const Resources = () => {
   const allCategoryQuery = useStaticQuery(graphql`
     query {
-      contentfulResources(title: { eq: "All Categorization" }) {
-        category
+      allContentfulResourceCategories {
+        nodes {
+          title
+          description
+        }
       }
       allContentfulResources(filter: { title: { ne: "All Categorization" } }) {
         totalCount
@@ -15,7 +18,8 @@ export const Resources = () => {
     }
   `);
 
-  const allCategory = allCategoryQuery.contentfulResources.category.slice(0, 6);
+  const allCategory =
+    allCategoryQuery.allContentfulResourceCategories.nodes.slice(0, 6);
 
   const noOfResources = allCategoryQuery.allContentfulResources.totalCount;
 
@@ -34,10 +38,8 @@ export const Resources = () => {
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-[50px]">
           {allCategory.map(roadmap => {
-            const key = roadmap.replace(/\s/g, "-").toLowerCase();
-            return (
-              <FeaturedRoadMap title={roadmap} key={key} sectionId={key} />
-            );
+            const key = roadmap?.title?.replace(/\s/g, "-").toLowerCase();
+            return <FeaturedRoadMap {...roadmap} key={key} sectionId={key} />;
           })}
         </div>
       </Container>
@@ -45,14 +47,19 @@ export const Resources = () => {
   );
 };
 
-const FeaturedRoadMap = ({ title, sectionId, comingSoon = false }) => {
+const FeaturedRoadMap = ({
+  title,
+  description,
+  sectionId,
+  comingSoon = false,
+}) => {
   return (
     <Link to={`/resources#${sectionId}`} className="group">
       <div className="text-left py-7 px-6 bg-opacity-5 rounded-[15px] relative bg-white border-2  border-transparent group-hover:border-white/10 transition-all h-full duration-300">
         <Text variant="h4" color="peach" className=" mb-2">
           {title}
         </Text>
-        {/* <Text variant="p18">{description}</Text> */}
+        <Text variant="p18">{description}</Text>
         {comingSoon && (
           <div className="absolute w-full h-full bg-black bg-opacity-50 left-0 top-0 flex items-center justify-center">
             <Text
