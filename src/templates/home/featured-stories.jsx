@@ -11,12 +11,16 @@ export const HomeFeaturedStories = () => {
   const [stories, setStories] = useState([]);
 
   useEffect(() => {
-    fetch(POSTS_URL)
-      .then(res => res.json())
-      .then(data => {
-        setStories(data);
-        console.log({ data });
-      });
+    try {
+      fetch(POSTS_URL)
+        .then(res => res.json())
+        .then(data => {
+          setStories(data);
+        });
+    } catch (e) {
+      // We need to setup a bug reporting platform
+      console.error("[fetch-posts]", e.message);
+    }
   }, []);
 
   const recentStories = stories.slice(0, 4);
@@ -28,6 +32,11 @@ export const HomeFeaturedStories = () => {
   const firstItemFeaturedImage = firstItemEmbeds
     ? firstItemEmbeds["wp:featuredmedia"][0]?.source_url
     : "";
+
+  const hasStories = stories.length > 0;
+  if (!hasStories) {
+    return <div id="recent-stories" />;
+  }
   return (
     <div className="pt-[120px] pb-[160px]  relative" id="recent-stories">
       <Hr className="absolute xl:top-[200px] top-[152px] md:block hidden left-0 w-full " />
@@ -39,6 +48,7 @@ export const HomeFeaturedStories = () => {
               <img
                 src={firstItemFeaturedImage}
                 className="rounded md:h-[516px] h-[356px] w-full object-cover"
+                alt={firstItem?.title?.rendered}
               />
             </div>
           </div>
