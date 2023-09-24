@@ -9,7 +9,10 @@ const ArticlePreviewList = ({ heading, articles }) => {
       <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-8 ">
         {articles.map((article, index) => {
           return (
-            <ArticlePreview key={`featured-article-${index}`} {...article} />
+            <ArticlePreview
+              key={`featured-article-${index}`}
+              article={article}
+            />
           );
         })}
       </div>

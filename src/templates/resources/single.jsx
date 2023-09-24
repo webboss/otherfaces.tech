@@ -9,15 +9,15 @@ import { ResourceCategory, ResourcesHeader } from "templates/resources";
 import { graphql } from "gatsby";
 
 const ResourcePage = ({ data }) => {
-  const { name, resources } = data.wpCategory ?? {};
+  // const { name, resources } = data.wpCategory ?? {};
 
-  const totalCount = resources.nodes.length;
+  // const totalCount = resources.nodes.length;
   return (
     <Layout title="Resources">
-      <ResourcesHeader title={name} totalCount={totalCount} />
+      {/* <ResourcesHeader title={name} totalCount={totalCount} /> */}
 
       <Container className={formContainerStyle}>
-        <ResourceCategory list={resources.nodes} />
+        {/* <ResourceCategory list={resources.nodes} /> */}
       </Container>
       <section>
         <Newsletter />
@@ -28,38 +28,38 @@ const ResourcePage = ({ data }) => {
 
 export default ResourcePage;
 
-export const pageQuery = graphql`
-  query ResourcePageQuery($slug: String) {
-    wpCategory(slug: { eq: $slug }) {
-      name
-      resources {
-        nodes {
-          title
-          url
-          featuredImage {
-            node {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData
-                }
-              }
-            }
-          }
-          resourceTypes {
-            nodes {
-              name
-            }
-          }
-          resourcePayments {
-            nodes {
-              name
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+// export const pageQuery = graphql`
+//   query ResourcePageQuery($slug: String) {
+//     wpCategory(slug: { eq: $slug }) {
+//       name
+//       resources {
+//         nodes {
+//           title
+//           url
+//           featuredImage {
+//             node {
+//               localFile {
+//                 childImageSharp {
+//                   gatsbyImageData
+//                 }
+//               }
+//             }
+//           }
+//           resourceTypes {
+//             nodes {
+//               name
+//             }
+//           }
+//           resourcePayments {
+//             nodes {
+//               name
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `;
 const formContainerStyle = ctl(`
 mb-[160px]
 `);

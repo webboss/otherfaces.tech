@@ -13,15 +13,13 @@ import { toast } from "react-toastify";
 const DonatePage = () => {
   const categoryQuery = useStaticQuery(graphql`
     query {
-      allWpCategory {
-        nodes {
-          name
-        }
+      contentfulResources(title: { eq: "All Categorization" }) {
+        category
       }
     }
   `);
 
-  const categories = categoryQuery.allWpCategory.nodes;
+  const categories = categoryQuery.contentfulResources.category;
 
   const {
     register,
@@ -105,7 +103,7 @@ const DonatePage = () => {
             className="cursor-pointer"
           >
             {categories.map((category, index) => {
-              return <option key={`roadmap-${index}`}>{category.name}</option>;
+              return <option key={`roadmap-${index}`}>{category}</option>;
             })}
           </Input>
 

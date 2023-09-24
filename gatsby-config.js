@@ -17,24 +17,14 @@ module.exports = {
   plugins: [
     `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-image`,
-    IS_MOCK_ENABLED && `gatsby-mock-graphql`,
-    !IS_MOCK_ENABLED && {
-      resolve: "gatsby-source-wordpress",
+    {
+      resolve: `gatsby-source-contentful`,
       options: {
-        url: process.env.WORDPRESS_SOURCE_URL,
-        type: {
-          ...(NO_OF_WORDPRESS_ITEMS && {
-            __all: {
-              limit:
-                process.env.NODE_ENV === "production"
-                  ? 10000
-                  : NO_OF_WORDPRESS_ITEMS,
-            },
-          }),
-        },
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-root-import`,
       options: {
