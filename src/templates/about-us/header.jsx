@@ -3,11 +3,10 @@ import ReactRotatingText from "react-rotating-text";
 
 import { Text } from "components";
 import Container from "components/container";
-import ctl from "@netlify/classnames-template-literals";
 
 export const AboutUsHeader = () => {
   return (
-    <header className={aboutHeaderStyle}>
+    <header className="text-primary-100 text-center min-h-[40vh] pt-12 flex-col flex items-center justify-center">
       <Container>
         <Text variant="h1" weight="500">
           We are{" "}
@@ -31,15 +30,3 @@ export const AboutUsHeader = () => {
 };
 
 const roles = ["Managers", "Engineers", "Designers", "3D Artists", "Writers"];
-
-const aboutHeaderStyle = ctl(`
-text-primary-100 
-text-center 
-min-h-[40vh] 
--mb-[20vh] 
-pt-12 
-flex-col 
-flex 
-items-center 
-justify-center
-`);
