@@ -6,59 +6,63 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const BlogPost = path.resolve("./src/templates/stories/stories.jsx");
 
-  const allPosts = await fetch(
-    `${process.env.WORDPRESS_BASE_URL}/wp/v2/posts?_embed=1`
-  );
-  const allStories = await allPosts.json();
+  const allStories = await graphql(`
+    query {
+      allWpPost {
+        nodes {
+          title
+          slug
+        }
+      }
+    }
+  `);
 
-  allStories.forEach(storyNode => {
+  allStories.data.allWpPost.nodes.forEach(storyNode => {
     const { slug, title } = storyNode;
     createPage({
       path: `story/${slug}`,
       component: BlogPost,
       context: {
-        story: storyNode,
+        slug,
       },
     });
   });
 
-  /* We should bring this back in the future */
+  const SingleResourcePage = path.resolve(
+    "./src/templates/resources/single.jsx"
+  );
+  const allWpCategories = await graphql(`
+    query {
+      allWpCategory {
+        nodes {
+          name
+          slug
+          resources {
+            nodes {
+              title
+              url
+            }
+          }
+        }
+      }
+    }
+  `);
 
-  // const SingleResourcePage = path.resolve(
-  //   "./src/templates/resources/single.jsx"
-  // );
-  // const allWpCategories = await graphql(`
-  //   query {
-  //     allWpCategory {
-  //       nodes {
-  //         name
-  //         slug
-  //         resources {
-  //           nodes {
-  //             title
-  //             url
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // `);
+  const resourceCategories =
+    await allWpCategories.data.allWpCategory.nodes.filter(
+      category => category.resources.nodes.length > 0
+    );
 
-  //   const resourceCategories =
-  //     await allWpCategories.data.allWpCategory.nodes.filter(
-  //       category => category.resources.nodes.length > 0
-  //     );
-
-  //   resourceCategories.forEach(categoryNode => {
-  //     const { slug } = categoryNode;
-  //     createPage({
-  //       path: `resources/${slug}`,
-  //       component: SingleResourcePage,
-  //       context: {
-  //         slug,
-  //       },
-  //     });
-  //   });
+  resourceCategories.forEach(categoryNode => {
+    const { slug } = categoryNode;
+    createPage({
+      path: `resources/${slug}`,
+      component: SingleResourcePage,
+      context: {
+        slug,
+      },
+    });
+  });
 };
 
 exports.onPreBuild = async () => {

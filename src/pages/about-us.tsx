@@ -7,9 +7,20 @@ import Layout from "components/layout";
 import { Newsletter, Partners } from "components";
 
 import ArrowIcon from "assets/images/svgs/arrow.svg";
-import { AboutUsHeader, Team, TeamData } from "templates/about-us";
+import { AboutUsHeader, Team } from "templates/about-us";
 
 const AboutPage = () => {
+  const teamMembersQuery = useStaticQuery(graphql`
+    query {
+      allWpTeamMember(sort: { fields: [date] }) {
+        nodes {
+          role
+          title
+        }
+      }
+    }
+  `);
+
   return (
     <Layout
       title="About us"
@@ -21,7 +32,7 @@ const AboutPage = () => {
           <ArrowIcon className={arrowLeftStyle} />
           <ArrowIcon className={arrowRightStyle} />
         </div>
-        <Team teamData={team} />
+        <Team teamData={teamMembersQuery.allWpTeamMember.nodes} />
         <Newsletter />
         <div className="md:my-[122px] my-[90px]">
           <Partners />
@@ -31,57 +42,6 @@ const AboutPage = () => {
   );
 };
 
-const team = {
-  Engineering: [
-    {
-      name: "Aremu Oluwagbamila",
-    },
-    {
-      name: "Joseph Idowu",
-    },
-    {
-      name: "Animasaun David",
-    },
-  ],
-  "Product & Design": [
-    {
-      name: "Alao Ifeoluwa",
-    },
-    {
-      name: "Akinwoye Dolapo",
-    },
-    {
-      name: "Adeniran Simisola",
-    },
-  ],
-  "Media & Motion": [
-    {
-      name: "Afolabi Praise",
-    },
-    {
-      name: "Alao Michael",
-    },
-    {
-      name: "Ajiboye Ebenezer",
-    },
-  ],
-  "Operations & Legal": [
-    {
-      name: "Akobi Tomiwa",
-    },
-    {
-      name: "Osunkoya Oluwadamilola",
-    },
-    {
-      name: "Taiwo Azeezat Azeez",
-    },
-  ],
-  "Social Media": [
-    {
-      name: "Precious Oriarewo",
-    },
-  ],
-};
 const arrowsContainerStyle = ctl(`
 md:h-[300px]
 h-[200px]

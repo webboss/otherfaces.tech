@@ -3,54 +3,37 @@ import { ArticlePreviewList } from "components/article";
 import Container from "components/container";
 import { Hr } from "components/hr";
 import Layout from "components/layout";
+import { graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import { readingTime } from "reading-time-estimator";
 import React from "react";
 
 import Share from "./components/share";
 import CopyButton from "./components/copy-button";
-import { useEffect, useState } from "react";
+import { ImageWithMock } from "components/image-with-mock";
 
-const POSTS_URL = `${process.env.GATSBY_WORDPRESS_BASE_URL}/wp/v2/posts?_embed=1`;
+const Story = ({ data }) => {
+  const { title, content, date, author, role, excerpt, featuredImage } =
+    data.wpPost ?? {};
 
-const Story = ({ pageContext: { story } }) => {
-  const { title, content, date, _embedded, role, excerpt } = story;
-
-  const storyTitle = title?.rendered;
-  const storyExcerpt = excerpt?.rendered;
-
-  const author = _embedded["author"][0];
-  const featuredImage = _embedded["wp:featuredmedia"][0]?.source_url;
-
-  const readTime = readingTime(content?.rendered);
-
-  const [stories, setStories] = useState([]);
-
-  useEffect(() => {
-    fetch(POSTS_URL)
-      .then(res => res.json())
-      .then(data => {
-        setStories(data);
-      });
-  }, []);
-
-  const relatedStories = stories.filter(storyItem => storyItem.id !== story.id);
+  const readTime = readingTime(content);
+  const relatedStories = data.allWpPost.nodes;
 
   return (
-    <Layout title={storyTitle} description={storyExcerpt}>
+    <Layout title={title} description={excerpt} ignoreSiteName>
       <Container className="md:py-[100px] py-[50px] ">
         <article>
           <header className="article-header">
             <MetaData date={date} readTime={readTime.minutes} />
             <Author author={author} />
             <Text variant="h3">
-              {/* The weird symbol here is em-dash */}
-              {storyTitle} &#8212; {role}
+              {/* The weird symbole here is em-dash */}
+              {title} &#8212; {role}
             </Text>
-            <img
-              src={featuredImage}
-              alt={storyTitle}
-              className="w-full object-top object-cover md:rounded-[100px] rounded-[50px] md:h-[1200px] h-[370px] my-[45px] bg-opacity-75 bg-black "
+
+            <ImageWithMock
+              image={featuredImage}
+              className="w-full object-top  md:rounded-[100px] rounded-[50px] md:h-auto h-[370px] my-[45px] "
             />
           </header>
 
@@ -58,13 +41,13 @@ const Story = ({ pageContext: { story } }) => {
             <aside>
               <div className="md:sticky md:mt-0 mt-8 top-4">
                 <Text variant="p16" value="SHARE" />
-                <Share title={storyTitle} />
+                <Share title={title} />
                 <CopyButton />
               </div>
             </aside>
             <content
               className="article max-w-[738px] flex-grow-0"
-              dangerouslySetInnerHTML={{ __html: content?.rendered }}
+              dangerouslySetInnerHTML={{ __html: content }}
             />
             <div></div>
           </section>
@@ -80,13 +63,9 @@ const Story = ({ pageContext: { story } }) => {
 };
 
 const MetaData = ({ date, readTime = "4" }) => {
-  const dateFromString = new Date(date);
-  const formattedDate = new Intl.DateTimeFormat("en-US", {
-    dateStyle: "long",
-  }).format(dateFromString);
   return (
     <div className="flex md:justify-start justify-between gap-10 mb-[22px]">
-      <Text value={formattedDate} variant="p18" className=" uppercase " />
+      <Text value={date} variant="p18" className=" uppercase " />
       <Text
         value={`${readTime} Mins Read`}
         variant="p18"
@@ -97,7 +76,14 @@ const MetaData = ({ date, readTime = "4" }) => {
 };
 
 const Author = ({ author }) => {
-  const nameToShow = author?.name;
+  const authorInfo = author.node;
+
+  const { firstName, lastName, name } = authorInfo;
+
+  const hasFullname = firstName && lastName;
+  const fullName = firstName + " " + lastName;
+
+  const nameToShow = hasFullname ? fullName : name;
 
   return (
     <div className="mb-[22px] flex items-center">
@@ -111,4 +97,54 @@ const Author = ({ author }) => {
   );
 };
 
+export const pageQuery = graphql`
+  query StoryQuery($slug: String) {
+    wpPost(slug: { eq: $slug }) {
+      title
+      slug
+      content
+      excerpt
+      date(formatString: "LL")
+      role
+      featuredImage {
+        node {
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+      }
+      author {
+        node {
+          name
+          firstName
+          lastName
+        }
+      }
+    }
+
+    allWpPost(
+      filter: { slug: { ne: $slug } }
+      limit: 3
+      sort: { order: DESC, fields: date }
+    ) {
+      nodes {
+        title
+        slug
+        featuredImage {
+          node {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+        }
+        excerpt
+        role
+      }
+    }
+  }
+`;
 export default Story;
