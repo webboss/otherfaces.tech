@@ -110,7 +110,7 @@ p-[2px]
 
 const sizes = {
   xsmall: `
-  md:min-w-[166px]
+  min-w-[166px]
   h-[45px]
   `,
   small: `
