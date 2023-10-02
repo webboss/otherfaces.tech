@@ -1,4 +1,4 @@
-import { Text } from "components";
+import { Button, Text } from "components";
 import { ArticlePreviewList } from "components/article";
 import Container from "components/container";
 import { Hr } from "components/hr";
@@ -7,10 +7,47 @@ import { graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import { readingTime } from "reading-time-estimator";
 import React from "react";
+import parse from "html-react-parser";
+import DOMPurify from "dompurify";
 
-import Share from "./components/share";
+import Share, { popupWindow, url } from "./components/share";
 import CopyButton from "./components/copy-button";
 import { ImageWithMock } from "components/image-with-mock";
+
+const Blockquote = ({ node }) => {
+  const urlLength = `${url}`.length;
+  const tweetLength = 280;
+  const expectedStringLength = tweetLength - urlLength;
+
+  const firstParagraph = `${node[0].children[0].data}`.substring(
+    0,
+    expectedStringLength
+  );
+  return (
+    <div
+      className="bg-primary-200
+    bg-opacity-5 p-6 rounded-3xl my-4"
+    >
+      <blockquote>
+        {node.map(nodeItem => {
+          const Element = nodeItem.name;
+          return <Element>{nodeItem.children[0].data}</Element>;
+        })}
+      </blockquote>
+      <div>
+        <Button
+          onClick={() =>
+            popupWindow(
+              `https://twitter.com/share?text=${firstParagraph}&url=${url}`
+            )
+          }
+        >
+          Tweet this
+        </Button>
+      </div>
+    </div>
+  );
+};
 
 const Story = ({ data }) => {
   const { title, content, date, author, role, excerpt, featuredImage } =
@@ -19,8 +56,10 @@ const Story = ({ data }) => {
   const readTime = readingTime(content);
   const relatedStories = data.allWpPost.nodes;
 
+  const purifiedContent = DOMPurify.sanitize(content?.replace(/\n/gi, ""));
+
   return (
-    <Layout title={title} description={excerpt} ignoreSiteName>
+    <Layout title={title} description={excerpt}>
       <Container className="md:py-[100px] py-[50px] ">
         <article>
           <header className="article-header">
@@ -45,10 +84,15 @@ const Story = ({ data }) => {
                 <CopyButton />
               </div>
             </aside>
-            <content
-              className="article max-w-[738px] flex-grow-0"
-              dangerouslySetInnerHTML={{ __html: content }}
-            />
+            <content className="article max-w-[738px] flex-grow-0">
+              {parse(purifiedContent, {
+                replace: domNode => {
+                  if (domNode.name === "blockquote") {
+                    return <Blockquote node={domNode.children} />;
+                  }
+                },
+              })}
+            </content>
             <div></div>
           </section>
         </article>
