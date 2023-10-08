@@ -4,7 +4,7 @@ import ctl from "@netlify/classnames-template-literals";
 
 interface ContainerProps {
   className?: String;
-  children: React.ReactElement;
+  children: React.ReactNode;
 }
 const Container = ({ className, children }: ContainerProps) => {
   return (

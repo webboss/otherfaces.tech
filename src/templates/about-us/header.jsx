@@ -6,7 +6,7 @@ import Container from "components/container";
 
 export const AboutUsHeader = () => {
   return (
-    <header className="text-primary-100 text-center min-h-[40vh] pt-12 flex-col flex items-center justify-center">
+    <header className="text-primary-100 text-center min-h-[40vh] pt-12 md:mb-[-200px] flex-col flex items-center justify-center">
       <Container>
         <Text variant="h1" weight="500">
           We are{" "}
@@ -18,7 +18,7 @@ export const AboutUsHeader = () => {
           />
         </Text>
 
-        <div className="md:max-w-[950px] max-w-[700px] mx-auto  ">
+        <div className="md:max-w-[950px] max-w-[700px] mx-auto   ">
           <Text variant="p18" className="mt-[20px] mb-20 max-w-[1000px]">
             Like you, our path to tech wasn’t straight but yours doesn’t have to
             be like that.

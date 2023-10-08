@@ -3,9 +3,25 @@ import PropTypes from "prop-types";
 
 import { Link } from "gatsby";
 
-const NLink = ({ href, to, className, activeClassName, children }) => {
+interface CustomProps {
+  to?: string;
+  className?: string;
+  activeClassName?: string;
+  children: React.ReactNode;
+  href?: string | { url: string };
+}
+
+type NLinkProps = CustomProps &
+  Omit<React.ComponentPropsWithoutRef<"a">, "href">;
+const NLink = ({
+  href,
+  to,
+  className,
+  activeClassName,
+  children,
+}: NLinkProps) => {
   let NLinkElement;
-  let nlinkProps = {};
+  let nlinkProps: Omit<NLinkProps, "children"> = {};
 
   if (to) {
     NLinkElement = Link;
@@ -19,8 +35,8 @@ const NLink = ({ href, to, className, activeClassName, children }) => {
       nlinkProps.href = href;
     }
     // to open the link on a new tab, make href an object with the property "url"
-    if (typeof href === "object") {
-      nlinkProps.href = href.url;
+    if (typeof href === "object" && href) {
+      nlinkProps.href = href?.url;
       nlinkProps.target = "_blank";
       nlinkProps.rel = "noreferrer";
     }

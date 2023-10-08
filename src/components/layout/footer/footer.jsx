@@ -4,7 +4,7 @@ import Container from "components/container";
 import { NLink } from "components/nlink";
 import { Text } from "components/text";
 import { StaticImage } from "gatsby-plugin-image";
-import menulinks from "config/menu.json";
+import menulinks from "config/menu";
 
 const MainFooter = () => {
   const date = new Date();
