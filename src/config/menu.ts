@@ -9,13 +9,13 @@ type MenuList = MenuItem[];
 
 const menuList: MenuList = [
   {
-    title: "About us",
-    to: "/about-us",
+    title: "Stories",
+    to: "/stories",
     navbar: true,
   },
   {
-    title: "Stories",
-    to: "/stories",
+    title: "About us",
+    to: "/about-us",
     navbar: true,
   },
   {
@@ -29,13 +29,13 @@ const menuList: MenuList = [
     navbar: true,
   },
   {
-    title: "Donate",
-    to: "/donate",
+    title: "Get Merch",
+    href: { url: "https://paystack.shop/other-faces-of-tech" },
     navbar: true,
   },
   {
-    title: "Get Merch",
-    href: { url: "https://paystack.shop/other-faces-of-tech" },
+    title: "Donate",
+    to: "/donate",
     navbar: true,
   },
   {

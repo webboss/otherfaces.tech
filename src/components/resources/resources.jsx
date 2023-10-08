@@ -30,8 +30,7 @@ export const Resources = () => {
         <Text variant="p18" className="max-w-[719px] mx-auto mt-[54px]">
           Getting helpful and useful resources to kickstart your non-coding
           career in tech can be hard. This why we have curated{" "}
-          <b>{noOfResources}+</b>
-          resources to help you get started.
+          <b>{noOfResources}+</b> resources to help you get started.
         </Text>
       </Container>
 
