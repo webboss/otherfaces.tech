@@ -23,6 +23,9 @@ module.exports = {
       resolve: "gatsby-source-wordpress",
       options: {
         url: process.env.WORDPRESS_SOURCE_URL,
+        schema: {
+          timeout: 120000,
+        },
         type: {
           ...(NO_OF_WORDPRESS_ITEMS && {
             __all: {
