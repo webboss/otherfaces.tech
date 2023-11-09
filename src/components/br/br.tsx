@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import ctl from "@netlify/classnames-template-literals";
 
-const Br = ({ on }) => {
+const Br = ({ on }: { on: keyof typeof variants }) => {
   const brStyle = ctl(`${variants[on]}`);
 
   return <br className={brStyle} />;

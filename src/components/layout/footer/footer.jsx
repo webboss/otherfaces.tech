@@ -4,7 +4,7 @@ import Container from "components/container";
 import { NLink } from "components/nlink";
 import { Text } from "components/text";
 import { StaticImage } from "gatsby-plugin-image";
-import menulinks from "config/menu.json";
+import menulinks from "config/menu";
 
 const MainFooter = () => {
   const date = new Date();
@@ -29,7 +29,7 @@ const MainFooter = () => {
                   variant="p16"
                   as="li"
                   key={to || href}
-                  className="md:mx-[28px] mx-4 text-center md:my-0 my-2] first:ml-0 last:mr-0"
+                  className="md:mx-6 mx-4 text-center md:my-0 my-2 first:ml-0 last:mr-0"
                 >
                   <NLink {...menulink}>{title}</NLink>
                 </Text>
