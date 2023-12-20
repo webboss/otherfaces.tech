@@ -8,7 +8,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import { readingTime } from "reading-time-estimator";
 import React from "react";
 import parse from "html-react-parser";
-import DOMPurify from "dompurify";
+import { sanitize } from "isomorphic-dompurify";
 
 import Share, { popupWindow, url } from "./components/share";
 import CopyButton from "./components/copy-button";
@@ -56,7 +56,7 @@ const Story = ({ data }) => {
   const readTime = readingTime(content);
   const relatedStories = data.allWpPost.nodes;
 
-  const purifiedContent = DOMPurify.sanitize(content?.replace(/\n/gi, ""));
+  const purifiedContent = sanitize(content?.replace(/\n/gi, ""));
 
   return (
     <Layout title={title} description={excerpt}>

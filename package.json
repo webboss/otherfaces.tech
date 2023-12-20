@@ -29,6 +29,7 @@
         "gatsby-transformer-sharp": "^5.11.0",
         "html-react-parser": "^4.2.2",
         "http-errors": "^2.0.0",
+        "isomorphic-dompurify": "^1.13.0",
         "md5": "^2.3.0",
         "postcss": "^8.4.7",
         "prop-types": "^15.7.2",
