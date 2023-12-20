@@ -11,7 +11,6 @@
         "@netlify/classnames-template-literals": "^1.0.3",
         "autoprefixer": "^10.2.5",
         "basqet-react": "^1.0.2",
-        "dompurify": "^3.0.5",
         "dotenv": "^8.2.0",
         "gatsby": "^5.11.0",
         "gatsby-plugin-gatsby-cloud": "^5.11.0",
